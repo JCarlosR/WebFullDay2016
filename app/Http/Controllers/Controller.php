@@ -11,4 +11,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    function getWelcome(){
+        return view('welcome');
+    }
+
+    function index(){
+        return view('home');
+    }
 }
