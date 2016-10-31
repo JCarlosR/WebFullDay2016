@@ -11,4 +11,9 @@
 |
 */
 
+
 Route::get('/', 'Controller@index');
+
+// Papers
+Route::get('/ponencias', 'PaperController@index');
+Route::get('/ponentes', 'SpeakerController@index');
