@@ -17,3 +17,9 @@ Route::get('/', 'Controller@index');
 // Papers
 Route::get('/ponencias', 'PaperController@index');
 Route::get('/ponentes', 'SpeakerController@index');
+
+
+//Payments
+Route::get('/pagos', 'PaymentController@index');
+Route::post('/pagos/registrar', 'PaymentController@create');
+Route::post('/pagos/eliminar', 'PaymentController@delete');

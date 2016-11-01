@@ -213,7 +213,7 @@
                 </ul>
             </li>
 
-            <li class="">
+            <li class="@yield('inscription')">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> Inscripción evento </span>
@@ -224,6 +224,7 @@
                 <b class="arrow"></b>
 
                 <ul class="submenu">
+
                     <li class="">
                         <a href="tables.html">
                             <i class="menu-icon fa fa-caret-right"></i>
@@ -242,8 +243,8 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
-                        <a href="jqgrid.html">
+                    <li class="@yield('payment')">
+                        <a href="{{ url('/pagos') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Pagos
                         </a>
@@ -513,6 +514,8 @@
 </div><!-- /.main-container -->
 
 <!-- basic scripts -->
+
+@yield('modals')
 
 <!--[if !IE]> -->
 <script type="text/javascript">
