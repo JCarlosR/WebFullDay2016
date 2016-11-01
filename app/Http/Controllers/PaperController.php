@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Paper;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,7 +12,8 @@ class PaperController extends Controller
 {
     public function index()
     {
-        return view('paper.index');
+        $papers = Paper::where('enable', 1)->get();
+        return view('paper.index')->with(compact('papers'));
     }
 
 }

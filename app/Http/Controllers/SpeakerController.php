@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Speaker;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,7 +12,9 @@ class SpeakerController extends Controller
 {
     public function index()
     {
-        return view('speaker.index');
+        $speakers = Speaker::where('enable', 1)->get();
+        //dd($speakers);
+        return view('speaker.index')->with(compact('speakers'));
     }
 
 }
