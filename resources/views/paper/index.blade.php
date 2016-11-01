@@ -82,6 +82,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                         <h3><a href="#" title="">{{ $paper->subject }}</a></h3>
                         <p>{{ $paper->description }}</p>
+                        <p>Por {{ $paper->speaker->name }}</p>
                     </div>
                     <span class="clearfix borda"></span>
                 </article>
