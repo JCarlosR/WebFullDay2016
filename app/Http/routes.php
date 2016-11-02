@@ -22,4 +22,4 @@ Route::get('/ponentes', 'SpeakerController@index');
 //Payments
 Route::get('/pagos', 'PaymentController@index');
 Route::post('/pagos/registrar', 'PaymentController@create');
-Route::post('/pagos/eliminar', 'PaymentController@delete');
+Route::post('/pagos/eliminar', 'PacymentController@delete');
