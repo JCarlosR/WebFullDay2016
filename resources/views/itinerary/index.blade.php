@@ -95,7 +95,9 @@
 
 @section('title','Itinerario')
 
-@section('Home','active')
+@section('event','open')
+
+@section('itinerarie','active')
 
 @section('menu-active')
     <li>
@@ -115,18 +117,19 @@
             </small>
         </h1>
     </div>
-<div class="col-md-6">
+<div class="col-md-6 col-md-offset-3">
     <div class="timeline">
     
         <!-- Line component -->
         <div class="line text-muted"></div>
 
-        <!-- Separator -->
-        <div class="separator text-muted">
-            <time><i class="glyphicon glyphicon-calendar"></i> 26/11/2016</time>
-        </div>
-        <!-- /Separator -->
+
     	@foreach( $itinerary as $data )
+            <!-- Separator -->
+                <div class="separator text-muted">
+                    <time><i class="glyphicon glyphicon-calendar"></i> {{ date('jS F Y', strtotime($data->updated_at)) }}</time>
+                </div>
+                <!-- /Separator -->
 	        @if( $data->type == 1)
 	        	<article class="panel panel-info">
 	            <!-- Icon -->
