@@ -42,7 +42,7 @@
     <div class="space-6"></div>
 
     <div class="row">
-        <button class="btn btn-success" data-register>Nuevo pago</button>
+        <button class="btn btn-sm btn-success" data-register>Nuevo pago</button>
     </div><br>
     <div class="row">
         <div class="col-xs-12 table-responsive">
@@ -64,8 +64,8 @@
                             <td>{{ $payment->operation }}</td>
                             <td>{{ $payment->operation_date }}</td>
                             <td>
-                                <button class="btn btn-info" data-document="{{ $payment->payment_file }}"> Vaucher</button>
-                                <button class="btn btn-danger" data-delete="{{$payment->id}}" data-operation="{{$payment->operation}}"
+                                <button class="btn btn-sm btn-info" data-document="{{ $payment->payment_file }}"> Vaucher</button>
+                                <button class="btn btn-sm btn-danger" data-delete="{{$payment->id}}" data-operation="{{$payment->operation}}"
                                         data-entity="{{$payment->entity}}"> Anular
                                 </button>
                             </td>
@@ -126,8 +126,8 @@
 
                         <div class="modal-footer">
                             <div class="text-center">
-                                <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                                <button class="btn btn-primary"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Registrar pago</button>
+                                <button class="btn btn-sm btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                                <button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Registrar pago</button>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
 
                 <div class="modal-footer">
                     <div class="text-center">
-                        <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-menu-up"></span> Cerrar</button>
+                        <button class="btn btn-sm btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-menu-up"></span> Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -178,8 +178,8 @@
                     </div>
                     <div class="modal-footer">
                         <div class="text-center">
-                            <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-menu-up"></span> Cancelar</button>
-                            <button class="btn btn-primary"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Aceptar</button>
+                            <button class="btn btn-sm btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-menu-up"></span> Cancelar</button>
+                            <button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Aceptar</button>
                         </div>
                     </div>
                 </form>
