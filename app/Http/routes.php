@@ -10,9 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::auth();
 
-
-Route::get('/', 'Controller@index');
+Route::get('/', 'HomeController@index');
 
 // Papers
 Route::get('/ponencias', 'PaperController@index');
@@ -22,4 +22,4 @@ Route::get('/ponentes', 'SpeakerController@index');
 //Payments
 Route::get('/pagos', 'PaymentController@index');
 Route::post('/pagos/registrar', 'PaymentController@create');
-Route::post('/pagos/eliminar', 'PacymentController@delete');
+Route::post('/pagos/eliminar', 'PaymentController@delete');

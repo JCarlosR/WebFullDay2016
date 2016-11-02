@@ -75,7 +75,7 @@
                         <img class="nav-user-photo" src="{{asset('assets/avatars/user.jpg')}}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									Jason
+                                    {{ Auth::user()->name }}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -90,7 +90,7 @@
                         </li>
 
                         <li>
-                            <a href="profile.html">
+                            <a href="#">
                                 <i class="ace-icon fa fa-user"></i>
                                 Profile
                             </a>
@@ -99,7 +99,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ url('/logout') }}">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 Logout
                             </a>

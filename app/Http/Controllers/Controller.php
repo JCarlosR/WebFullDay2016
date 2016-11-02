@@ -16,7 +16,4 @@ class Controller extends BaseController
         return view('welcome');
     }
 
-    function index(){
-        return view('home');
-    }
 }
