@@ -7,15 +7,15 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
     public function index()
     {
-        $payments = Payment::where('enable',1)->get();
+        $payments = Payment::where('enable',1)->where('user_id',Auth()->user()->id)->get();
         $today = new Carbon();
         $today = $today->format('Y-m-d');
-        dd($payments);
         return view('payment.index')->with(compact('payments','today'));
     }
 
@@ -29,6 +29,7 @@ class PaymentController extends Controller
         $date = new Carbon($operation_date);
         $date = $date->format('d-m-Y');
         $payment = Payment::create([
+            'user_id'=>Auth()->user()->id,
             'entity'=>$entity,
             'operation'=>$operation,
             'operation_date'=>$date

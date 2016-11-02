@@ -13,6 +13,7 @@ class PaymentsTableSeeder extends Seeder
     public function run()
     {
         Payment::create([
+            'user_id'=>3,
             'entity'=>'AGENTE BCP MENDANDEZ',
             'payment_file'=>'xyz.png',
             'operation'=>1,
