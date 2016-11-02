@@ -13,9 +13,16 @@ function principal()
     $('[data-register]').on('click',modalRegister);
     $('[data-document]').on('click',modalDocument);
     $('[data-delete]').on('click',modalDelete);
-
     $('#formRegister').on('submit',payment);
     $('#formDelete').on('submit',payment);
+
+    $('#payment_file').bind('change', function() {
+        if(this.files[0].size > 3145728)
+        {
+            alert('El tamaño del archivo debe ser menor o igual de 3MB');
+            location.reload();
+        }
+    });
 }
 
 function modalRegister()
