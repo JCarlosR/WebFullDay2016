@@ -15,19 +15,26 @@ function principal()
     $('[data-delete]').on('click',modalDelete);
     $('#formRegister').on('submit',payment);
     $('#formDelete').on('submit',payment);
-
-    $('#payment_file').bind('change', function() {
-        if(this.files[0].size > 3145728)
-        {
-            alert('El tamaño del archivo debe ser menor o igual de 3MB');
-            location.reload();
-        }
-    });
 }
 
 function modalRegister()
 {
     $modalRegister.modal('show');
+
+    $('#operation').on('change',function(){
+        if($(this).val()<1) {
+            alert('Ingrese un número positivo');
+            $(this).val(null);
+        }
+    });
+
+    $('#payment_file').on('change', function() {
+        if(this.files[0].size > 3145728)
+        {
+            alert('El tamaño del archivo debe ser menor o igual de 3MB');
+            $('#payment_file').val(null);
+        }
+    });
 }
 
 function modalDocument()

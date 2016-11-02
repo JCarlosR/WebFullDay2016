@@ -113,7 +113,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Número operación<span class="required">*</label>
                             <div class="col-md-7">
-                                <input type="number" id="operation" name="operation" class="form-control inside" required>
+                                <input type="number" min="1" step="1" id="operation" name="operation" class="form-control inside" required>
                             </div>
                         </div>
 
