@@ -100,12 +100,22 @@
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Home</a>
+        <a href="#">Evento</a>
     </li>
-    <li class="active">Inicio</li>
+    <li class="active">Itinerario</li>
 @endsection
 
 @section('content')
+<div class="page-header">
+        <h1>
+            Itinerario del II Full Day
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                Visualizando Itinerario
+            </small>
+        </h1>
+    </div>
+<div class="col-md-6">
     <div class="timeline">
     
         <!-- Line component -->
@@ -272,6 +282,6 @@
 	        @endif
     	 @endforeach
         <!-- /Panel -->
-    
     </div>
+  </div>
 @endsection

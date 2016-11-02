@@ -202,7 +202,7 @@
                         <b class="arrow"></b>
                     </li>
 
-                    <li class="">
+                    <li class="@yield('itinerarie')">
                         <a href="{{ url('/itinerario') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Itinerario
