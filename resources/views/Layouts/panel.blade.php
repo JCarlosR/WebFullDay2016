@@ -165,7 +165,7 @@
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            @if(!Auth::guest())
+
                 <li class="@yield('Home')">
                     <a href="index.html">
                         <i class="menu-icon fa fa-tachometer"></i>
@@ -217,7 +217,7 @@
                         </li>
                     </ul>
                 </li>
-
+            @if(!Auth::guest())
                 <li class="@yield('inscription')">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
@@ -258,7 +258,7 @@
                         </li>
                     </ul>
                 </li>
-
+            @endif
                 <li class="">
                     <a href="#">
                         <i class="menu-icon fa fa-list-alt"></i>
@@ -342,7 +342,7 @@
                         </li>
                     </ul>
                 </li>
-            @endif
+
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->
