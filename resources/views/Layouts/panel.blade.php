@@ -165,120 +165,121 @@
         </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
-            <li class="@yield('Home')">
-                <a href="index.html">
-                    <i class="menu-icon fa fa-tachometer"></i>
-                    <span class="menu-text"> Home </span>
-                </a>
+            @if(!Auth::guest())
+                <li class="@yield('Home')">
+                    <a href="index.html">
+                        <i class="menu-icon fa fa-tachometer"></i>
+                        <span class="menu-text"> Home </span>
+                    </a>
 
-                <b class="arrow"></b>
-            </li>
+                    <b class="arrow"></b>
+                </li>
 
-            <li class="@yield('event')">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-desktop"></i>
+                <li class="@yield('event')">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
 								Evento
 							</span>
 
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
 
-                <b class="arrow"></b>
+                    <b class="arrow"></b>
 
-                <ul class="submenu">
+                    <ul class="submenu">
 
-                    <li class="@yield('paper')">
-                        <a href="{{ url('/ponencias')}}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Ponencias
-                        </a>
+                        <li class="@yield('paper')">
+                            <a href="{{ url('/ponencias')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Ponencias
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="@yield('speaker')">
-                        <a href="{{ url('/ponentes') }}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Ponentes
-                        </a>
+                        <li class="@yield('speaker')">
+                            <a href="{{ url('/ponentes') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Ponentes
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="@yield('itinerarie')">
-                        <a href="{{ url('/itinerario') }}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Itinerario
-                        </a>
+                        <li class="@yield('itinerarie')">
+                            <a href="{{ url('/itinerario') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Itinerario
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
 
-            <li class="@yield('inscription')">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"> Inscripción evento </span>
+                <li class="@yield('inscription')">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text"> Inscripción evento </span>
 
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
 
-                <b class="arrow"></b>
+                    <b class="arrow"></b>
 
-                <ul class="submenu">
+                    <ul class="submenu">
 
-                    <li class="">
-                        <a href="tables.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Historial
-                        </a>
+                        <li class="">
+                            <a href="tables.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Historial
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="">
-                        <a href="jqgrid.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Certificados
-                        </a>
+                        <li class="">
+                            <a href="jqgrid.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Certificados
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="@yield('payment')">
-                        <a href="{{ url('/pagos') }}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Pagos
-                        </a>
+                        <li class="@yield('payment')">
+                            <a href="{{ url('/pagos') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Pagos
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
 
-            <li class="">
-                <a href="#">
-                    <i class="menu-icon fa fa-list-alt"></i>
-                    <span class="menu-text"> Acerca de </span>
-                </a>
+                <li class="">
+                    <a href="#">
+                        <i class="menu-icon fa fa-list-alt"></i>
+                        <span class="menu-text"> Acerca de </span>
+                    </a>
 
-                <b class="arrow"></b>
-            </li>
+                    <b class="arrow"></b>
+                </li>
 
-            <li class="">
-                <a href="#">
-                    <i class="menu-icon fa fa-picture-o"></i>
-                    <span class="menu-text"> Contácto </span>
-                </a>
+                <li class="">
+                    <a href="#">
+                        <i class="menu-icon fa fa-picture-o"></i>
+                        <span class="menu-text"> Contácto </span>
+                    </a>
 
-                <b class="arrow"></b>
-            </li>
+                    <b class="arrow"></b>
+                </li>
 
-            <li class="@yield('others')">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-file-o"></i>
+                <li class="@yield('others')">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-file-o"></i>
 
 							<span class="menu-text">
 								Other Pages
@@ -289,58 +290,59 @@
 								<!-- /section:basics/sidebar.layout.badge -->
 							</span>
 
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
 
-                <b class="arrow"></b>
+                    <b class="arrow"></b>
 
-                <ul class="submenu">
-                    <li class="">
-                        <a href="faq.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            FAQ
-                        </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="faq.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                FAQ
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="">
-                        <a href="error-404.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Error 404
-                        </a>
+                        <li class="">
+                            <a href="error-404.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Error 404
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="">
-                        <a href="error-500.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Error 500
-                        </a>
+                        <li class="">
+                            <a href="error-500.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Error 500
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="">
-                        <a href="grid.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Grid
-                        </a>
+                        <li class="">
+                            <a href="grid.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Grid
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
+                            <b class="arrow"></b>
+                        </li>
 
-                    <li class="active">
-                        <a href="blank.html">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Blank Page
-                        </a>
+                        <li class="active">
+                            <a href="blank.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Blank Page
+                            </a>
 
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->
