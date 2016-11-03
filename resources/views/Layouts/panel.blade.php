@@ -235,7 +235,7 @@
                     </li>
 
                     <li class="">
-                        <a href="jqgrid.html">
+                        <a href="{{ url('/solicitudes') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Certificados
                         </a>

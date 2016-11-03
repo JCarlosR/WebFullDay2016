@@ -27,3 +27,9 @@ Route::post('/pagos/eliminar', 'PaymentController@delete');
 //itinerary
 Route::get('/itinerario', 'itineraryController@index');
 
+
+//Request Certificate
+Route::get('/solicitudes', 'SolicitudeController@index');
+Route::post('/solicitudes/registrar', 'SolicitudeController@create');
+
+
