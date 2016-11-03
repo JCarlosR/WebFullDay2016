@@ -2,14 +2,16 @@
 
 @section('title','Bienvenido')
 
-@section('Home','active')
+@section('inscription','open')
+
+@section('request','active')
 
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Home</a>
+        <a href="#">Inscripción</a>
     </li>
-    <li class="active">Inicio</li>
+    <li class="active">Certificados</li>
 @endsection
 
 @section('content')

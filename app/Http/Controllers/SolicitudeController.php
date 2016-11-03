@@ -14,7 +14,7 @@ class SolicitudeController extends Controller
 {
     public function index()
     {
-    	$users = User::where('id',Auth()->user()->id)->get();
+    	$users = User::where('id', Auth()->user()->id)->get();
     	$certificates=Certificate::where('enable', 1)->get();
 
         return view('solicitude.index')->with(compact('users','certificates'));

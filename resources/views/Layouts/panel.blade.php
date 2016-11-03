@@ -235,7 +235,7 @@
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Historial
                             </a>
-                       <li class="">
+                       <li class="@yield('request')">
                         <a href="{{ url('/solicitudes') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Certificados
