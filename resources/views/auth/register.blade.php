@@ -29,7 +29,7 @@
 
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Username" name="name"/>
+                                <input type="text" class="form-control" placeholder="Nombre" name="name"/>
                                 <i class="ace-icon fa fa-user"></i>
                             </span>
                         </label>
@@ -38,7 +38,76 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                         @endif
+                        <!-- Nuevos parámetros   -->
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" class="form-control" placeholder="Dni" name="dni"/>
+                                <i class="ace-icon fa fa-certificate"></i>
+                            </span>
+                        </label>
+                        @if ($errors->has('dni'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('dni') }}</strong>
+                                    </span>
+                        @endif
+                        <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Celular" name="celular"/>
+                            <i class="ace-icon fa fa-mobile"></i>
+                        </span>
+                        </label>
+                        @if ($errors->has('celular'))
+                            <span class="help-block">
+                                    <strong>{{ $errors->first('celular') }}</strong>
+                                </span>
+                        @endif
 
+                        <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Universidad" name="universidad"/>
+                            <i class="ace-icon fa fa-university"></i>
+                        </span>
+                        </label>
+                        @if ($errors->has('universidad'))
+                            <span class="help-block">
+                                    <strong>{{ $errors->first('universidad') }}</strong>
+                                </span>
+                        @endif
+
+
+                        <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="form-control" placeholder="Carrera" name="carrera"/>
+                            <i class="ace-icon fa fa-key"></i>
+                        </span>
+                        </label>
+                        @if ($errors->has('carrera'))
+                            <span class="help-block">
+                                    <strong>{{ $errors->first('carrera') }}</strong>
+                                </span>
+                        @endif
+
+                        <label class="block">
+                            <input type="checkbox" class="ace" name="egresado" value="1"/>
+                        <span class="lbl">
+                            Egresado
+                        </span>
+                        </label>
+
+
+                            <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="number" class="form-control" placeholder="Ciclo" name="ciclo"/>
+                            <i class="ace-icon fa fa-arrow-circle-up"></i>
+                        </span>
+                        </label>
+                        @if ($errors->has('ciclo'))
+                            <span class="help-block">
+                                    <strong>{{ $errors->first('ciclo') }}</strong>
+                                </span>
+                        @endif
+
+                        <!-- Fin Nuevos parámetros   -->
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" placeholder="Password" name="password"/>
@@ -97,4 +166,18 @@
             </div>
         </div><!-- /.widget-body -->
     </div><!-- /.signup-box -->
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        $("input[name='egresado']").change(function() {
+            if(this.checked)
+            {
+                $("input[name='ciclo']").val('');
+                $("input[name='ciclo']").prop('disabled', true);
+            }
+            else
+                $("input[name='ciclo']").prop('disabled', false);
+        });
+    </script>
 @endsection

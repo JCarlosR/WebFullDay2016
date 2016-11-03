@@ -52,6 +52,11 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'dni' => 'required|digits:8|numeric',
+            'celular' => 'required|digits:9|numeric',
+            'universidad' => 'required|min:3|max:255',
+            'carrera' => 'required|min:3|max:255',
+            'ciclo' => 'numeric',
         ]);
     }
 
@@ -63,11 +68,18 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $egresado = isset($data['egresado'])?$data['egresado']:0;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'role_id' => 3
+            'role_id' => 3,
+            'dni' => $data['dni'],
+            'celular' => $data['celular'],
+            'universidad' => $data['universidad'],
+            'carrera' => $data['carrera'],
+            'ciclo' => $data['ciclo'],
+            'egresado' => $egresado
         ]);
     }
 }
