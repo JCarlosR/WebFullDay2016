@@ -21,6 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            //Nuevos campos
+            $table->string('celular');
+            $table->string('dni');
+            $table->string('universidad');
+            $table->string('carrera');
+            $table->integer('ciclo');
+            $table->boolean('egresado');
+
             $table->rememberToken();
             $table->timestamps();
         });

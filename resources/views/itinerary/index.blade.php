@@ -151,7 +151,7 @@
 		    
 		            <!-- Body -->
 		            <div class="panel-body">
-		                <strong>Hora inicio</strong> {{ $data->start }}
+		                <strong>Hora inicio</strong> {{ date('h:i a', strtotime( $data->start ))}}
 		            </div>
 		            <!-- /Body -->
 		    
@@ -163,7 +163,7 @@
 		    
 		            <!-- Body -->
 		            <div class="panel-body">
-		                <strong>Hora final</strong> {{ $data->end }}
+		                <strong>Hora final</strong> {{ date('h:i a', strtotime( $data->end )) }}
 		            </div>
 	            <!-- /Body -->
 	        	</article> 
@@ -189,7 +189,7 @@
 		    
 		            <!-- Body -->
 		            <div class="panel-body">
-		                <strong>Hora inicio</strong> {{ $data->start }}
+		                <strong>Hora inicio</strong> {{ date('h:i a', strtotime( $data->start )) }}
 		            </div>
 		            <!-- /Body -->
 		    
@@ -201,7 +201,7 @@
 		    
 		            <!-- Body -->
 		            <div class="panel-body">
-		                <strong>Hora final</strong> {{ $data->end }}
+		                <strong>Hora final</strong> {{ date('h:i a', strtotime( $data->end )) }}
 		            </div>
 		            <!-- /Body -->
 		        </article>
@@ -227,7 +227,7 @@
 				    
 				            <!-- Body -->
 				            <div class="panel-body">
-				                <strong>Hora inicio</strong> {{ $data->start }}
+				                <strong>Hora inicio</strong> {{ date('h:i a', strtotime( $data->start )) }}
 				            </div>
 				            <!-- /Body -->
 				    
@@ -239,7 +239,7 @@
 				    
 				            <!-- Body -->
 				            <div class="panel-body">
-				                <strong>Hora final</strong> {{ $data->end }}
+				                <strong>Hora final</strong> {{ date('h:i a', strtotime( $data->end )) }}
 				            </div>
 				            <!-- /Body -->
 				        </article>
@@ -264,7 +264,7 @@
 				    
 				            <!-- Body -->
 				            <div class="panel-body">
-				                <strong>Hora inicio</strong> {{ $data->start }}
+				                <strong>Hora inicio</strong> {{ date('h:i a', strtotime( $data->start )) }}
 				            </div>
 				            <!-- /Body -->
 				    
@@ -276,7 +276,7 @@
 				    
 				            <!-- Body -->
 				            <div class="panel-body">
-				                <strong>Hora final</strong> {{ $data->end }}
+				                <strong>Hora final</strong> {{ date('h:i a', strtotime( $data->end )) }}
 				            </div>
 				            <!-- /Body -->
 				        </article>
