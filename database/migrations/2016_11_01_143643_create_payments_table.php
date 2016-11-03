@@ -14,10 +14,11 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('solicitude_id')->unsigned();
+            $table->foreign('solicitude_id')->references('id')->on('solicitudes');
             $table->string('entity');
             $table->string('payment_file');
+            $table->integer('amount');
             $table->integer('operation');
             $table->string('operation_date');
             $table->integer('enable')->default(1);

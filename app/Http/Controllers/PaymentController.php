@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CertificateUser;
 use App\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,12 +12,20 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
-    public function index()
+    public function show()
+    {
+        $certificate_users= CertificateUser::where('enable',1)->where('user_id',Auth()->user()->id)->get();
+        $payment_date = Payment::where('enable',1)->where('user_id',Auth()->user()->id)->order_by('operation_date', 'desc')->first();
+        return view('payment.show')->with(compact('certificate_users'));
+    }
+
+    public function index( $id )
     {
         $payments = Payment::where('enable',1)->where('user_id',Auth()->user()->id)->get();
         $today = new Carbon();
         $today = $today->format('Y-m-d');
-        return view('payment.index')->with(compact('payments','today'));
+        $certificate_user = $id;
+        return view('payment.index')->with(compact('payments','today','certificate_user'));
     }
 
     public function create( Request $request )

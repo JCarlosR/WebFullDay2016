@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    protected $fillable = ['user_id','entity', 'payment_file', 'operation', 'operation_date', 'enable'];
+    protected $fillable = ['certificate_user_id','entity', 'payment_file','amount' ,'operation', 'operation_date', 'enable'];
 }
 

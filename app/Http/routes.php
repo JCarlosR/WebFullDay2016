@@ -23,9 +23,9 @@ Route::get('/ponentes', 'SpeakerController@index');
 
 
 //Payments
-Route::get('/pagos', 'PaymentController@index');
-Route::post('/pagos/registrar', 'PaymentController@create');
-Route::post('/pagos/eliminar', 'PaymentController@delete');
+Route::get('/pagos/{id}', 'PaymentController@index');
+Route::post('/pagos/{id}/registrar', 'PaymentController@create');
+Route::post('/pagos/{id}/eliminar', 'PaymentController@delete');
 
 //itinerary
 Route::get('/itinerario', 'itineraryController@index');

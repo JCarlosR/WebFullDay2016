@@ -51,6 +51,7 @@
                     <tr>
                         <th>Concepto de pago</th>
                         <th>Centro de pago</th>
+                        <th>Monto depositado</th>
                         <th>Número de operación</th>
                         <th>Fecha de operación</th>
                         <th>Acción</th>
@@ -61,6 +62,7 @@
                         <tr>
                             <td>Certificado</td>
                             <td>{{ $payment->entity }}</td>
+                            <td></td>
                             <td>{{ $payment->operation }}</td>
                             <td>{{ $payment->operation_date }}</td>
                             <td>
@@ -107,6 +109,13 @@
                             <label class="control-label col-md-4" for="name">Vaucher<span class="required">*</label>
                             <div class="col-md-7">
                                 <input type="file" accept="image/*" id="payment_file" name="payment_file" class="form-control inside" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4" for="name">Monto depositado<span class="required">*</label>
+                            <div class="col-md-7">
+                                <input type="number" min="1" step="1" id="money" name="money" class="form-control inside" required>
                             </div>
                         </div>
 
