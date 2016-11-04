@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCertificatesTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,10 @@ class CreateCertificatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('certificates', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('event_id')->unsigned();
-            $table->foreign('event_id')->references('id')->on('events');
-            $table->string('type');
-            $table->string('cost');
-            $table->integer('enable');
+            $table->string('organization');
+            $table->integer('enable')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateCertificatesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('certificates');
+        Schema::drop('events');
     }
 }
