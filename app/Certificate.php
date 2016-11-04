@@ -13,4 +13,9 @@ class Certificate extends Model
     {
         return $this->hasMany('App\Solicitude');
     }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
+    }
 }

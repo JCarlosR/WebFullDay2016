@@ -5,7 +5,6 @@ var $modalDelete;
 function principal()
 {
     $modalDelete   = $('#modalDelete');
-
     $('[data-delete]').on('click',modalDelete);
     $('#formDelete').on('submit',certificate);
 }
@@ -14,10 +13,13 @@ function modalDelete()
 {
     var id = $(this).data('delete');
     var name = $(this).data('name');
-
+    var event = $(this).data('event');
+    alert(event);
+    $('#null_message').html('');
+    var null_message = '¿Está seguro que desea desactivar la suscripción del certificado '+name+' del'+event+'?';
+    $('#null_message').val(null_message);
     $modalDelete.find('[name=id]').val(id);
     $modalDelete.find('[name=name]').val('Certificado de '+name);
-
     $modalDelete.modal('show');
 }
 

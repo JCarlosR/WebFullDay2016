@@ -20,7 +20,7 @@
             Gestionar pagos del II Full Day
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
-                Visualizando los certificados
+                Visualizando pagos de los certificados
             </small>
         </h1>
     </div>
@@ -55,7 +55,8 @@
                                     <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
                                 @endif
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
-                                            data-name="{{ $array_solicitude[0]->certificate->type }}"> Anular
+                                            data-name="{{ $array_solicitude[0]->certificate->type }}"
+                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
                                     </button>
                             </td>
                         </tr>
@@ -91,14 +92,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Anular pago</h4>
+                    <h4 class="modal-title">Anular suscripción de certificado</h4>
                 </div>
                 <form id="formDelete"  action="{{ url('certificados/eliminar') }}" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" />
                         <div class="form-group">
-                            <label for="nombreEliminar">¡¡Si elimina el siguiente certificado, los pagos efectuados no serán devueltos!!</label>
+                            <input id="null_message">
                             <br>
                             <input type="text" readonly class="form-control" name="name"/>
                         </div>
