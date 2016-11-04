@@ -16,5 +16,10 @@ class SolicitudesTableSeeder extends Seeder
             'user_id'=>3,
             'certificate_id'=>1
         ]);
+
+        Solicitude::create([
+            'user_id'=>3,
+            'certificate_id'=>2
+        ]);
     }
 }

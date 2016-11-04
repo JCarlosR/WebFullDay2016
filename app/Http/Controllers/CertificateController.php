@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Payment;
 use App\Solicitude;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class CertificateController extends Controller
@@ -15,7 +15,6 @@ class CertificateController extends Controller
         $solicitude_id = $request->get('id');
         $name = $request->get('name');
         $solicitude = Solicitude::find($solicitude_id);
-
         $solicitude->state = "Anulado";
         $solicitude->save();
 

@@ -42,7 +42,9 @@
     <div class="space-6"></div>
 
     <div class="row">
-        <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
+        @if( $hide==0 )
+            <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
+        @endif
     </div><br>
     <div class="row">
         <div class="col-xs-12 table-responsive">
@@ -68,11 +70,13 @@
                             <td>{{ $array_payment[1] }}</td>
                             <td>
                                 <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"> Vaucher</button>
-                                <button class="btn btn-sm btn-danger" data-delete="{{$array_payment[0]->id}}"
-                                        data-operation="{{$array_payment[0]->operation}}"
-                                        data-entity="{{$array_payment[0]->entity}}"
-                                        data-amount="{{$array_payment[0]->amount}}"> Anular
-                                </button>
+                                @if( $hide==0 )
+                                    <button class="btn btn-sm btn-danger" data-delete="{{$array_payment[0]->id}}"
+                                            data-operation="{{$array_payment[0]->operation}}"
+                                            data-entity="{{$array_payment[0]->entity}}"
+                                            data-amount="{{$array_payment[0]->amount}}"> Anular
+                                    </button>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -93,7 +97,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Registrar pago</h4>
+                        <h4 class="modal-title">Registrar pago</h4>
                 </div>
 
                 <form id="formRegister" action="{{ url('pagos/registrar') }}" class="form-horizontal form-label-left"  method="POST" enctype="multipart/form-data">

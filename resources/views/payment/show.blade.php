@@ -51,13 +51,20 @@
                             <td>{{ $array_solicitude[2]}}</td>
                             <td>{{ $array_solicitude[3] }}</td>
                             <td>
-                                @if( $hide==0 )
+                                @if( $array_solicitude[5]==1 )
+                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Historial de pagos</a>
+                                @elseif( $array_solicitude[4]==0 )
                                     <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
-                                @endif
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"
                                             data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
                                     </button>
+                                @else
+                                    <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
+                                            data-name="{{ $array_solicitude[0]->certificate->type }}"
+                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
+                                    </button>
+                               @endif
                             </td>
                         </tr>
                     @endforeach
@@ -99,7 +106,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" />
                         <div class="form-group">
-                            <input id="null_message">
+                            <label id="null_message"></label>
                             <br>
                             <input type="text" readonly class="form-control" name="name"/>
                         </div>

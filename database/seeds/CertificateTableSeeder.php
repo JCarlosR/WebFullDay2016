@@ -19,5 +19,12 @@ class CertificateTableSeeder extends Seeder
             'event_id' => 1,
             'enable' => 1,
         ]);
+
+        Certificate::create([
+            'type' => "Prueba",
+            'cost' => 'S/. 30.00',
+            'event_id' => 1,
+            'enable' => 1,
+        ]);
     }
 }

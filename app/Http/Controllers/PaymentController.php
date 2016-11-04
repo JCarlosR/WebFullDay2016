@@ -16,13 +16,15 @@ class PaymentController extends Controller
     {
         $solicitudes = Solicitude::where('enable',1)->where('user_id',Auth()->user()->id)->get();
         $array_solicitudes= [];
-        $hide = 0;
 
         if( count($solicitudes) != 0 )
         {
             foreach ( $solicitudes as $solicitude ) {
                 $total_payment = 0;
                 $payment_date = '';
+                $hide = 0;
+                $history = 0;
+
                 $payment = Payment::where('enable',1)->where('solicitude_id',$solicitude->id)->orderBy('operation_date')->first();
 
                 if( $payment != null ) {
@@ -42,11 +44,13 @@ class PaymentController extends Controller
                 $solicitude_date = $solicitude_date->format('d-M-Y');
                 if( $total_payment == 30 )
                     $hide = 1;
-                $array_solicitudes[] = [$solicitude,number_format($total_payment,'2','.',''),$solicitude_date,$payment_date];
+                if( $solicitude->state=='Anulado' )
+                    $history=1;
+                $array_solicitudes[] = [$solicitude,number_format($total_payment,'2','.',''),$solicitude_date,$payment_date,$hide,$history];
             }
         }
 
-        return view('payment.show')->with(compact('array_solicitudes','hide'));
+        return view('payment.show')->with(compact('array_solicitudes'));
     }
 
     public function index( $id )
@@ -57,6 +61,9 @@ class PaymentController extends Controller
 
         $today = new Carbon();
         $today = $today->format('Y-m-d');
+        $hide = 0;
+        if( $solicitude->state=="Anulado" )
+            $hide = 1;
 
         $payments = Payment::where('enable',1)->where('solicitude_id',$solicitude_id)->get();
         $array_payments = [];
@@ -68,7 +75,7 @@ class PaymentController extends Controller
                 $array_payments [] = [$payment,$operation_date];
             }
 
-        return view('payment.index')->with(compact('array_payments','today','solicitude_id','certificate_name'));
+        return view('payment.index')->with(compact('array_payments','today','solicitude_id','certificate_name','hide'));
     }
 
     public function create( Request $request )

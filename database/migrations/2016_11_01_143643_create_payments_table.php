@@ -21,7 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('amount');
             $table->integer('operation');
             $table->string('operation_date');
-            $table->integer('enable')->default(1);//1:enable,2:disable, 3:nulled
+            $table->integer('enable')->default(1);
             $table->timestamps();
         });
     }
