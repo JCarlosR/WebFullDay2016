@@ -33,6 +33,11 @@
 
     <style>
 
+        .logo {
+            width: 100px;
+            height: 53px;
+        }
+
         .image{
             width: 315px;
             height: 315px;
@@ -201,10 +206,9 @@
 <!-- FullScreen -->
 <div class="intro-header">
     <div class="col-xs-12 text-center abcen1">
-        <h2 class="h1_home wow fadeIn" data-wow-delay="0.4s">II Full Day Gerencia UNT</h2>
-        <br>
+        <h2 class="h1_home wow fadeIn" data-wow-delay="0.4s"><img class="logo rotate" src="{{ asset('images/logo_solo.png') }}" alt="">II Full Day Gerencia UNT</h2>
+
         <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Tiempo restante</h3>
-        <br>
         <div class="demo1"></div>
         <br>
         <ul class="list-inline intro-social-buttons">
@@ -362,8 +366,6 @@
     </div>
 </div>
 
-
-
 <!-- Credits -->
 <div id="credits" class="content-section-a">
     <div class="container">
@@ -373,57 +375,29 @@
                 <h2>Itinerario</h2>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <div class="timeline"></div>
+                <div class="timeline">
 
-                    <!-- Line component -->
+                <!-- Line component -->
                     <div class="line text-muted"></div>
 
 
-                @foreach( $itinerary as $data )
-                    <!-- Separator -->
-                        <div class="separator text-muted">
-                            <time><i class="glyphicon glyphicon-calendar"></i> {{ date('jS F Y', strtotime($data->updated_at)) }}</time>
-                        </div>
-                        <!-- /Separator -->
-                        @if( $data->type == 1)
-                            <article class="panel panel-info">
-                                <!-- Icon -->
-                                <div class="panel-heading icon">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </div>
-                                <!-- /Icon -->
-
-                                <!-- Body -->
-                                <div class="panel-body">
-                                    <strong>REGISTRO</strong> {{ $data->description }}
-                                </div>
-                                <!-- /Body -->
-                                <!-- Icon -->
-                                <div class="panel-heading icon">
-                                    <i class="glyphicon glyphicon-time"></i>
-                                </div>
-                                <!-- /Icon -->
-
-                                <!-- Body -->
-                                <div class="panel-body">
-                                    <strong>Hora de inicio</strong> {{ date('h:i a', strtotime( $data->start ))}}
-                                    <strong>Hora de fin</strong> {{ date('h:i a', strtotime( $data->end ))}}
-                                </div>
-                                <!-- /Body -->
-
-                            </article>
-                        @else
-                            @if( $data->type == 2)
-                                <article class="panel panel-success">
+                    @foreach( $itinerary as $data )
+                        <!-- Separator -->
+                            <div class="separator text-muted">
+                                <time><i class="glyphicon glyphicon-calendar"></i> {{ date('jS F Y', strtotime($data->updated_at)) }}</time>
+                            </div>
+                            <!-- /Separator -->
+                            @if( $data->type == 1)
+                                <article class="panel panel-info">
                                     <!-- Icon -->
                                     <div class="panel-heading icon">
-                                        <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                                        <i class="glyphicon glyphicon-pencil"></i>
                                     </div>
                                     <!-- /Icon -->
 
                                     <!-- Body -->
                                     <div class="panel-body">
-                                        <strong>ACTIVIDAD</strong> {{ $data->description }}
+                                        <strong>REGISTRO</strong> {{ $data->description }}
                                     </div>
                                     <!-- /Body -->
                                     <!-- Icon -->
@@ -438,13 +412,14 @@
                                         <strong>Hora de fin</strong> {{ date('h:i a', strtotime( $data->end ))}}
                                     </div>
                                     <!-- /Body -->
+
                                 </article>
                             @else
-                                @if( $data->type == 4)
-                                    <article class="panel panel-danger">
+                                @if( $data->type == 2)
+                                    <article class="panel panel-success">
                                         <!-- Icon -->
                                         <div class="panel-heading icon">
-                                            <i class="glyphicon glyphicon-transfer"></i>
+                                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
                                         </div>
                                         <!-- /Icon -->
 
@@ -467,38 +442,67 @@
                                         <!-- /Body -->
                                     </article>
                                 @else
-                                    <article class="panel panel-primary">
-                                        <!-- Icon -->
-                                        <div class="panel-heading icon">
-                                            <i class="glyphicon glyphicon-book"></i>
-                                        </div>
-                                        <!-- /Icon -->
+                                    @if( $data->type == 4)
+                                        <article class="panel panel-danger">
+                                            <!-- Icon -->
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-transfer"></i>
+                                            </div>
+                                            <!-- /Icon -->
 
-                                        <!-- Body -->
-                                        <div class="panel-body">
-                                            <strong>PONENCIA</strong> {{ $data->description }}
-                                        </div>
-                                        <!-- /Body -->
-                                        <!-- Icon -->
-                                        <div class="panel-heading icon">
-                                            <i class="glyphicon glyphicon-time"></i>
-                                        </div>
-                                        <!-- /Icon -->
+                                            <!-- Body -->
+                                            <div class="panel-body">
+                                                <strong>ACTIVIDAD</strong> {{ $data->description }}
+                                            </div>
+                                            <!-- /Body -->
+                                            <!-- Icon -->
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-time"></i>
+                                            </div>
+                                            <!-- /Icon -->
 
-                                        <!-- Body -->
-                                        <div class="panel-body">
-                                            <strong>Hora de inicio</strong> {{ date('h:i a', strtotime( $data->start ))}}
-                                            <strong>Hora de fin</strong> {{ date('h:i a', strtotime( $data->end ))}}
-                                        </div>
-                                        <!-- /Body -->
-                                    </article>
+                                            <!-- Body -->
+                                            <div class="panel-body">
+                                                <strong>Hora de inicio</strong> {{ date('h:i a', strtotime( $data->start ))}}
+                                                <strong>Hora de fin</strong> {{ date('h:i a', strtotime( $data->end ))}}
+                                            </div>
+                                            <!-- /Body -->
+                                        </article>
+                                    @else
+                                        <article class="panel panel-primary">
+                                            <!-- Icon -->
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-book"></i>
+                                            </div>
+                                            <!-- /Icon -->
+
+                                            <!-- Body -->
+                                            <div class="panel-body">
+                                                <strong>PONENCIA</strong> {{ $data->description }}
+                                            </div>
+                                            <!-- /Body -->
+                                            <!-- Icon -->
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-time"></i>
+                                            </div>
+                                            <!-- /Icon -->
+
+                                            <!-- Body -->
+                                            <div class="panel-body">
+                                                <strong>Hora de inicio</strong> {{ date('h:i a', strtotime( $data->start ))}}
+                                                <strong>Hora de fin</strong> {{ date('h:i a', strtotime( $data->end ))}}
+                                            </div>
+                                            <!-- /Body -->
+                                        </article>
+                                @endif
                             @endif
                         @endif
-                    @endif
-                @endforeach
-
+                    @endforeach
+                </div>
                 <!-- /Panel -->
-
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Contact -->
