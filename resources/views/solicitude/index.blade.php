@@ -45,18 +45,39 @@
          <div class="form-group">
             <label class="control-label"><b>Evento:</b></label>
           </div>
-         @foreach( $certificates as $data1 )
+         <?php $j=0; ?> 
+         @foreach( $events as $data1 )
           <div class="form-group">
           		<input readonly type="text" class="form-control" id="{{ $data1->id }}" name="txtEvento" value="{{ $data1->organization }}">
-          		<input style="display:none" type="text" class="form-control" id="idcerti" name="idcerti" value="{{ $data1->id }}">
           </div>
-          <div class="form-group">
-          		<label>Certificado de {{ $data1->type }}   :  <input type="checkbox" id="SiSoli" name="SiSoli[]" value="{{ $data1->id }}"></label>
-          </div>
+          <?php $i=0;?>
+            @foreach( $certificates as $data2)
+                @foreach( $solicitudes as $data3)
+                    @if( $data3->cert_id == $data2->id)
+                        <?php $i=1;?>
+                    @endif 
+                @endforeach
+                @if($i!=1)
+                 <?php $j=1; ?>
+                  <div class="form-group">
+                       <label>Certificado de {{ $data2->type }} / Costo : {{ $data2->cost }}  <input type="checkbox" name="certific[]" value="{{ $data2->id }}"></label>
+                  </div>
+                @endif
+            <?php $i=0; ?>
+            @endforeach
+            @if($j==0)
+              <div class="alert alert-danger">
+                  <strong>Informacion! </strong>Ya solicito todos los certificados disponibles.
+              </div>
+              <div class="form-group">
+                <a type="button" disabled id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a> 
+              </div>
+            @else
+              <div class="form-group">
+                <a type="button" id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a> 
+              </div>
+            @endif
          @endforeach
-	       <div class="form-group">
-	          		<a type="button" id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a> 
-	        </div>
     </form>
 </div>
  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

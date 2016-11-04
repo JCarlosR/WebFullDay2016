@@ -13,8 +13,8 @@ class SolicitudesTableSeeder extends Seeder
     public function run()
     {
 		Solicitude::create([
-            'user_id'=>3,
-            'cert_id'=>1
+            'user_id'=>4,
+            'cert_id'=>1,
         ]);
     }
 }
