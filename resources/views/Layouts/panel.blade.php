@@ -201,19 +201,13 @@
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Historial
                             </a>
-
+                       <li class="@yield('request')">
+                        <a href="{{ url('/solicitudes') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Certificados
+                        </a>
                             <b class="arrow"></b>
                         </li>
-
-                        <li class="">
-                            <a href="jqgrid.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Certificados
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
                         <li class="@yield('payment')">
                             <a href="{{ url('/pagos') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>

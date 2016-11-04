@@ -6,6 +6,7 @@ use App\Itinerarie;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Validator;
 
 class itineraryController extends Controller
 {

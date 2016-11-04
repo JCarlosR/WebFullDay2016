@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PapersTableSeeder::class);
         $this->call(PaymentsTableSeeder::class);
         $this->call(ItineraryTableSeeder::class);
+        $this->call(CertificateTableSeeder::class);
 
     }
 }

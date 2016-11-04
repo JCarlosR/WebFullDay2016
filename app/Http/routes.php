@@ -22,7 +22,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ponencias', 'PaperController@index');
     Route::get('/ponentes', 'SpeakerController@index');
 
-
     //Payments
     Route::get('/pagos', 'PaymentController@index');
     Route::post('/pagos/registrar', 'PaymentController@create');
@@ -31,4 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     //itinerary
     Route::get('/itinerario', 'itineraryController@index');
 
+    //Request Certificate
+    Route::get('/solicitudes', 'SolicitudeController@index');
+    Route::post('/solicitudes/registrar', 'SolicitudeController@create');
 });
