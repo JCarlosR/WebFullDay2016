@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pagos/registrar', 'PaymentController@create');
     Route::post('/pagos/eliminar', 'PaymentController@delete');
 
-    Route::post('/certificados/eliminar', 'PaymentController@delete');
+    Route::post('/certificados/eliminar', 'CertificateController@delete');
 
     //itinerary
     Route::get('/itinerario', 'itineraryController@index');

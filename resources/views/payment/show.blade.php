@@ -51,10 +51,12 @@
                             <td>{{ $array_solicitude[2]}}</td>
                             <td>{{ $array_solicitude[3] }}</td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
-                                <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
-                                        data-name="{{ $array_solicitude[0]->certificate->type }}"> Anular
-                                </button>
+                                @if( $hide==0 )
+                                    <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
+                                @endif
+                                    <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
+                                            data-name="{{ $array_solicitude[0]->certificate->type }}"> Anular
+                                    </button>
                             </td>
                         </tr>
                     @endforeach
@@ -91,14 +93,14 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Anular pago</h4>
                 </div>
-                <form id="formDelete"  action="{{ url('pagos/eliminar') }}" method="POST">
+                <form id="formDelete"  action="{{ url('certificados/eliminar') }}" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" />
                         <div class="form-group">
-                            <label for="nombreEliminar">¿Si elimina el siguiente certificado, los pagos efectuados no serán devueltos?</label>
+                            <label for="nombreEliminar">¡¡Si elimina el siguiente certificado, los pagos efectuados no serán devueltos!!</label>
                             <br>
-                            <input type="text" readonly class="form-control" name="certificate"/>
+                            <input type="text" readonly class="form-control" name="name"/>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -111,4 +113,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{asset('assets/js/payment/show.js')}}"></script>
 @endsection

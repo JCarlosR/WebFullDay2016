@@ -16,6 +16,7 @@ class PaymentController extends Controller
     {
         $solicitudes = Solicitude::where('enable',1)->where('user_id',Auth()->user()->id)->get();
         $array_solicitudes= [];
+        $hide = 0;
 
         if( count($solicitudes) != 0 )
         {
@@ -39,12 +40,13 @@ class PaymentController extends Controller
                 $solicitude_date = $solicitude->created_at;
                 $solicitude_date = new Carbon($solicitude_date);
                 $solicitude_date = $solicitude_date->format('d-M-Y');
-
+                if( $total_payment == 30 )
+                    $hide = 1;
                 $array_solicitudes[] = [$solicitude,number_format($total_payment,'2','.',''),$solicitude_date,$payment_date];
             }
         }
 
-        return view('payment.show')->with(compact('array_solicitudes'));
+        return view('payment.show')->with(compact('array_solicitudes','hide'));
     }
 
     public function index( $id )

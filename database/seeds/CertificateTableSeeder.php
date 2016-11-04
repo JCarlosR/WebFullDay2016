@@ -16,7 +16,7 @@ class CertificateTableSeeder extends Seeder
         Certificate::create([
             'type' => "Asitente",
             'cost' => 'S/. 30.00',
-            'organization' => 'II FULL DAY GERENCIA DE SISTEMAS UNT',
+            'event_id' => 1,
             'enable' => 1,
         ]);
     }
