@@ -14,7 +14,7 @@ class PaymentsTableSeeder extends Seeder
     {
         Payment::create([
             'solicitude_id'=>1,
-            'entity'=>'AGENTE BCP MENDANDEZ',
+            'entity'=>'AGENTE BCP',
             'payment_file'=>'xyz.png',
             'amount'=>20,
             'operation'=>1001001,

@@ -42,7 +42,7 @@
     <div class="space-6"></div>
 
     <div class="row">
-        <button class="btn btn-sm btn-success" data-register>Nuevo pago</button>
+        <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
     </div><br>
     <div class="row">
         <div class="col-xs-12 table-responsive">
@@ -58,25 +58,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $payments as $payment )
+                @if( count($array_payments) != 0  )
+                    @foreach( $array_payments as $array_payment )
                         <tr>
-                            <td>Certificado</td>
-                            <td>{{ $payment->entity }}</td>
-                            <td></td>
-                            <td>{{ $payment->operation }}</td>
-                            <td>{{ $payment->operation_date }}</td>
+                            <td>Certificado de {{ $array_payment[0]->solicitude->certificate->type }}</td>
+                            <td>{{ $array_payment[0]->entity }}</td>
+                            <td>S/. {{ $array_payment[0]->amount }}.00</td>
+                            <td>{{ $array_payment[0]->operation }}</td>
+                            <td>{{ $array_payment[1] }}</td>
                             <td>
-                                <button class="btn btn-sm btn-info" data-document="{{ $payment->payment_file }}"> Vaucher</button>
-                                <button class="btn btn-sm btn-danger" data-delete="{{$payment->id}}" data-operation="{{$payment->operation}}"
-                                        data-entity="{{$payment->entity}}"> Anular
+                                <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"> Vaucher</button>
+                                <button class="btn btn-sm btn-danger" data-delete="{{$array_payment[0]->id}}"
+                                        data-operation="{{$array_payment[0]->operation}}"
+                                        data-entity="{{$array_payment[0]->entity}}"
+                                        data-amount="{{$array_payment[0]->amount}}"> Anular
                                 </button>
                             </td>
                         </tr>
                     @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div class="row text-center">
+        <a href="{{url('pagos')}}" class="btn btn-sm btn-warning">Volver</a>
+    </div>
+
 @endsection
 
 @section('modals')
@@ -90,45 +99,46 @@
                 <form id="formRegister" action="{{ url('pagos/registrar') }}" class="form-horizontal form-label-left"  method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <input type="hidden" name="solicitude_id" value="{{ $solicitude_id }}" />
 
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Concepto</label>
-                            <div class="col-md-7">
-                                <input value="Certificado" class="form-control inside" readonly>
+                            <div class="col-md-8">
+                                <input name="certificate" class="form-control inside" readonly>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Centro de pago<span class="required">*</label>
-                            <div class="col-md-7">
+                            <label class="control-label col-md-4" for="name">Centro de pago<span class="required">*</span></label>
+                            <div class="col-md-8">
                                 <input id="entity" name="entity" class="form-control inside" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Vaucher<span class="required">*</label>
-                            <div class="col-md-7">
+                            <label class="control-label col-md-4" for="name">Vaucher<span class="required">*</span></label>
+                            <div class="col-md-8">
                                 <input type="file" accept="image/*" id="payment_file" name="payment_file" class="form-control inside" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Monto depositado<span class="required">*</label>
-                            <div class="col-md-7">
-                                <input type="number" min="1" step="1" id="money" name="money" class="form-control inside" required>
+                            <label class="control-label col-md-4" for="name">Monto depositado<span class="required">*</span></label>
+                            <div class="col-md-4">
+                                <input type="number" min="1" step="1" id="amount" name="amount" class="form-control inside" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Número operación<span class="required">*</label>
-                            <div class="col-md-7">
+                            <label class="control-label col-md-4" for="name">Número operación<span class="required">*</span></label>
+                            <div class="col-md-4">
                                 <input type="number" min="1" step="1" id="operation" name="operation" class="form-control inside" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Fecha de operación<span class="required">*</label>
-                            <div class="col-md-7">
+                            <label class="control-label col-md-4" for="name">Fecha de operación<span class="required">*</span></label>
+                            <div class="col-md-4">
                                 <input type="date" id="operation_date" name="operation_date" value="{{$today}}" class="form-control inside" required>
                             </div>
                         </div>
@@ -173,18 +183,21 @@
                 </div>
                 <form id="formDelete"  action="{{ url('pagos/eliminar') }}" method="POST">
                     <div class="modal-body">
-
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" />
+
                         <div class="form-group">
                             <label for="nombreEliminar">¿Desea anular el siguiente pago con los siguientes datos?</label>
                             <br>
                             Centro de pago
                             <input type="text" readonly class="form-control" name="entity"/>
+                            Monto depositado
+                            <input type="text" readonly class="form-control" name="amount"/>
                             Número de operación
                             <input type="text" readonly class="form-control" name="operation"/>
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <div class="text-center">
                             <button class="btn btn-sm btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-menu-up"></span> Cancelar</button>

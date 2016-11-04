@@ -14,7 +14,7 @@ class SolicitudesTableSeeder extends Seeder
     {
 		Solicitude::create([
             'user_id'=>3,
-            'cert_id'=>1
+            'certificate_id'=>1
         ]);
     }
 }

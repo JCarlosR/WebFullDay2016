@@ -34,23 +34,26 @@
                     <tr>
                         <th>Concepto de pago</th>
                         <th>Estado</th>
+                        <th>Costo</th>
+                        <th>Cantidad abonada</th>
                         <th>Fecha solicitud</th>
-                        <th>Fecha pago</th>
+                        <th>Fecha último pago</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $certificate_users as $certificate_user )
+                    @foreach( $array_solicitudes as $array_solicitude )
                         <tr>
-                            <td>{{ $certificate_user->certificate->name }}</td>
-                            <td>{{ $certificate_user->certificate->state }}</td>
-                            <td>{{ $certificate_user->certificate->cost }}</td>
-                            <td>{{ $certificate_user->certificate->solicitud->date }}</td>
-                            <td>{{ $payment_date }}</td>
+                            <td>Certificado {{ $array_solicitude[0]->certificate->type }}</td>
+                            <td>{{ $array_solicitude[0]->state }}</td>
+                            <td>{{ $array_solicitude[0]->certificate->cost }}</td>
+                            <td>S/. {{ $array_solicitude[1] }}</td>
+                            <td>{{ $array_solicitude[2]}}</td>
+                            <td>{{ $array_solicitude[3] }}</td>
                             <td>
-                                <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$certificate_user->id) }}"> Registrar pago</a>
-                                <button class="btn btn-sm btn-danger" data-delete="{{ $certificate_user->id }}"
-                                        data-name="{{ $certificate_user->certificate->name }}"> Anular
+                                <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
+                                <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
+                                        data-name="{{ $array_solicitude[0]->certificate->type }}"> Anular
                                 </button>
                             </td>
                         </tr>
@@ -112,8 +115,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script src="{{asset('assets/js/payment/index.js')}}"></script>
 @endsection
