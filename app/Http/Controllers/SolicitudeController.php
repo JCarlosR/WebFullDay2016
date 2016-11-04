@@ -31,7 +31,7 @@ class SolicitudeController extends Controller
         {
             Solicitude::create([
                     'user_id'=>$id_user,
-                    'cert_id'=>$cert,
+                    'certificate_id'=>$cert,
 
                 ]); 
         }
