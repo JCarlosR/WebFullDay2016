@@ -70,10 +70,7 @@
             <ul class="nav ace-nav">
 
                 <!-- #section:basics/navbar.user_menu -->
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
+                @if (!Auth::guest())
                     <li class="light-blue">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                             <img class="nav-user-photo" src="{{asset('assets/avatars/user.jpg')}}" alt="Jason's Photo" />
@@ -131,38 +128,7 @@
             try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
         </script>
 
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                <button class="btn btn-success">
-                    <i class="ace-icon fa fa-signal"></i>
-                </button>
 
-                <button class="btn btn-info">
-                    <i class="ace-icon fa fa-pencil"></i>
-                </button>
-
-                <!-- #section:basics/sidebar.layout.shortcuts -->
-                <button class="btn btn-warning">
-                    <i class="ace-icon fa fa-users"></i>
-                </button>
-
-                <button class="btn btn-danger">
-                    <i class="ace-icon fa fa-cogs"></i>
-                </button>
-
-                <!-- /section:basics/sidebar.layout.shortcuts -->
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                <span class="btn btn-success"></span>
-
-                <span class="btn btn-info"></span>
-
-                <span class="btn btn-warning"></span>
-
-                <span class="btn btn-danger"></span>
-            </div>
-        </div><!-- /.sidebar-shortcuts -->
 
         <ul class="nav nav-list">
 
@@ -277,72 +243,6 @@
                     <b class="arrow"></b>
                 </li>
 
-                <li class="@yield('others')">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-file-o"></i>
-
-							<span class="menu-text">
-								Other Pages
-
-								<!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-primary">5</span>
-
-								<!-- /section:basics/sidebar.layout.badge -->
-							</span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="faq.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                FAQ
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="error-404.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Error 404
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="error-500.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Error 500
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="grid.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Grid
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="active">
-                            <a href="blank.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Blank Page
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->
@@ -368,16 +268,6 @@
                 <ul class="breadcrumb">
                     @yield('menu-active')
                 </ul><!-- /.breadcrumb -->
-
-                <!-- #section:basics/content.searchbox -->
-                <div class="nav-search" id="nav-search">
-                    <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-                    </form>
-                </div><!-- /.nav-search -->
 
                 <!-- /section:basics/content.searchbox -->
             </div>
@@ -476,6 +366,18 @@
                 <!-- /section:settings.box -->
                 <div class="row">
                     <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                @if (Auth::guest())
+                                    <div class="col-md-6">
+                                        <a href="{{ url('/login') }}" class="btn btn-primary btn-block">Login</a></li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="{{ url('/register') }}" class="btn btn-primary btn-block">Register</a></li>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
                         <!-- PAGE CONTENT BEGINS -->
                         @yield('content')
                         <!-- PAGE CONTENT ENDS -->
@@ -490,24 +392,10 @@
             <!-- #section:basics/footer -->
             <div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
+							<span class="blue bolder">ComisionSistemas</span>
+							Application &copy; 2016
 						</span>
 
-                &nbsp; &nbsp;
-						<span class="action-buttons">
-							<a href="#">
-                                <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                            </a>
-
-							<a href="#">
-                                <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                            </a>
-
-							<a href="#">
-                                <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-                            </a>
-						</span>
             </div>
 
             <!-- /section:basics/footer -->

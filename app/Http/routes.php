@@ -12,21 +12,23 @@
 */
 
 Route::get('/', 'Controller@getWelcome');
-
 Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
-// Papers
-Route::get('/ponencias', 'PaperController@index');
-Route::get('/ponentes', 'SpeakerController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+// Entries
+    // Papers
+    Route::get('/ponencias', 'PaperController@index');
+    Route::get('/ponentes', 'SpeakerController@index');
 
 
-//Payments
-Route::get('/pagos', 'PaymentController@index');
-Route::post('/pagos/registrar', 'PaymentController@create');
-Route::post('/pagos/eliminar', 'PaymentController@delete');
+    //Payments
+    Route::get('/pagos', 'PaymentController@index');
+    Route::post('/pagos/registrar', 'PaymentController@create');
+    Route::post('/pagos/eliminar', 'PaymentController@delete');
 
-//itinerary
-Route::get('/itinerario', 'itineraryController@index');
+    //itinerary
+    Route::get('/itinerario', 'itineraryController@index');
 
+});
