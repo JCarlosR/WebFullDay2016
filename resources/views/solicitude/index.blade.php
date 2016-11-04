@@ -31,7 +31,7 @@
 <h5><i class="glyphicon glyphicon-hand-right"></i> Registrar solicitud de certificados del evento</h5>
 </div>
 <div class="col-md-8 col-md-offset-2">
-	<form  class="form-horizontal style-form" method="post" id="guardaform">
+	<form action="{{ url('/solicitudes/registrar') }}" class="form-horizontal style-form" method="post" id="guardaform">
         {{ csrf_field() }}
          @foreach( $users as $data )
 	          <div class="form-group">
@@ -53,7 +53,7 @@
           <?php $i=0;?>
             @foreach( $certificates as $data2)
                 @foreach( $solicitudes as $data3)
-                    @if( $data3->cert_id == $data2->id)
+                    @if( $data3->certificate_id == $data2->id)
                         <?php $i=1;?>
                     @endif 
                 @endforeach
@@ -74,7 +74,7 @@
               </div>
             @else
               <div class="form-group">
-                <a type="button" id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a> 
+                <a type="button" id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a>
               </div>
             @endif
          @endforeach

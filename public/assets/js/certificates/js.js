@@ -7,17 +7,27 @@ function sendform () {
      }); 
 	if(selected != '')
 	{		
-		 $.ajax({
+		   $.ajax({
             type: "POST",
-            url:  "/solicitudes/registrar",
+            url: $("#guardaform").attr("action"),
             data: $("#guardaform").serialize(),
             success: function(data) {
+              
             }
          });
-         window.location="/pagos";
+       sleep(500);
+       window.location="/WebFullDay2016/public/pagos";             
 	}
 	else
 	{
 		$('#myModal').modal('show');
 	}
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
