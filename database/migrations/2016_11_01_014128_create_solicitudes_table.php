@@ -16,9 +16,9 @@ class CreateSolicitudesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('cert_id')->unsigned();
-            $table->foreign('cert_id')->references('id')->on('certificates');
-            $table->string('state')->default('pendiente');
+            $table->integer('certificate_id')->unsigned();
+            $table->foreign('certificate_id')->references('id')->on('certificates');
+            $table->string('state')->default('Pendiente');//pendiente,pagado,anulado
             $table->integer('enable')->default(1);
             $table->timestamps();
         });

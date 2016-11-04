@@ -38,7 +38,7 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                         @endif
-                        <!-- Nuevos par�metros   -->
+                        <!-- Nuevos parámetros   -->
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                                 <input type="text" class="form-control" placeholder="Dni" name="dni"/>
@@ -107,7 +107,7 @@
                                 </span>
                         @endif
 
-                        <!-- Fin Nuevos par�metros   -->
+                        <!-- Fin Nuevos parámetros   -->
                         <label class="block clearfix">
                             <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" placeholder="Password" name="password"/>
@@ -132,15 +132,11 @@
                             </span>
                         @endif
 
-                        <label class="block">
-                            <input type="checkbox" class="ace" />
-                            <span class="lbl">
-                                I accept the
-                                <a href="#">User Agreement</a>
-                            </span>
-                        </label>
-
-                        <div class="space-24"></div>
+                                <div class="space-4"></div>
+                                <span class="help-block">
+                             <strong>(*) Se usará email para inicio de sesión.</strong>
+                        </span>
+                        <div class="space-20"></div>
 
                         <div class="clearfix">
                             <button type="reset" class="width-30 pull-left btn btn-sm">

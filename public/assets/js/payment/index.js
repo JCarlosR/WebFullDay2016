@@ -19,11 +19,20 @@ function principal()
 
 function modalRegister()
 {
+    var certificate = $(this).data('certificate');
+    $modalRegister.find('[name=certificate]').val('Certificado de '+certificate);
     $modalRegister.modal('show');
+
+    $('#amount').on('change',function(){
+        if($(this).val()<1) {
+            alert('Ingrese un monto positivo');
+            $(this).val(null);
+        }
+    });
 
     $('#operation').on('change',function(){
         if($(this).val()<1) {
-            alert('Ingrese un número positivo');
+            alert('Ingrese un número de operación positivo');
             $(this).val(null);
         }
     });
@@ -39,21 +48,24 @@ function modalRegister()
 
 function modalDocument()
 {
-    $('#document').html('');
     var document = $(this).data('document');
-    $('#document').append('<img src="assets/img/payment/'+document+'" class="img">');
+    var url ='../assets/img/payment/'+document;
+    $('#document').html('');
+    $('#document').append('<img src="'+url+'" class="img">');
+
     $modalDocument.modal('show');
 }
 
-
 function modalDelete()
 {
-    var entity = $(this).data('entity');
     var id = $(this).data('delete');
+    var entity = $(this).data('entity');
+    var amount = $(this).data('amount');
     var operation = $(this).data('operation');
 
     $modalDelete.find('[name=id]').val(id);
     $modalDelete.find('[name=entity]').val(entity);
+    $modalDelete.find('[name=amount]').val('S/. '+amount);
     $modalDelete.find('[name=operation]').val(operation);
 
     $modalDelete.modal('show');
@@ -71,8 +83,15 @@ function payment()
             method: 'POST'
         })
         .done(function( response ) {
-            if(response.error)
-                alert(response.message);
+            if(response.error){
+                if(response.refreshing)
+                {
+                    alert(response.message);
+                    location.href = '../pagos';
+                }
+                else
+                    alert(response.message);
+            }
             else{
                 alert(response.message);
                 setTimeout(function(){

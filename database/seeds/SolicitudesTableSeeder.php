@@ -16,5 +16,6 @@ class SolicitudesTableSeeder extends Seeder
             'user_id'=>4,
             'cert_id'=>1,
         ]);
+
     }
 }
