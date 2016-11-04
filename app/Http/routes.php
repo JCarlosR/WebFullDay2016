@@ -22,11 +22,13 @@ Route::get('/ponencias', 'PaperController@index');
 Route::get('/ponentes', 'SpeakerController@index');
 
 
-//Payments
+//Payments and Certificates
 Route::get('/pagos', 'PaymentController@show');
 Route::get('/pagos/{id}', 'PaymentController@index');
 Route::post('/pagos/registrar', 'PaymentController@create');
 Route::post('/pagos/eliminar', 'PaymentController@delete');
+
+Route::post('/certificados/eliminar', 'PaymentController@delete');
 
 //itinerary
 Route::get('/itinerario', 'itineraryController@index');

@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title','Pagos')
+@section('title','Certificados')
 
 @section('inscription','open')
 
@@ -11,13 +11,13 @@
         <i class="ace-icon fa fa-home home-icon"></i>
         <a href="#">Evento</a>
     </li>
-    <li class="active">Certificados</li>
+    <li class="active">Pagos</li>
 @endsection
 
 @section('content')
     <div class="page-header">
         <h1>
-            Lista de certificados del II Full Day
+            Gestionar pagos del II Full Day
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
                 Visualizando los certificados
@@ -65,7 +65,7 @@
 @endsection
 
 @section('modals')
-    <div id="modalDocument" class="modal fade in">
+    <div id="modalDocuments" class="modal fade in">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="modal-body text-center">
-                    <div id="document"></div>
+                    <div id="documents"></div>
                 </div>
 
                 <div class="modal-footer">
@@ -93,16 +93,12 @@
                 </div>
                 <form id="formDelete"  action="{{ url('pagos/eliminar') }}" method="POST">
                     <div class="modal-body">
-
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" />
                         <div class="form-group">
-                            <label for="nombreEliminar">¿Desea anular el siguiente pago con los siguientes datos?</label>
+                            <label for="nombreEliminar">¿Si elimina el siguiente certificado, los pagos efectuados no serán devueltos?</label>
                             <br>
-                            Centro de pago
-                            <input type="text" readonly class="form-control" name="entity"/>
-                            Número de operación
-                            <input type="text" readonly class="form-control" name="operation"/>
+                            <input type="text" readonly class="form-control" name="certificate"/>
                         </div>
                     </div>
                     <div class="modal-footer">
