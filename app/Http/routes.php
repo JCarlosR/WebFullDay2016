@@ -11,16 +11,21 @@
 |
 */
 
-Route::get('/', 'Controller@getWelcome');
-Route::auth();
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['web']], function () {
+// Entries
+    Route::get('/', 'Controller@getWelcome');
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+});
 
 
 Route::group(['middleware' => 'auth'], function () {
 // Entries
+
     // Papers
     Route::get('/ponencias', 'PaperController@index');
     Route::get('/ponentes', 'SpeakerController@index');
+
 
     //Payments
     Route::get('/pagos', 'PaymentController@index');
@@ -33,4 +38,5 @@ Route::group(['middleware' => 'auth'], function () {
     //Request Certificate
     Route::get('/solicitudes', 'SolicitudeController@index');
     Route::post('/solicitudes/registrar', 'SolicitudeController@create');
+
 });
