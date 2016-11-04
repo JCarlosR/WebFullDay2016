@@ -27,7 +27,7 @@ class SolicitudeController extends Controller
 
         $request = Solicitude::create([
             'user_id'=>$id_user,
-            'cert_id'=>$id_cert,
+            'certificate_id'=>$id_cert,
             'paid'=>0,
             'enable'=>1,
 

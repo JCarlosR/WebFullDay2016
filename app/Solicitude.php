@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Solicitude extends Model
 {
+
 	protected $table="solicitudes";
-    protected $fillable = ['id','user_id', 'cert_id', 'paid','enable'];
+    protected $fillable = ['id','user_id', 'certificate_id', 'paid','enable'];
 
     public function certificate()
     {

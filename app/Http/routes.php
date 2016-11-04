@@ -11,31 +11,33 @@
 |
 */
 
-Route::get('/', 'Controller@getWelcome');
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-// Papers
-Route::get('/ponencias', 'PaperController@index');
-Route::get('/ponentes', 'SpeakerController@index');
+Route::group(['middleware' => ['web']], function () {
+// Entries
+    Route::get('/', 'Controller@getWelcome');
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+});
 
 
-//Payments and Certificates
-Route::get('/pagos', 'PaymentController@show');
-Route::get('/pagos/{id}', 'PaymentController@index');
-Route::post('/pagos/registrar', 'PaymentController@create');
-Route::post('/pagos/eliminar', 'PaymentController@delete');
+Route::group(['middleware' => 'auth'], function () {
+// Entries
 
-Route::post('/certificados/eliminar', 'PaymentController@delete');
+    // Papers
+    Route::get('/ponencias', 'PaperController@index');
+    Route::get('/ponentes', 'SpeakerController@index');
 
-//itinerary
-Route::get('/itinerario', 'itineraryController@index');
+    //Payments and Certificates
+    Route::get('/pagos', 'PaymentController@show');
+    Route::get('/pagos/{id}', 'PaymentController@index');
+    Route::post('/pagos/registrar', 'PaymentController@create');
+    Route::post('/pagos/eliminar', 'PaymentController@delete');
 
+    Route::post('/certificados/eliminar', 'PaymentController@delete');
 
-//Request Certificate
-Route::get('/solicitudes', 'SolicitudeController@index');
-Route::post('/solicitudes/registrar', 'SolicitudeController@create');
+    //itinerary
+    Route::get('/itinerario', 'itineraryController@index');
 
-
+    //Request Certificate
+    Route::get('/solicitudes', 'SolicitudeController@index');
+    Route::post('/solicitudes/registrar', 'SolicitudeController@create');
+});

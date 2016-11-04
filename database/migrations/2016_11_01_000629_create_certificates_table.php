@@ -14,9 +14,10 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('event_id')->unsigned();
+            $table->foreign('event_id')->references('id')->on('events');
             $table->string('type');
             $table->string('cost');
-            $table->string('organization');
             $table->integer('enable');
             $table->timestamps();
         });
