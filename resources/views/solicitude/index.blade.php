@@ -53,7 +53,7 @@
           <?php $i=0;?>
             @foreach( $certificates as $data2)
                 @foreach( $solicitudes as $data3)
-                    @if( $data3->certificate_id == $data2->id)
+                    @if( $data3->certificate_id == $data2->id and $data3->state!='Anulado')
                         <?php $i=1;?>
                     @endif 
                 @endforeach
