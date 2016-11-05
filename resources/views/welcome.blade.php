@@ -218,7 +218,11 @@
                 <li><a href="{{ url('/register') }}" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Regístrate ya!</span></a>
                 </li>
             @else
-                <li><a href="{{ url('/home') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Ir al panel</span></a>
+
+                <li>
+                    <a href="{{ url('/home') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s">
+                        <span class="network-name">Ir al panel</span>
+                    </a>
                 </li>
                 <li><span class="network-name">Bienvenido {{ Auth::user()->name }}</span>
                 </li>
@@ -512,6 +516,7 @@
 
             <div class="col-md-6 col-md-offset-3 text-center wrap_title">
                 <h2>Contáctanos</h2>
+                <p class="lead" style="margin-top:0">Para más información envíanos un correo.</p>
             </div>
 
             <form role="form" action="" method="post" >
@@ -550,14 +555,16 @@
                     <h3>Ubicación del local</h3>
                     <p class="lead"><a title="Ubicación google maps" target="_blank" href="https://www.google.com/maps/place/Los+Conquistadores+Hotel+S+A/@-8.1131851,-79.0291977,18z/data=!4m5!3m4!1s0x91ad3d8354648a39:0xf86dfb2dac3975be!8m2!3d-8.1135887!4d-79.0280014">Centro de Convenciones Los Libertadores<br>
                             Jr.Diego De Almagro 586 Trujillo Peru</a><br>
-                        Phone: XXX-XXX-XXXX<br>
-                        Fax: XXX-XXX-YYYY</p>
+                    <h3>Comunícate sobre el evento a:</h3>
+                        Teléfono RPC: 993 249 187<br>
+                        Teléfono RPM: 949 610 531<br>
+
                 </address>
 
                 <h3>Social</h3>
                 <li class="social">
                     <a target="_blank" href="https://www.facebook.com/II-Full-Day-de-Gesti%C3%B3n-de-TI-188251811510916/?fref=nf"><i class="fa fa-facebook-square fa-size"> </i></a>
-                    <a href="#"><i class="fa fa-google-plus-square fa-size"> </i></a>
+
                 </li>
             </div>
         </div>

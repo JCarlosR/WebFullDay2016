@@ -386,8 +386,8 @@
             <!-- #section:basics/footer -->
             <div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">ComisionSistemas</span>
-							Application &copy; 2016
+							II Full Day de Gerencia &copy; 2016
+							<span class="blue bolder">Comisión de Sistemas - UNT</span>
 						</span>
 
             </div>

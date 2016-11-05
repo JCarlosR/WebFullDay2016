@@ -13,6 +13,22 @@
 @endsection
 
 @section('content')
-    <h3>Bienvenido {{ auth()->user()->name }} !</h3>
-    <p>Si tienes alguna duda usa el formulario de contacto.</p>
+    <div class="page-header">
+        <h1>
+            II FULL DAY GERENCIA UNT
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                Gestione su participación y certificados
+            </small>
+        </h1>
+    </div>
+    <div class="space-6"></div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3>Bienvenido {{ auth()->user()->name }} !</h3>
+            <p>Si tienes alguna interrogante no dudes en usar el formulario de contacto.</p>
+            <img src="{{ asset('images/fullday.jpg') }}" alt="">
+        </div>
+    </div>
 @endsection
