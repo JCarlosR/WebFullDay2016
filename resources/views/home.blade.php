@@ -13,5 +13,20 @@
 @endsection
 
 @section('content')
-    <h3>Hola a Todos</h3>
+    <div class="page-header">
+        <h1>
+            II FULL DAY GERENCIA UNT
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                Gestione su participación y certificados
+            </small>
+        </h1>
+    </div>
+    <div class="space-6"></div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <img src="{{ asset('images/fullday.jpg') }}" alt="">
+        </div>
+    </div>
 @endsection

@@ -42,12 +42,11 @@
     <div class="space-6"></div>
 
     <div class="row">
-        @if( $hide==0 )
-            <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
-        @endif
-    </div><br>
-    <div class="row">
         <div class="col-xs-12 table-responsive">
+            @if( $hide==0 )
+                <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
+            @endif
+                <div class="space-6"></div>
             <table class="table table-striped">
                 <thead>
                     <tr>
