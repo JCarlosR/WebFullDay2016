@@ -12,5 +12,10 @@ class Payment extends Model
     {
         return $this->belongsTo('App\Solicitude');
     }
+
+    public function getStateAttribute()
+    {
+        return $this->enable ? 'Verificado' : 'Por verificar';
+    }
 }
 

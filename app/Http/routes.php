@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/ponencias', 'PaperController@index');
     Route::get('/ponentes', 'SpeakerController@index');
 
-    //Payments and Certificates
+    // Payments and Certificates
     Route::get('/pagos', 'PaymentController@show');
     Route::get('/pagos/{id}', 'PaymentController@index');
     Route::post('/pagos/registrar', 'PaymentController@create');
@@ -34,10 +34,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/certificados/eliminar', 'CertificateController@delete');
 
-    //itinerary
+    // Itinerary
     Route::get('/itinerario', 'itineraryController@index');
 
     //Request Certificate
     Route::get('/solicitudes', 'SolicitudeController@index');
     Route::post('/solicitudes/registrar', 'SolicitudeController@create');
+
+    // History
+    Route::get('/historial', 'HomeController@history');
 });

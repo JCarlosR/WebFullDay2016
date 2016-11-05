@@ -23,11 +23,14 @@
                 Visualizando pagos de los certificados
             </small>
         </h1>
+
     </div>
 
-    <div class="space-6"></div>
-
     <div class="row">
+        <div class="col-xs-12">
+            <h3><strong>Cuenta BANCO XXD:</strong>57032589035070</h3>
+        </div>
+        <br><br><br>
         <div class="col-xs-12 table-responsive">
             <table class="table table-striped">
                 <thead>

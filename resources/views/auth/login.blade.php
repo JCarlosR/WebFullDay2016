@@ -6,7 +6,7 @@
             <div class="widget-main">
                 <h4 class="header blue lighter bigger">
                     <i class="ace-icon fa fa-coffee green"></i>
-                    Please Enter Your Information
+                    Por favor ingresa tus datos
                 </h4>
 
                 <div class="space-6"></div>
@@ -44,7 +44,7 @@
 
                             <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                 <i class="ace-icon fa fa-key"></i>
-                                <span class="bigger-110">Login</span>
+                                <span class="bigger-110">Ingresar</span>
                             </button>
                         </div>
 
@@ -56,15 +56,15 @@
 
             <div class="toolbar clearfix">
                 <div>
-                    <a href="{{url('/')}}"> <!--data-target="#forgot-box" class="forgot-password-link" -->
+                    <a href="{{url('/')}}" style="color: white">
                         <i class="ace-icon fa fa-arrow-left"></i>
-                        Back to Home
+                        Volver al inicio
                     </a>
                 </div>
 
                 <div>
                     <a href="{{url('/register')}}" class="user-signup-link">
-                        I want to register
+                        No te has registrado?
                         <i class="ace-icon fa fa-arrow-right"></i>
                     </a>
                 </div>
