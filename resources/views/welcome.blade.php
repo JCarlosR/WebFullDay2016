@@ -256,6 +256,7 @@
                 <li class="menuItem"><a href="#whatis">Qué es?</a></li>
                 <li class="menuItem"><a href="#useit">Ponentes</a></li>
                 <li class="menuItem"><a href="#screen">Ponencias</a></li>
+                <li class="menuItem"><a href="#news">Novedades</a></li>
                 <li class="menuItem"><a href="#credits">Itinerario</a></li>
                 <li class="menuItem"><a href="#contact">Contacto</a></li>
             </ul>
@@ -277,7 +278,7 @@
         <div class="row">
 
             <div class="col-sm-4 wow fadeInDown text-center">
-                <img class="rotate" src="{{ asset('plantilla/img/icon/facebook.png') }}" alt="Generic placeholder image">
+                <a target="_blank" href="https://www.facebook.com/II-Full-Day-de-Gesti%C3%B3n-de-TI-188251811510916/?fref=nf"><img class="rotate" src="{{ asset('plantilla/img/icon/facebook.png') }}" alt=""></a>
                 <a target="_blank" href="https://www.facebook.com/II-Full-Day-de-Gesti%C3%B3n-de-TI-188251811510916/?fref=nf"><h3>Síguenos</h3></a>
                 <p class="lead">Síguenos y comparte nuestro fanpage en Facebook. </p>
 
@@ -285,16 +286,17 @@
             </div><!-- /.col-lg-4 -->
 
             <div class="col-sm-4 wow fadeInDown text-center">
-                <img class="rotate" src="{{ asset('plantilla/img/icon/mail.svg') }}" alt="Generic placeholder image">
+                <a href="#contact"><img class="rotate" src="{{ asset('plantilla/img/icon/mail.svg') }}" alt="Generic placeholder image"></a>
                 <a href="#contact"><h3>Contáctanos</h3></a>
                 <p class="lead">Envía tus dudas o sugerencias, nosotros te responderemos lo mas antes posible. </p>
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
 
             <div class="col-sm-4 wow fadeInDown text-center">
-                <img  class="rotate" src="{{ asset('plantilla/img/icon/watch.svg') }}" alt="Generic placeholder image">
-                <a href="#useit"><h3>Ponentes</h3></a>
-                <p class="lead">Infórmate acerca de los ponentes, temas y actividades que se llevaran a cabo en el II Full Day de Gerencia UNT. </p>
+                <a target="_blank" href="#"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
+                <a target="_blank" href="#"><h3>Descargar Aplicación para android</h3></a>
+                <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia. </p>
+
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
 
@@ -303,6 +305,7 @@
 
 </div>
 </div>
+
 <!-- Use it -->
 <div id ="useit" class="content-section-b">
 
@@ -367,6 +370,33 @@
                 <div class="space-6"></div>
             @endforeach
         </section>
+    </div>
+</div>
+
+<!-- News -->
+<div id="news" class="content-section-b" style="border-top: 0">
+    <div class="container">
+
+        <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+            <h2>Novedades</h2>
+            <p class="lead" style="margin-top:0">Aplicacion móvil para el Full Day Gerencia UNT 2016.</p>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6 col-sm-offset-3 wow fadeInDown text-center">
+                <a target="_blank" href="#"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
+                <a target="_blank" href="#"><h3>Descargar Aplicación para android</h3></a>
+                <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia.
+                    <br><button class="btn btn-primary" href="#">Descargar</button></p>
+
+                <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+            </div><!-- /.col-lg-4 -->
+
+        </div><!-- /.row -->
+
+
     </div>
 </div>
 
@@ -516,15 +546,15 @@
 
             <div class="col-md-6 col-md-offset-3 text-center wrap_title">
                 <h2>Contáctanos</h2>
-                <p class="lead" style="margin-top:0">Para más información envíanos un correo.</p>
             </div>
 
-            <form role="form" action="" method="post" >
+            <form role="form" id="form" method="post" >
+                {{ csrf_field() }}
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="InputName">Nombre: </label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+                            <input type="text" class="form-control" name="name" id="InputName" placeholder="Ingrese su nombre" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
@@ -532,7 +562,7 @@
                     <div class="form-group">
                         <label for="InputEmail">Email: </label>
                         <div class="input-group">
-                            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
+                            <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Ingrese su email" required  >
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
@@ -540,12 +570,12 @@
                     <div class="form-group">
                         <label for="InputMessage">Mensaje</label>
                         <div class="input-group">
-                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+                            <textarea name="mensaje" id="InputMessage" class="form-control" rows="5" required></textarea>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
-                    <input type="submit" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right">
+                    <button id="send" class="btn btn-primary" data-url="{{ url('/contact') }}">Enviar correo</button>
                 </div>
             </form>
 
@@ -571,46 +601,8 @@
     </div>
 </div>
 
-
-
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <h3 class="footer-title">Follow Me!</h3>
-                <p>Vuoi ricevere news su altri template?<br/>
-                    Visita Andrea Galanti.it e vedrai tutte le news riguardanti nuovi Theme!<br/>
-                    Go to: <a  href="http://andreagalanti.it" target="_blank">andreagalanti.it</a>
-                </p>
 
-                <!-- LICENSE -->
-                <a rel="cc:attributionURL" href="http://www.andreagalanti.it/flatfy"
-                   property="dc:title">Flatfy Theme </a> by
-                <a rel="dc:creator" href="http://www.andreagalanti.it"
-                   property="cc:attributionName">Andrea Galanti</a>
-                is licensed to the public under
-                <BR>the <a rel="license"
-                           href="http://creativecommons.org/licenses/by-nc/3.0/it/deed.it">Creative
-                    Commons Attribution 3.0 License - NOT COMMERCIAL</a>.
-
-
-            </div> <!-- /col-xs-7 -->
-
-            <div class="col-md-5">
-                <div class="footer-banner">
-                    <h3 class="footer-title">Flatfy Theme</h3>
-                    <ul>
-                        <li>12 Column Grid Bootstrap</li>
-                        <li>Form Contact</li>
-                        <li>Drag Gallery</li>
-                        <li>Full Responsive</li>
-                        <li>Lorem Ipsum</li>
-                    </ul>
-                    Go to: <a href="http://andreagalanti.it/flatfy" target="_blank">andreagalanti.it/flatfy</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </footer>
 
 <!-- JavaScript -->
@@ -653,6 +645,8 @@
     })();
 
 </script>
+
+<script src="{{ asset('assets/js/welcome/main.js') }}"></script>
 </body>
 
 </html>

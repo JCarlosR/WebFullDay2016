@@ -16,6 +16,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Controller@getWelcome');
     Route::auth();
     Route::get('/home', 'HomeController@index');
+    // Contact
+    Route::post('/contact', 'MailController@send');
 });
 
 
@@ -43,4 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     // History
     Route::get('/historial', 'HomeController@history');
+
+    Route::get('/contacto', 'MailController@show');
 });

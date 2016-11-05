@@ -75,7 +75,7 @@
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                             <img class="nav-user-photo" src="{{asset('assets/avatars/user.jpg')}}" alt="Jason's Photo" />
 								<span class="user-info">
-									<small>Welcome,</small>
+									<small>Bienvenido,</small>
                                     {{ Auth::user()->name }}
 								</span>
 
@@ -219,17 +219,9 @@
                     </ul>
                 </li>
             @endif
-                <li class="">
-                    <a href="#">
-                        <i class="menu-icon fa fa-list-alt"></i>
-                        <span class="menu-text"> Acerca de </span>
-                    </a>
 
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="#">
+                <li class="@yield('contact')">
+                    <a href="{{ url('/contacto') }}">
                         <i class="menu-icon fa fa-picture-o"></i>
                         <span class="menu-text"> Contacto </span>
                     </a>
