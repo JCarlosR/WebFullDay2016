@@ -9,12 +9,12 @@
         }
         .search-result .thumbnail {
             border-radius: 0 !important;
-            width: 250px;
-            height: 140px;
+            width: 210px;
+            height: 160px;
         }
         .image {
-            width: 250px !important;
-            height: 130px !important;
+            width: 200px !important;
+            height: 150px !important;
         }
         .search-result:first-child { margin-top: 0 !important; }
         .search-result { margin-top: 20px; }

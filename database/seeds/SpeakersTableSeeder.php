@@ -30,7 +30,7 @@ class SpeakersTableSeeder extends Seeder
             'email' => 'roberto.llanos@gmail.com',
             'profile' => 'https://pe.linkedin.com/in/rllanosg/es',
             'description' => 'Director de TI, múltiples proyectos complejos y simultáneos, desarrollo de aplicaciones de TI, gestión de demanda, portafolio de proyectos, gestión de infraestructura de TI, transformación de procesos, tercerización de servicios, logística de comercio exterior, servicios profesionales de TI, consultoria empresarial, banca y servicios financieros.',
-            'image' => '0.jpg',
+            'image' => '5.jpg',
             'enable' => 1,
         ]);
 
