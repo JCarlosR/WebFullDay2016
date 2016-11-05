@@ -123,7 +123,7 @@
     </script>
 
     <!-- #section:basics/sidebar -->
-    <div id="sidebar" class="sidebar                  responsive">
+    <div id="sidebar" class="sidebar responsive">
         <script type="text/javascript">
             try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
         </script>
@@ -133,9 +133,9 @@
         <ul class="nav nav-list">
 
                 <li class="@yield('Home')">
-                    <a href="index.html">
+                    <a href="{{ url('/home') }}">
                         <i class="menu-icon fa fa-tachometer"></i>
-                        <span class="menu-text"> Home </span>
+                        <span class="menu-text">Inicio</span>
                     </a>
 
                     <b class="arrow"></b>
@@ -145,7 +145,7 @@
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
-								Evento
+								Información
 							</span>
 
                         <b class="arrow fa fa-angle-down"></b>
@@ -196,8 +196,8 @@
 
                     <ul class="submenu">
 
-                        <li class="">
-                            <a href="tables.html">
+                        <li class="@yield('history')">
+                            <a href="{{ url('/historial') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Historial
                             </a>
@@ -231,7 +231,7 @@
                 <li class="">
                     <a href="#">
                         <i class="menu-icon fa fa-picture-o"></i>
-                        <span class="menu-text"> Contácto </span>
+                        <span class="menu-text"> Contacto </span>
                     </a>
 
                     <b class="arrow"></b>
