@@ -39,6 +39,8 @@
 	          </div>
 	          <div class="form-group">
 	          		<input readonly type="text" class="form-control" id="{{ $data->id }}" name="txtNombre" value="{{ $data->name }}">
+                <i><font color="red">* Importante: Recuerda que del nombre de usuario sera el mismo que aparesca en el certificado.</font></i>
+                <font color="blue"><b><a href=""> Editar Datos Click Aqui!</a></b></font>
 	          		<input style="display:none" type="text" class="form-control" id="idusuario" name="idusuario" value="{{ $data->id }}">
 	          </div>
          @endforeach
@@ -60,7 +62,7 @@
                 @if($i!=1)
                  <?php $j=1; ?>
                   <div class="form-group">
-                       <label>Certificado de {{ $data2->type }} / Costo : {{ $data2->cost }}  <input type="checkbox" name="certific[]" value="{{ $data2->id }}"></label>
+                       <label>Certificado de {{ $data2->type }} /<b><font SIZE=3 color="purple">Costo : S/.{{ $data2->cost }} </font></b><input type="checkbox"  name="certific[]" value="{{ $data2->id }}"></label>
                   </div>
                 @endif
             <?php $i=0; ?>

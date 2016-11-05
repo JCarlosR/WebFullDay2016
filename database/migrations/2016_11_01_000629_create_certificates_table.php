@@ -17,7 +17,7 @@ class CreateCertificatesTable extends Migration
             $table->integer('event_id')->unsigned();
             $table->foreign('event_id')->references('id')->on('events');
             $table->string('type');
-            $table->string('cost');
+            $table->decimal('cost', 9,2);
             $table->integer('enable')->default(1);
             $table->timestamps();
         });

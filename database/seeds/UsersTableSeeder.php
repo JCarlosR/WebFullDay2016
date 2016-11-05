@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
         User::create([
             'role_id' => 1, // Master
             'name' => 'Miguel Juarez',
@@ -25,17 +26,23 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
         User::create([
-            'role_id' => 3, //Assistant
+            'role_id' => 3, // Assistant
             'name' => 'Edilberto Soles',
             'email' => 'edilberto0905@gmail.com',
             'password' => bcrypt('3015')
         ]);
         User::create([
-            'role_id' => 3, //Operator
+            'role_id' => 3, // Operator
             'name' => 'Eduardo Rivera',
             'email' => 'ed123@gmail.com',
             'password' => bcrypt('123123')
         ]);
 
+        User::create([
+            'role_id' => 2, // Administrator
+            'name' => 'Juan Ramos',
+            'email' => 'juancagb.17@gmail.com',
+            'password' => bcrypt('123123')
+        ]);
     }
 }

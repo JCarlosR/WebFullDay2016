@@ -213,12 +213,16 @@
         <br>
         <ul class="list-inline intro-social-buttons">
             @if(Auth::guest())
-                <li><a href="{{ url('/login') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Iniciar sesión</span></a>
+                <li><a href="{{ url('/login') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Inicia sesión</span></a>
                 </li>
-                <li><a href="{{ url('/register') }}" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Regístrate Ya!</span></a>
+                <li><a href="{{ url('/register') }}" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Regístrate ya!</span></a>
                 </li>
             @else
-                <li><a href="{{ url('/home') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Gestionar inscripción</span></a>
+
+                <li>
+                    <a href="{{ url('/home') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s">
+                        <span class="network-name">Ir al panel</span>
+                    </a>
                 </li>
                 <li><span class="network-name">Bienvenido {{ Auth::user()->name }}</span>
                 </li>

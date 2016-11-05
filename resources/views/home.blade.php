@@ -7,9 +7,9 @@
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Home</a>
+        <a href="#">Inicio</a>
     </li>
-    <li class="active">Inicio</li>
+    <li class="active">Bienvenido</li>
 @endsection
 
 @section('content')
@@ -26,6 +26,8 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
+            <h3>Bienvenido {{ auth()->user()->name }} !</h3>
+            <p>Si tienes alguna interrogante no dudes en usar el formulario de contacto.</p>
             <img src="{{ asset('images/fullday.jpg') }}" alt="">
         </div>
     </div>

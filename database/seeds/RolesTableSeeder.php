@@ -22,12 +22,12 @@ class RolesTableSeeder extends Seeder
             'name' => 'Administrator'
         ]);
 
-        //3
+        // 3
         Role::create([
             'name' => 'Assistant'
         ]);
 
-        //4
+        // 4
         Role::create([
             'name' => 'Operator'
         ]);
