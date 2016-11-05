@@ -49,7 +49,7 @@
                         <tr>
                             <td>Certificado {{ $array_solicitude[0]->certificate->type }}</td>
                             <td>{{ $array_solicitude[0]->state }}</td>
-                            <td>{{ $array_solicitude[0]->certificate->cost }}</td>
+                            <td>S/. {{ $array_solicitude[0]->certificate->cost }}</td>
                             <td>S/. {{ $array_solicitude[1] }}</td>
                             <td>{{ $array_solicitude[2]}}</td>
                             <td>{{ $array_solicitude[3] }}</td>

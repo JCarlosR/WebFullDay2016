@@ -35,14 +35,14 @@ class PaymentController extends Controller
                     // Last payment date
                     $payment_date = $payment->operation_date;
                     $payment_date = new Carbon($payment_date);
-                    $payment_date = $payment_date->format('d-M-Y');
+                    $payment_date = $payment_date->format('jS \o\f F, Y');
                 }
 
                 // Solicitude payment
                 $solicitude_date = $solicitude->created_at;
                 $solicitude_date = new Carbon($solicitude_date);
-                $solicitude_date = $solicitude_date->format('d-M-Y');
-                if( $total_payment == 30 )
+                $solicitude_date = $solicitude_date->format('jS \o\f F, Y');
+                if( $total_payment == $solicitude->certificate->cost )
                     $hide = 1;
                 if( $solicitude->state=='Anulado' )
                     $history=1;
@@ -71,7 +71,7 @@ class PaymentController extends Controller
         if( count($payments) != 0 )
             foreach ( $payments as $payment ) {
                 $operation_date = new Carbon($payment->operation_date);
-                $operation_date = $operation_date->format('d-M-Y');
+                $operation_date = $operation_date->format('jS \o\f F, Y');
                 $array_payments [] = [$payment,$operation_date];
             }
 
@@ -91,6 +91,7 @@ class PaymentController extends Controller
         $payment = Payment::where('solicitude_id', $solicitude_id)->where('enable',1)->first();
 
         $total_amount = 0;
+        $certificate_cost = $solicitude->certificate->cost;
 
         if ($payment != null) {
             $total_payment = 0;
@@ -99,11 +100,11 @@ class PaymentController extends Controller
                     $total_payment += $payment->amount;
 
             $total_amount = $total_payment;
-            if ( $total_payment + $amount > 30 )
-                return response()->json(['error' => true, 'message' => 'La sumatoria de los montos depositados excede el precio del certificado, su deuda es S/. ' . number_format(30 - $total_payment, 2, '.', '')]);
+            if ( $total_payment + $amount > $certificate_cost )
+                return response()->json(['error' => true, 'message' => 'La sumatoria de los montos depositados excede el precio del certificado, su deuda es S/. ' . number_format($certificate_cost - $total_payment, 2, '.', '')]);
         }else {
-            if ($amount > 30)
-                return response()->json(['error' => true, 'message' => 'El monto ingresado excede al precio del certificado, su deuda es S/. 30.00']);
+            if ($amount > $certificate_cost)
+                return response()->json(['error' => true, 'message' => 'El monto ingresado excede al precio del certificado, su deuda es S/. '.$certificate_cost ]);
         }
         $date = new Carbon($operation_date);
         $date = $date->format('d-m-Y');
@@ -122,7 +123,7 @@ class PaymentController extends Controller
         $payment->payment_file = $fileName;
         $payment->save();
 
-        if ( $total_amount+$amount == 30 ) {
+        if ( $total_amount+$amount == $certificate_cost  ) {
             $solicitude->state = 'Pagado';
             $solicitude->save();
             return response()->json(['error' => true, 'refreshing' => true, 'message' => 'Pago registrado correctamente, Usted ya no tiene deudas']);
