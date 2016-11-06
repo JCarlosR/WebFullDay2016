@@ -131,7 +131,7 @@
 
 
         <ul class="nav nav-list">
-
+            @if(Auth::user()->role_id == 3)
                 <li class="@yield('Home')">
                     <a href="{{ url('/home') }}">
                         <i class="menu-icon fa fa-tachometer"></i>
@@ -183,7 +183,6 @@
                         </li>
                     </ul>
                 </li>
-            @if(!Auth::guest())
                 <li class="@yield('inscription')">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
@@ -201,11 +200,11 @@
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Historial
                             </a>
-                       <li class="@yield('request')">
-                        <a href="{{ url('/solicitudes') }}">
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            Registro de certificados
-                        </a>
+                        <li class="@yield('request')">
+                            <a href="{{ url('/solicitudes') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Registro de certificados
+                            </a>
                             <b class="arrow"></b>
                         </li>
                         <li class="@yield('payment')">
@@ -218,7 +217,6 @@
                         </li>
                     </ul>
                 </li>
-            @endif
 
                 <li class="@yield('contact')">
                     <a href="{{ url('/contacto') }}">
@@ -229,6 +227,59 @@
                     <b class="arrow"></b>
                 </li>
 
+            @else
+                <li class="@yield('Home')">
+                <a href="{{ url('/home') }}">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text">Inicio</span>
+                </a>
+
+                <b class="arrow"></b>
+                </li>
+
+                <li class="@yield('configuracion')">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+								Configuracion
+							</span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+
+                        <li class="@yield('usuarios')">
+                            <a href="#">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Usuarios
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="@yield('perfiles')">
+                            <a href="#">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Perfiles
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="@yield('menu')">
+                            <a href="#">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Menu
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul><!-- /.nav-list -->
 
         <!-- #section:basics/sidebar.layout.minimize -->
