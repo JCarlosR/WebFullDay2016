@@ -75,7 +75,3 @@
         </div>
     </div>
 @endsection
-
-@section('scripts')
-    <script src="{{asset('assets/js/payment/index.js')}}"></script>
-@endsection

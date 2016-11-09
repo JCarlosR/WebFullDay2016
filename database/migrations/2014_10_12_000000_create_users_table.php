@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            //Nuevos campos
+
+            // Other fields
             $table->string('celular');
             $table->string('dni');
             $table->string('universidad');
