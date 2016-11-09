@@ -18,15 +18,5 @@ class CertificateTableSeeder extends Seeder
             'type' => "Asitente",
             'cost' => 30.00,
         ]);
-        Certificate::create([
-            'event_id' =>1,
-            'type' => "Organizador",
-            'cost' => 35.00,
-        ]);
-        Certificate::create([
-            'event_id' =>1,
-            'type' => "Tecnico Informatico",
-            'cost' => 40.00,
-        ]);
     }
 }
