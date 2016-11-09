@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'role_id' => 2, // Administrator
+            'role_id' => 3,
             'name' => 'Juan Ramos',
             'email' => 'juancagb.17@gmail.com',
             'password' => bcrypt('123123')

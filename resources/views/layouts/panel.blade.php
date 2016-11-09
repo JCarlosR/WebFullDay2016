@@ -73,7 +73,7 @@
                 @if (!Auth::guest())
                     <li class="light-blue">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img class="nav-user-photo" src="{{asset('assets/avatars/user.jpg')}}" alt="Jason's Photo" />
+                            <img class="nav-user-photo" src="{{asset('assets/avatars/avatar2.png')}}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Bienvenido,</small>
                                     {{ Auth::user()->name }}
@@ -84,16 +84,9 @@
 
                         <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                             <li>
-                                <a href="#">
-                                    <i class="ace-icon fa fa-cog"></i>
-                                    Settings
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
+                                <a href="{{ url('/datos') }}">
                                     <i class="ace-icon fa fa-user"></i>
-                                    Profile
+                                    Mis datos
                                 </a>
                             </li>
 
@@ -102,7 +95,7 @@
                             <li>
                                 <a href="{{ url('/logout') }}">
                                     <i class="ace-icon fa fa-power-off"></i>
-                                    Logout
+                                    Cerrar sesión
                                 </a>
                             </li>
                         </ul>
@@ -131,15 +124,15 @@
 
 
         <ul class="nav nav-list">
-            @if(Auth::user()->role_id == 3)
-                <li class="@yield('Home')">
-                    <a href="{{ url('/home') }}">
-                        <i class="menu-icon fa fa-tachometer"></i>
-                        <span class="menu-text">Inicio</span>
-                    </a>
+            <li class="@yield('Home')">
+                <a href="{{ url('/home') }}">
+                    <i class="menu-icon fa fa-tachometer"></i>
+                    <span class="menu-text">Inicio</span>
+                </a>
+                <b class="arrow"></b>
+            </li>
 
-                    <b class="arrow"></b>
-                </li>
+            @if(Auth::user()->role_id == 3)
 
                 <li class="@yield('event')">
                     <a href="#" class="dropdown-toggle">
@@ -147,46 +140,40 @@
 							<span class="menu-text">
 								Información
 							</span>
-
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
 
                     <b class="arrow"></b>
 
                     <ul class="submenu">
-
                         <li class="@yield('paper')">
                             <a href="{{ url('/ponencias')}}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Ponencias
                             </a>
-
                             <b class="arrow"></b>
                         </li>
-
                         <li class="@yield('speaker')">
                             <a href="{{ url('/ponentes') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Ponentes
                             </a>
-
                             <b class="arrow"></b>
                         </li>
-
                         <li class="@yield('itinerarie')">
                             <a href="{{ url('/itinerario') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Itinerario
                             </a>
-
                             <b class="arrow"></b>
                         </li>
                     </ul>
                 </li>
+
                 <li class="@yield('inscription')">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-list"></i>
-                        <span class="menu-text"> Inscripción evento </span>
+                        <span class="menu-text">Inscripción evento</span>
 
                         <b class="arrow fa fa-angle-down"></b>
                     </a>
@@ -194,7 +181,6 @@
                     <b class="arrow"></b>
 
                     <ul class="submenu">
-
                         <li class="@yield('history')">
                             <a href="{{ url('/historial') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
@@ -221,22 +207,13 @@
                 <li class="@yield('contact')">
                     <a href="{{ url('/contacto') }}">
                         <i class="menu-icon fa fa-picture-o"></i>
-                        <span class="menu-text"> Contacto </span>
+                        <span class="menu-text">Contacto</span>
                     </a>
 
                     <b class="arrow"></b>
                 </li>
 
             @else
-                <li class="@yield('Home')">
-                <a href="{{ url('/home') }}">
-                    <i class="menu-icon fa fa-tachometer"></i>
-                    <span class="menu-text">Inicio</span>
-                </a>
-
-                <b class="arrow"></b>
-                </li>
-
                 <li class="@yield('configuracion')">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-desktop"></i>
@@ -311,106 +288,17 @@
 
             <!-- /section:basics/content.breadcrumbs -->
             <div class="page-content">
-                <!-- #section:settings.box -->
-                <div class="ace-settings-container" id="ace-settings-container">
-                    <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-                        <i class="ace-icon fa fa-cog bigger-130"></i>
-                    </div>
 
-                    <div class="ace-settings-box clearfix" id="ace-settings-box">
-                        <div class="pull-left width-50">
-                            <!-- #section:settings.skins -->
-                            <div class="ace-settings-item">
-                                <div class="pull-left">
-                                    <select id="skin-colorpicker" class="hide">
-                                        <option data-skin="no-skin" value="#438EB9">#438EB9</option>
-                                        <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-                                        <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-                                        <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-                                    </select>
-                                </div>
-                                <span>&nbsp; Choose Skin</span>
-                            </div>
-
-                            <!-- /section:settings.skins -->
-
-                            <!-- #section:settings.navbar -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
-                                <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-                            </div>
-
-                            <!-- /section:settings.navbar -->
-
-                            <!-- #section:settings.sidebar -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-                                <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-                            </div>
-
-                            <!-- /section:settings.sidebar -->
-
-                            <!-- #section:settings.breadcrumbs -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
-                                <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-                            </div>
-
-                            <!-- /section:settings.breadcrumbs -->
-
-                            <!-- #section:settings.rtl -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-                                <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-                            </div>
-
-                            <!-- /section:settings.rtl -->
-
-                            <!-- #section:settings.container -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
-                                <label class="lbl" for="ace-settings-add-container">
-                                    Inside
-                                    <b>.container</b>
-                                </label>
-                            </div>
-
-                            <!-- /section:settings.container -->
-                        </div><!-- /.pull-left -->
-
-                        <div class="pull-left width-50">
-                            <!-- #section:basics/sidebar.options -->
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
-                                <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
-                                <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-                            </div>
-
-                            <div class="ace-settings-item">
-                                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
-                                <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-                            </div>
-
-                            <!-- /section:basics/sidebar.options -->
-                        </div><!-- /.pull-left -->
-                    </div><!-- /.ace-settings-box -->
-                </div><!-- /.ace-settings-container -->
-
-                <!-- /section:settings.box -->
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 @if (Auth::guest())
                                     <div class="col-md-6">
-                                        <a href="{{ url('/login') }}" class="btn btn-primary btn-block">Login</a></li>
+                                        <a href="{{ url('/login') }}" class="btn btn-primary btn-block">Login</a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ url('/register') }}" class="btn btn-primary btn-block">Register</a></li>
+                                        <a href="{{ url('/register') }}" class="btn btn-primary btn-block">Register</a>
                                     </div>
                                 @endif
                             </div>
@@ -428,11 +316,10 @@
         <div class="footer-inner">
             <!-- #section:basics/footer -->
             <div class="footer-content">
-						<span class="bigger-120">
-							II Full Day de Gerencia &copy; 2016
-							<span class="blue bolder">Comisión de Sistemas - UNT</span>
-						</span>
-
+                <span class="bigger-120">
+                    II Full Day de Gerencia &copy; 2016
+                    <span class="blue bolder">Comisión de Sistemas - UNT</span>
+                </span>
             </div>
 
             <!-- /section:basics/footer -->

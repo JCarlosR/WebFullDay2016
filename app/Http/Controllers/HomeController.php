@@ -26,4 +26,9 @@ class HomeController extends Controller
         return view('history')->with(compact('requests'));
     }
 
+    public function profile()
+    {
+        return view('profile');
+    }
+
 }
