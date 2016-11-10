@@ -113,16 +113,16 @@
                         <span class="block input-icon input-icon-right">
                             <select class="form-control" name="ciclo">
                                 <option value="">Seleccione</option>
-                                <option value="1">I</option>
-                                <option value="2">II</option>
-                                <option value="3">III</option>
-                                <option value="4">IV</option>
-                                <option value="5">V</option>
-                                <option value="6">VI</option>
-                                <option value="7">VII</option>
-                                <option value="8">VIII</option>
-                                <option value="9">IX</option>
-                                <option value="10">XV</option>
+                                <option value="1" @if (old('ciclo') == 1) selected @endif>I</option>
+                                <option value="2" @if (old('ciclo') == 2) selected @endif>II</option>
+                                <option value="3" @if (old('ciclo') == 3) selected @endif>III</option>
+                                <option value="4" @if (old('ciclo') == 4) selected @endif>IV</option>
+                                <option value="5" @if (old('ciclo') == 5) selected @endif>V</option>
+                                <option value="6" @if (old('ciclo') == 6) selected @endif>VI</option>
+                                <option value="7" @if (old('ciclo') == 7) selected @endif>VII</option>
+                                <option value="8" @if (old('ciclo') == 8) selected @endif>VIII</option>
+                                <option value="9" @if (old('ciclo') == 9) selected @endif>IX</option>
+                                <option value="10" @if (old('ciclo') == 10) selected @endif>X</option>
                             </select>
                         </span>
                                     </label>
