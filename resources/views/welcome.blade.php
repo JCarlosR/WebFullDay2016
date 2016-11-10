@@ -215,7 +215,7 @@
             @if(Auth::guest())
                 <li><a href="{{ url('/login') }}" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">Inicia sesión</span></a>
                 </li>
-                <li><a href="{{ url('/register') }}" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Regístrate ya!</span></a>
+                <li><a href="{{ url('/register') }}" class="btn  btn-lg mybutton_standard wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Inscríbete ya!</span></a>
                 </li>
             @else
 

@@ -56,7 +56,7 @@ class AuthController extends Controller
             'celular' => 'required|digits:9|numeric',
             'universidad' => 'required|min:3|max:255',
             'carrera' => 'required|min:3|max:255',
-            'ciclo' => 'numeric',
+            'ciclo' => 'numeric|min:1|max:10',
         ]);
     }
 
