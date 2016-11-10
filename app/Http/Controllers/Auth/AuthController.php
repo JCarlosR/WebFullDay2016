@@ -49,6 +49,28 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'name.min' => 'Asegúrate de ingresar tu nombre completo.',
+            'name.max' => 'El nombre es demasiado extenso.',
+            'email.required' => 'Debes ingresar tu email',
+            'email.max' => 'El email es demasiado extenso',
+            'email.unique' => 'El email ya está en uso',
+            'name.required' => 'Debes ingresar tu nombre completo.',
+            'dni.required' => 'Debes ingresar tu DNI.',
+            'dni.digits' => 'El formato del DNI no es adecuado.',
+            'celular.required' => 'Ingresa tu número de celular.',
+            'celular.digits' => 'Ingresa tu número de celular sin espacios, solo números.',
+            'celular.numeric' => 'Ingresa tu número de celular sin espacios, solo números.',
+            'universidad.required' => 'Ingresa el nombre de tu universidad.',
+            'universidad.min' => 'Ingresa al menos 3 caracteres en el campo universidad.',
+            'universidad.max' => 'El nombre de tu universidad es demasiado extenso.',
+            'carrera.required' => 'Ingresa la carrera que estás estudiando o estudiaste.',
+            'carrera.min' => 'Ingresa al menos 3 caracteres en el campo carrera.',
+            'carrera.max' => 'El nombre de tu carrera es demasiado extenso.',
+            'password.required' => 'Ingrese una contraseña.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres.'
+        ];
+
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
@@ -58,7 +80,7 @@ class AuthController extends Controller
             'universidad' => 'required|min:3|max:255',
             'carrera' => 'required|min:3|max:255',
             'ciclo' => 'numeric|min:1|max:10'
-        ]);
+        ],$messages);
     }
 
     /**
