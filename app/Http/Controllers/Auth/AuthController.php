@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -69,7 +70,8 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $egresado = isset($data['egresado'])?$data['egresado']:0;
-        return User::create([
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -81,5 +83,19 @@ class AuthController extends Controller
             'ciclo' => $data['ciclo'],
             'egresado' => $egresado
         ]);
+
+        Mail::send('emails.correo', $data, function($message) use ($data)
+        {
+            $message->to($data['email'])->subject('Correo de confirmación');
+            $message->attach('', array(
+                    'as' => 'pdf-report.zip',
+                    'mime' => 'application/pdf')
+            );
+        });
+
+        return $user;
+
+
+
     }
 }

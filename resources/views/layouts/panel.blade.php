@@ -271,7 +271,7 @@
                     <ul class="submenu">
 
                         <li class="@yield('manage-record')">
-                            <a href="#">
+                            <a href="{{ url('/record') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Historial
                             </a>

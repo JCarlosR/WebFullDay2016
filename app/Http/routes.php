@@ -37,4 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/historial', 'HomeController@history');
 
     Route::get('/contacto', 'MailController@show');
+
+    Route::get('/record', 'RecordController@index');
+    Route::get('/send', 'MailController@sendUser');
 });

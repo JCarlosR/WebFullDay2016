@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Http\Request;
 
 
@@ -34,6 +35,27 @@ class MailController extends Controller
 
         return view('emails.contacto')->with(compact('nameUser', 'emailUser'));
         
+    }
+
+    public function sendUser()
+    {
+        $users = User::where('id', 2)->get();
+        $emails = [];
+        foreach ($users as $user){
+            array_push($emails, $user->email);
+        }
+
+        Mail::send('emails.correo', [], function($message) use ($emails)
+        {
+            $message->to($emails)->subject('Correo de confirmación');
+            /*$message->attach('assets/prueba.pdf', array(
+                    'as' => 'pdf-report.zip',
+                    'mime' => 'application/pdf')
+            );*/
+        });
+        
+        return response()->json(['error'=>false,'message'=>'Correo enviado correctamente']);
+
     }
 
 }
