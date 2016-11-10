@@ -1,8 +1,8 @@
 <?php
 
+Route::auth();
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Controller@getWelcome');
-    Route::auth();
     Route::get('/home', 'HomeController@index');
     // Contact
     Route::post('/contact', 'MailController@send');
@@ -11,7 +11,8 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     // Profile
-    Route::get('/datos', 'HomeController@profile');
+    Route::get('/datos', 'HomeController@getProfile');
+    Route::post('/datos', 'HomeController@postProfile');
 
     // Papers
     Route::get('/ponencias', 'PaperController@index');

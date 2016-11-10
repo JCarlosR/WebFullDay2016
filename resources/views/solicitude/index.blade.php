@@ -20,7 +20,7 @@
             Certificacion del II Full Day
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
-                Visualizando certificacion
+                Visualizando certificación
             </small>
         </h1>
     </div>
@@ -39,8 +39,8 @@
 	          </div>
 	          <div class="form-group">
 	          		<input readonly type="text" class="form-control" id="{{ $data->id }}" name="txtNombre" value="{{ $data->name }}">
-                <i><font color="red">* Importante: Recuerda que del nombre de usuario sera el mismo que aparesca en el certificado.</font></i>
-                <font color="blue"><b><a href=""> Editar Datos Click Aqui!</a></b></font>
+                <i><font color="red">* Importante: Recuerda que el nombre de usuario sera el mismo que aparezca en el certificado.</font></i>
+                <font color="blue"><b><a href="{{ url('/datos') }}"> Editar Datos Click Aqui!</a></b></font>
 	          		<input style="display:none" type="text" class="form-control" id="idusuario" name="idusuario" value="{{ $data->id }}">
 	          </div>
          @endforeach

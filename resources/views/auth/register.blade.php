@@ -16,20 +16,20 @@
                 <div class="widget-main">
                     <h4 class="header green lighter bigger">
                         <i class="ace-icon fa fa-users blue"></i>
-                        New User Registration
+                        Inscripción Gratuita
                     </h4>
 
                     <div class="space-6"></div>
-                    <p> Enter your details to begin: </p>
+                    <p> Ingresa tus datos para iniciar: </p>
 
                     <form role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-md-6">
                                 <fieldset>
-                                    <label class="block clearfix">
+                                    <label class="block clearfix{{ $errors->has('email') ? ' has-error' : '' }}">
                             <span class="block input-icon input-icon-right">
-                                <input type="email" class="form-control" placeholder="Email" name="email"/>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}"/>
                                 <i class="ace-icon fa fa-envelope"></i>
                             </span>
                                     </label>
@@ -39,9 +39,9 @@
                                     </span>
                                     @endif
 
-                                    <label class="block clearfix">
+                                    <label class="block clearfix{{ $errors->has('name') ? ' has-error' : '' }}">
                             <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Nombre" name="name"/>
+                                <input type="text" class="form-control" placeholder="Nombre" name="name" value="{{ old('name') }}"/>
                                 <i class="ace-icon fa fa-user"></i>
                             </span>
                                     </label>
@@ -51,9 +51,9 @@
                                     </span>
                                         @endif
                                                 <!-- Nuevos parámetros   -->
-                                        <label class="block clearfix">
+                                        <label class="block clearfix{{ $errors->has('dni') ? ' has-error' : '' }}">
                             <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Dni" name="dni"/>
+                                <input type="text" class="form-control" placeholder="Dni" name="dni" value="{{ old('dni') }}"/>
                                 <i class="ace-icon fa fa-certificate"></i>
                             </span>
                                         </label>
@@ -62,9 +62,9 @@
                                         <strong>{{ $errors->first('dni') }}</strong>
                                     </span>
                                         @endif
-                                        <label class="block clearfix">
+                                        <label class="block clearfix{{ $errors->has('celular') ? ' has-error' : '' }}">
                         <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" placeholder="Celular" name="celular"/>
+                            <input type="text" class="form-control" placeholder="Celular" name="celular" value="{{ old('celular') }}"/>
                             <i class="ace-icon fa fa-mobile"></i>
                         </span>
                                         </label>
@@ -74,9 +74,9 @@
                                 </span>
                                         @endif
 
-                                        <label class="block clearfix">
+                                        <label class="block clearfix{{ $errors->has('universidad') ? ' has-error' : '' }}">
                         <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" placeholder="Universidad" name="universidad"/>
+                            <input type="text" class="form-control" placeholder="Universidad" name="universidad" value="{{ old('universidad') }}"/>
                             <i class="ace-icon fa fa-university"></i>
                         </span>
                                         </label>
@@ -89,9 +89,9 @@
                             </div>
                             <div class="col-md-6">
                                 <fieldset>
-                                    <label class="block clearfix">
+                                    <label class="block clearfix{{ $errors->has('carrera') ? ' has-error' : '' }}">
                         <span class="block input-icon input-icon-right">
-                            <input type="text" class="form-control" placeholder="Carrera" name="carrera"/>
+                            <input type="text" class="form-control" placeholder="Carrera" name="carrera" value="{{ old('carrera') }}"/>
                             <i class="ace-icon fa fa-key"></i>
                         </span>
                                     </label>
@@ -111,8 +111,19 @@
 
                                     <label class="block clearfix">
                         <span class="block input-icon input-icon-right">
-                            <input type="number" class="form-control" placeholder="Ciclo" name="ciclo"/>
-                            <i class="ace-icon fa fa-arrow-circle-up"></i>
+                            <select class="form-control" name="ciclo">
+                                <option value="">Seleccione</option>
+                                <option value="1">I</option>
+                                <option value="2">II</option>
+                                <option value="3">III</option>
+                                <option value="4">IV</option>
+                                <option value="5">V</option>
+                                <option value="6">VI</option>
+                                <option value="7">VII</option>
+                                <option value="8">VIII</option>
+                                <option value="9">IX</option>
+                                <option value="10">XV</option>
+                            </select>
                         </span>
                                     </label>
                                     @if ($errors->has('ciclo'))
@@ -122,7 +133,7 @@
                                         @endif
 
                                                 <!-- Fin Nuevos parámetros   -->
-                                        <label class="block clearfix">
+                                        <label class="block clearfix{{ $errors->has('password') ? ' has-error' : '' }}">
                             <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" placeholder="Password" name="password"/>
                                 <i class="ace-icon fa fa-lock"></i>
@@ -134,7 +145,7 @@
                             </span>
                                         @endif
 
-                                        <label class="block clearfix">
+                                        <label class="block clearfix{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation"/>
                                 <i class="ace-icon fa fa-retweet"></i>
@@ -160,11 +171,11 @@
                                 <div class="clearfix">
                                     <button type="reset" class="width-30 pull-left btn btn-sm">
                                         <i class="ace-icon fa fa-refresh"></i>
-                                        <span class="bigger-110">Reset</span>
+                                        <span class="bigger-110">Limpiar</span>
                                     </button>
 
                                     <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
-                                        <span class="bigger-110">Register</span>
+                                        <span class="bigger-110">Registrar</span>
 
                                         <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                                     </button>
@@ -179,7 +190,7 @@
                 <div class="toolbar center">
                     <a href="{{url('/login')}}">
                         <i class="ace-icon fa fa-arrow-left"></i>
-                        Back to login
+                        Regresar a Log In
                     </a>
                 </div>
             </div><!-- /.widget-body -->
@@ -192,11 +203,11 @@
         $("input[name='egresado']").change(function() {
             if(this.checked)
             {
-                $("input[name='ciclo']").val('');
-                $("input[name='ciclo']").prop('disabled', true);
+                $("select[name='ciclo']").val('');
+                $("select[name='ciclo']").prop('disabled', true);
             }
             else
-                $("input[name='ciclo']").prop('disabled', false);
+                $("select[name='ciclo']").prop('disabled', false);
         });
     </script>
 @endsection
