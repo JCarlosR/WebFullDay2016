@@ -54,7 +54,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    Full Day Gerencia
+                    Full Day Gestión de TI
                 </small>
             </a>
 
@@ -425,7 +425,7 @@
             <!-- #section:basics/footer -->
             <div class="footer-content">
                 <span class="bigger-120">
-                    II Full Day de Gerencia &copy; 2016
+                    II Full Day de Gestón de TI &copy; 2016
                     <span class="blue bolder">Comisión de Sistemas - UNT</span>
                 </span>
             </div>
