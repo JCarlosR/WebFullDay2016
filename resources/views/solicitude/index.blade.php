@@ -25,7 +25,7 @@
         </h1>
     </div>
 <div class="col-md-8 col-md-offset-4">
-<h3><b>CERTIFICACION DEL EVENTO</b></h3>
+<h3><b>CERTIFICACIÓN DEL EVENTO</b></h3>
 </div>
 <div class="col-md-5 col-md-offset-1">
 <h5><i class="glyphicon glyphicon-hand-right"></i> Registrar solicitud de certificados del evento</h5>
@@ -39,8 +39,8 @@
 	          </div>
 	          <div class="form-group">
 	          		<input readonly type="text" class="form-control" id="{{ $data->id }}" name="txtNombre" value="{{ $data->name }}">
-                <i><font color="red">* Importante: Recuerda que el nombre de usuario sera el mismo que aparezca en el certificado.</font></i>
-                <font color="blue"><b><a href="{{ url('/datos') }}"> Editar Datos Click Aqui!</a></b></font>
+                <i><font color="red">* Importante: Recuerda que el nombre de usuario será el mismo que aparezca en el certificado.</font></i>
+                <font color="blue"><b><a href="{{ url('/datos') }}"> Editar Datos Click Aquí!</a></b></font>
 	          		<input style="display:none" type="text" class="form-control" id="idusuario" name="idusuario" value="{{ $data->id }}">
 	          </div>
          @endforeach
@@ -69,7 +69,7 @@
             @endforeach
             @if($j==0)
               <div class="alert alert-danger">
-                  <strong>Informacion! </strong>Ya solicito todos los certificados disponibles.
+                  <strong>Información! </strong>Ya solicitó todos los certificados disponibles.
               </div>
               <div class="form-group">
                 <a type="button" disabled id="btnGuard" onclick="sendform();" class="btn btn-success">Solicitar</a> 

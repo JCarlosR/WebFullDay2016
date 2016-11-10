@@ -330,7 +330,7 @@
                 </p>
 
                 <p><a class="btn btn-embossed btn-primary" href="{{ $speaker->profile }}" role="button">Más información</a>
-                    <a class="btn btn-embossed btn-info" href="#" role="button">Visit Website</a></p>
+                    </p>
             </div>
         </div>
             <br>
@@ -584,7 +584,7 @@
                 <address>
                     <h3>Ubicación del local</h3>
                     <p class="lead"><a title="Ubicación google maps" target="_blank" href="https://www.google.com/maps/place/Los+Conquistadores+Hotel+S+A/@-8.1131851,-79.0291977,18z/data=!4m5!3m4!1s0x91ad3d8354648a39:0xf86dfb2dac3975be!8m2!3d-8.1135887!4d-79.0280014">Centro de Convenciones Los Libertadores<br>
-                            Jr.Diego De Almagro 586 Trujillo Peru</a><br>
+                            Jr.Diego De Almagro 586 Trujillo Perú</a><br>
                     <h3>Comunícate sobre el evento a:</h3>
                         Teléfono RPC: 993 249 187<br>
                         Teléfono RPM: 949 610 531<br>

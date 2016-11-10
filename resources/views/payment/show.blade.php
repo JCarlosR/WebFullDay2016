@@ -28,7 +28,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <h3><strong>Cuenta BANCO BCP:  </strong>570-34604327-0-19</h3>
+            <h3><strong>Cuenta BANCO BCP:  </strong>570-34604327-0-19 - Alvaro Vargas Otiniano</h3>
         </div>
         <br><br><br>
         <div class="col-xs-12 table-responsive">
