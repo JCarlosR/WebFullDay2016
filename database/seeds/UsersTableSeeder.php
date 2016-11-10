@@ -42,7 +42,13 @@ class UsersTableSeeder extends Seeder
             'role_id' => 3,
             'name' => 'Juan Ramos',
             'email' => 'juancagb.17@gmail.com',
-            'password' => bcrypt('123123')
+            'password' => bcrypt('123123'),
+            'celular' => '966 543 777',
+            'dni' => '76474871',
+            'universidad' => 'UNT',
+            'carrera' => 'Ingeniería de Sistemas',
+            'ciclo' => 10,
+            'egresado' => false
         ]);
     }
 }
