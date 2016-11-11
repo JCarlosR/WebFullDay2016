@@ -112,7 +112,7 @@
                                     <label class="block clearfix">
                         <span class="block input-icon input-icon-right">
                             <select class="form-control" name="ciclo">
-                                <option value="">Seleccione</option>
+                                <option value="0" @if (old('ciclo') == 0) selected @endif>Seleccione</option>
                                 <option value="1" @if (old('ciclo') == 1) selected @endif>I</option>
                                 <option value="2" @if (old('ciclo') == 2) selected @endif>II</option>
                                 <option value="3" @if (old('ciclo') == 3) selected @endif>III</option>
@@ -203,7 +203,7 @@
         $("input[name='egresado']").change(function() {
             if(this.checked)
             {
-                $("select[name='ciclo']").val('');
+                $("select[name='ciclo']").val('0');
                 $("select[name='ciclo']").prop('disabled', true);
             }
             else
