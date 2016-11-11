@@ -1,4 +1,3 @@
-<!-- FlatFy Theme - Andrea Galanti /-->
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -8,10 +7,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="II FullDay Gestión de TI UNT">
-    <meta name="author" content="">
+    <meta name="description" content="II Full Day UNT - Gestión de TI">
+    <meta name="author" content="UNT">
 
-    <title>II Full Day – Gerencia de sistemas UNT</title>
+    <title>II Full Day UNT – Gerencia de Sistemas</title>
+    <meta property="og:image" content="{{ asset('images/fullday.jpg') }}">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="350">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('plantilla/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,17 +35,14 @@
     <link href="{{ asset('plantilla/css/animate.css') }}" rel="stylesheet">
 
     <style>
-
         .logo {
             width: 100px;
             height: 53px;
         }
-
         .image{
             width: 315px;
             height: 315px;
         }
-
         ul.countdown {
             list-style: none;
             margin: 75px 0;
@@ -67,14 +67,12 @@
             color: #a7abb1;
             font-size: 14px;
         }
-
         .timeline {
             position: relative;
             padding: 21px 0px 10px;
             margin-top: 4px;
             margin-bottom: 30px;
         }
-
         .timeline .line {
             position: absolute;
             width: 4px;
@@ -93,7 +91,6 @@
             font-size: .9em;
             margin-left: 30px;
         }
-
         .timeline .line::before { top: -4px; }
         .timeline .line::after { bottom: -4px; }
         .timeline .line::before,
@@ -107,13 +104,11 @@
             border-radius: 50%;
             background: currentColor;
         }
-
         .timeline .panel {
             position: relative;
             margin: 10px 0px 21px 70px;
             clear: both;
         }
-
         .timeline .panel::before {
             position: absolute;
             display: block;
@@ -128,7 +123,6 @@
             border-bottom-color: transparent;
             border-left-color: transparent;
         }
-
         .timeline .panel .panel-heading.icon * { font-size: 20px; vertical-align: middle; line-height: 40px; }
         .timeline .panel .panel-heading.icon {
             position: absolute;
@@ -141,22 +135,18 @@
             text-align: center;
             float: left;
         }
-
         .timeline .panel-outline {
             border-color: transparent;
             background: transparent;
             box-shadow: none;
         }
-
         .timeline .panel-outline .panel-body {
             padding: 10px 0px;
         }
-
         .timeline .panel-outline .panel-heading:not(.icon),
         .timeline .panel-outline .panel-footer {
             display: none;
         }
-
     </style>
 
     <!-- Magnific Popup core CSS file -->

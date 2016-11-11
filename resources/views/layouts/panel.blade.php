@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.css')}}" />
 
-    <!-- page specific plugin styles -->
 
     <!-- text fonts -->
     <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
