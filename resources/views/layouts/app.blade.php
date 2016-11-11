@@ -8,6 +8,9 @@
     <meta name="description" content="II Full Day UNT - Gestión de TI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta property="og:image" content="{{ asset('images/fullday.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="350">
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" />
