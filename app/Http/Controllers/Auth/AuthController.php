@@ -92,6 +92,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $egresado = isset($data['egresado'])?$data['egresado']:0;
+        $ciclo = isset($data['ciclo'])?$data['ciclo']:0;
 
         $user =  User::create([
             'name' => $data['name'],
@@ -102,7 +103,7 @@ class AuthController extends Controller
             'celular' => $data['celular'],
             'universidad' => $data['universidad'],
             'carrera' => $data['carrera'],
-            'ciclo' => $data['ciclo'],
+            'ciclo' => $ciclo,
             'egresado' => $egresado
         ]);
 

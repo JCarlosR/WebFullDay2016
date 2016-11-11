@@ -3,11 +3,11 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Login Page - Full Day Gerencia</title>
+    <title>II Full Day UNT</title>
 
-    <meta name="description" content="User login page" />
+    <meta name="description" content="II Full Day UNT - Gestión de TI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
+    
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.css')}}" />
@@ -17,7 +17,6 @@
 
     <!-- ace styles -->
     <link rel="stylesheet" href="{{asset('assets/css/ace.css')}}" />
-
     <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.css')}}" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,9 +40,7 @@
 
                     <div class="space-6"></div>
 
-
                         @yield('content')
-
 
                     <div class="navbar-fixed-top align-right">
                         <br />
