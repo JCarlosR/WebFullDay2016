@@ -106,13 +106,9 @@ class AuthController extends Controller
             'egresado' => $egresado
         ]);
 
-        Mail::send('emails.correo', $data, function($message) use ($data)
+        Mail::send('emails.email', $data, function($message) use ($data)
         {
             $message->to($data['email'])->subject('Correo de confirmación');
-            $message->attach('', array(
-                    'as' => 'pdf-report.zip',
-                    'mime' => 'application/pdf')
-            );
         });
 
         return $user;

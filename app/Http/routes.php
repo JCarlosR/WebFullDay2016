@@ -16,6 +16,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Papers
     Route::get('/ponencias', 'PaperController@index');
+    Route::get('/papers', 'PaperController@show');
     Route::get('/ponentes', 'SpeakerController@index');
 
     // Payments and Certificates

@@ -229,7 +229,7 @@
                     <ul class="submenu">
 
                         <li class="@yield('manage-papers')">
-                            <a href="#">
+                            <a href="{{ url('/papers') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar ponencias
                             </a>
