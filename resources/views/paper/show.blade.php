@@ -66,10 +66,10 @@
 
                     <td class="center">
                         <div class="hidden-sm hidden-xs btn-group">
-                            <a href="{{ url('#') }}" class="btn btn-xs btn-info">
+                            <button data-edit data-paper="{{$paper->id}}" data-speaker="{{$paper->speaker_id}}" data-subject="{{$paper->subject}}" data-date="{{$paper->realization}}" data-start="{{$paper->start}}" data-end="{{$paper->end}}" class="btn btn-xs btn-info">
                                 <i class="ace-icon glyphicon glyphicon-pencil bigger-120"></i>
-                            </a>
-                            <button class="btn btn-xs btn-danger" data-eliminar data-paper="{{ $paper->subject }}" data-id="{{ $paper->id }}">
+                            </button>
+                            <button class="btn btn-xs btn-danger" data-delete data-paper="{{ $paper->subject }}" data-speaker="{{ $paper->speaker->name }}" data-id="{{ $paper->id }}">
                                 <i class="ace-icon fa fa-trash bigger-120"></i>
                             </button>
                         </div>
@@ -89,7 +89,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#" data-eliminar class="tooltip-error" data-rel="tooltip" title="Delete" data-paper="{{ $paper->subject }}" data-id="{{ $paper->id }}">
+                                        <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-delete data-paper="{{ $paper->subject }}" data-speaker="{{ $paper->speaker->name }}" data-id="{{ $paper->id }}">
                                             <span class="red">
                                                 <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                             </span>
@@ -115,7 +115,8 @@
                 </div>
 
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form" >
+                    <form class="form-horizontal" role="form" id="form-new">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ponente </label>
                             <div class="col-sm-8">
@@ -133,30 +134,30 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fecha de la ponencia </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fecha </label>
                             <div class="col-sm-4">
-                                <input type="date" id="date" class="form-control" name="date" required/>
+                                <input type="date" id="date" class="form-control" name="date" value="{{ $date }}" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de inicio </label>
                             <div class="col-sm-4">
-                                <input type="time" id="start" class="form-control" name="start" required/>
+                                <input type="time" id="start" class="form-control" name="start" value="08:00" max="16:00" min="08:00" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de término </label>
                             <div class="col-sm-4">
-                                <input type="time" id="end" class="form-control" name="end" required/>
+                                <input type="time" id="end" class="form-control" name="end" value="08:00" max="16:00" min="08:00" required/>
                             </div>
                         </div>
                     </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-sm btn-primary pull-left" id="btnEditar">
+                    <button class="btn btn-sm btn-primary pull-left" id="btnSave" data-url="{{ url('/papers/registrar') }}">
                         <i class="ace-icon glyphicon glyphicon-trash"></i>
-                        Editar
+                        Guardar
                     </button>
                     <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
                         <i class="ace-icon fa fa-times"></i>
@@ -167,69 +168,7 @@
         </div><!-- /.modal-dialog -->
     </div>
 
-    <div id="" class="modal fade in" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="smaller lighter blue no-margin">Nueva ponencia</h3>
-                </div>
-
-                <div class="modal-body">
-                    <form action="" method="post" accept-charset="utf-8" >
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ponente </label>
-                            <div class="col-sm-4">
-                                <select class="form-control" id="ponentes" name="ponentes">
-                                    @foreach( $speakers as $speaker )
-                                        <option value="{{ $speaker->id }}">{{ $speaker->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tema de ponencia </label>
-                            <div class="col-sm-4">
-                                <input type="text" id="subject" class="form-control" name="subject" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fecha de la ponencia </label>
-                            <div class="col-sm-4">
-                                <input type="date" id="date" class="form-control" name="date" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de inicio </label>
-                            <div class="col-sm-4">
-                                <input type="time" id="start" class="form-control" name="start" required/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de término </label>
-                            <div class="col-sm-4">
-                                <input type="time" id="end" class="form-control" name="end" required/>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-sm btn-primary pull-left" id="btnEditar">
-                        <i class="ace-icon glyphicon glyphicon-trash"></i>
-                        Editar
-                    </button>
-                    <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-                        <i class="ace-icon fa fa-times"></i>
-                        Cancelar
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div>
-
-    <div id="edit-modal" class="modal fade" tabindex="-1">
+    <div id="edit-modal" class="modal fade in" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -238,11 +177,13 @@
                 </div>
 
                 <div class="modal-body">
-                    <form action="" method="post" accept-charset="utf-8" >
+                    <form class="form-horizontal" role="form" id="form-edit" >
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <input type="hidden" name="paper" />
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ponente </label>
-                            <div class="col-sm-4">
-                                <select class="form-control" id="ponentes" name="ponentes">
+                            <div class="col-sm-8">
+                                <select class="form-control" id="speakers" name="speakers">
                                     @foreach( $speakers as $speaker )
                                         <option value="{{ $speaker->id }}">{{ $speaker->name }}</option>
                                     @endforeach
@@ -251,26 +192,26 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tema de ponencia </label>
-                            <div class="col-sm-4">
-                                <input type="text" id="subject" class="form-control" name="subject" required/>
+                            <div class="col-sm-8">
+                                <textarea id="subject-e" class="form-control" name="subject-e" rows="4"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fecha de la ponencia </label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Fecha </label>
                             <div class="col-sm-4">
-                                <input type="date" id="date" class="form-control" name="date" required/>
+                                <input type="date" id="date-e" class="form-control" name="date-e" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de inicio </label>
                             <div class="col-sm-4">
-                                <input type="time" id="start" class="form-control" name="start" required/>
+                                <input type="time" id="start-e" class="form-control" name="start-e" value="08:00" max="16:00" min="08:00" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Hora de término </label>
                             <div class="col-sm-4">
-                                <input type="time" id="end" class="form-control" name="end" required/>
+                                <input type="time" id="end-e" class="form-control" name="end-e" value="08:00" max="16:00" min="08:00" required/>
                             </div>
                         </div>
                     </form>
@@ -278,7 +219,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-sm btn-primary pull-left" id="btnEditar">
+                    <button data-url="{{url('/papers/editar')}}" class="btn btn-sm btn-primary pull-left" id="btnEditar">
                         <i class="ace-icon glyphicon glyphicon-trash"></i>
                         Editar
                     </button>
@@ -296,25 +237,33 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="smaller lighter blue no-margin">Eliminar proyecto</h3>
+                    <h3 class="smaller lighter blue no-margin">Eliminar ponencia</h3>
                 </div>
 
                 <div class="modal-body">
-                    <form action="" method="post" accept-charset="utf-8" >
-                        <strong>¿Está seguro de eliminar este proyecto?</strong>
-                        <p>Recuerde que si el proyecto tiene categorias asignadas no se podrá eliminar.</p>
+                    <form class="form-horizontal" role="form" id="form-delete" >
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <strong>¿Está seguro de eliminar esta ponencia?</strong>
 
                         <input id="idEliminado" type="hidden" name="idEliminado">
                         <div class="form-group">
-                            <label for="proyecto">Proyecto:</label>
-                            <input type="text" name="proyecto" id="proyecto" readonly="true" class="form-control">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ponente </label>
+                            <div class="col-sm-8">
+                                <input id="ponente-d" type="text" name="ponente-d" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tema de ponencia </label>
+                            <div class="col-sm-8">
+                                <textarea id="subject-d" class="form-control" name="subject-d" rows="4" readonly></textarea>
+                            </div>
                         </div>
                     </form>
 
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-sm btn-primary pull-left" id="btnEliminar">
+                    <button class="btn btn-sm btn-primary pull-left" id="btnEliminar" data-url="{{url('/papers/eliminar')}}">
                         <i class="ace-icon glyphicon glyphicon-trash"></i>
                         Eliminar
                     </button>
