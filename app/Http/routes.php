@@ -46,4 +46,11 @@ Route::group(['middleware' => 'auth'], function () {
     /*Route::get('/record', 'RecordController@index');*/
     Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
+
+
+    // Admin perspective
+    Route::get('admin/ponentes', 'SpeakerController@adminIndex');
+    Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
+    Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
+    Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
 });
