@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/contacto', 'MailController@show');
 
-    Route::get('/record', 'RecordController@index');
+    /*Route::get('/record', 'RecordController@index');*/
+    Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
 });
