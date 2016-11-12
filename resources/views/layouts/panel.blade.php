@@ -237,7 +237,7 @@
                         </li>
 
                         <li class="@yield('manage-speakers')">
-                            <a href="#">
+                            <a href="{{ url('admin/ponentes') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar ponentes
                             </a>
