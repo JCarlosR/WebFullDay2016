@@ -219,6 +219,17 @@
             @endif
         </ul>
     </div>
+    @if(!Auth::guest())
+        <?php $mytime = Carbon\Carbon::now();
+              $cmp = strcmp(substr((string)Auth::user()->created_at,0,-3),substr($mytime->toDateTimeString(),0,-3));
+        ?>
+        @if($cmp==0)
+            <div class="alert alert-info">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Registro Exitoso!</strong> Revisa tu correo para confirmar.
+            </div>
+        @endif
+    @endif
     <!-- /.container -->
     <div class="col-xs-12 text-center abcen wow fadeIn">
         <div class="button_down ">
@@ -635,7 +646,6 @@
     })();
 
 </script>
-
 <script src="{{ asset('assets/js/welcome/main.js') }}"></script>
 </body>
 
