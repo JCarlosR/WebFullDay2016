@@ -21,6 +21,7 @@ class SpeakerController extends Controller
     public function adminIndex()
     {
         $speakers = Speaker::where('enable',1)->orderBy('name')->paginate(4);
+
         return view('speaker.admin.show')->with(compact('speakers'));
     }
 

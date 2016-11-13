@@ -288,7 +288,7 @@
                         </li>
 
                         <li class="@yield('make-payment')">
-                            <a href="#">
+                            <a href="{{ url('admin/pagos') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Realizar pago
                             </a>

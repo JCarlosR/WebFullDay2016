@@ -49,8 +49,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // Admin perspective
+    //Speakers
     Route::get('admin/ponentes', 'SpeakerController@adminIndex');
     Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
     Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
+
+    // Payments
+    Route::get('admin/pagos', 'PaymentController@adminIndex');
+    Route::post('admin/pagos/registrar', 'PaymentController@create');
 });

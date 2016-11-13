@@ -15,7 +15,7 @@ class CertificateTableSeeder extends Seeder
         //
         Certificate::create([
             'event_id' =>1,
-            'type' => "Asitente",
+            'type' => "Asistente",
             'cost' => 30.00,
         ]);
     }
