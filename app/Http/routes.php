@@ -47,11 +47,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
 
-    //Web Service Question
-    Route::get('/Question', 'SurveyController@SendQuestions');
-    Route::get('/Question/registrar', 'SurveyController@ReceptionQuestions');
-
-
     // Admin perspective
     Route::get('admin/ponentes', 'SpeakerController@adminIndex');
     Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
@@ -59,3 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
 
 });
+
+//Web Service Question
+ Route::get('/question', 'SurveyController@SendQuestions');
+ Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
