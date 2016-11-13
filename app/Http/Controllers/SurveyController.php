@@ -18,11 +18,11 @@ class SurveyController extends Controller
 		$time = time();
 		$hora=(int)date("H", $time);
 		if ($hora < 13) {
-			$Questions=Question::where('enable', 1)->where('turn', 'M')->get();
+			$Questions['questions']=Question::where('enable', 1)->where('turn', 'M')->get();
 			return $Questions;
 		}
 		else{
-			$Questions=Question::where('enable', 1)->where('turn', 'T')->get();
+			$Questions['questions']=Question::where('enable', 1)->where('turn', 'T')->get();
 			return $Questions;
 		}
 
@@ -43,7 +43,7 @@ class SurveyController extends Controller
             ]);
 
         $survey_id=$survey->id;
-        
+
         /*
         if ($type==1) {
             $scor= $request->get('score');
