@@ -15,7 +15,7 @@
 @section('content')
     <div class="page-header">
         <h1>
-            II FULL DAY GERENCIA UNT
+            II FULL DAY GESTION DE TI UNT
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
                 Gestione su participación y certificados
