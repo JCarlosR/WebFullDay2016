@@ -45,4 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/record', 'RecordController@index');
     Route::get('/send', 'MailController@sendUser');
+
+    // Question
+    Route::get('/Question', 'SurveyController@SendQuestions');
+    Route::get('/Question/registrar', 'SurveyController@ReceptionQuestions');
 });
