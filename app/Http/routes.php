@@ -53,4 +53,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
     Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
+
+    Route::get('admin/itinerario', 'itineraryController@listar');
+    Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');
+    Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
+    Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
 });

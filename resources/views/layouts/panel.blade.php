@@ -246,7 +246,7 @@
                         </li>
 
                         <li class="@yield('manage-itinerary')">
-                            <a href="#">
+                            <a href="{{ url('admin/itinerario') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar itinerario
                             </a>
