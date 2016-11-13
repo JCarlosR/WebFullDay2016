@@ -47,7 +47,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
 
-
     // Admin perspective
     //Speakers
     Route::get('admin/ponentes', 'SpeakerController@adminIndex');
@@ -55,7 +54,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
 
+
     // Payments
     Route::get('admin/pagos', 'PaymentController@adminIndex');
     Route::post('admin/pagos/registrar', 'PaymentController@create');
+
+    Route::get('admin/itinerario', 'itineraryController@listar');
+    Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');
+    Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
+    Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
+
+    Route::get('/question', 'SurveyController@SendQuestions');
+    Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
+
 });
+

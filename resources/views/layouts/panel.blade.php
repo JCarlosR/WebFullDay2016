@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>Full Day Gerencia | @yield('title')</title>
+    <title>Full Day Gestión de TI | @yield('title')</title>
 
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -246,7 +246,7 @@
                         </li>
 
                         <li class="@yield('manage-itinerary')">
-                            <a href="#">
+                            <a href="{{ url('admin/itinerario') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar itinerario
                             </a>
