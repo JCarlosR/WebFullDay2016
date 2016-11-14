@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('solicitude_id')->unsigned();
             $table->foreign('solicitude_id')->references('id')->on('solicitudes');
             $table->string('entity');
-            $table->string('payment_file');
+            $table->string('payment_file')->default('contado.jpg');
             $table->integer('amount');
             $table->integer('operation');
             $table->string('operation_date');

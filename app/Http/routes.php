@@ -16,6 +16,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Papers
     Route::get('/ponencias', 'PaperController@index');
+    Route::get('/papers', 'PaperController@show');
+    Route::post('/papers/registrar', 'PaperController@store');
+    Route::post('/papers/editar', 'PaperController@edit');
+    Route::post('/papers/eliminar', 'PaperController@delete');
+
     Route::get('/ponentes', 'SpeakerController@index');
 
     // Payments and Certificates
@@ -38,6 +43,29 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/contacto', 'MailController@show');
 
-    Route::get('/record', 'RecordController@index');
+    /*Route::get('/record', 'RecordController@index');*/
+    Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
+
+    // Admin perspective
+    //Speakers
+    Route::get('admin/ponentes', 'SpeakerController@adminIndex');
+    Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
+    Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
+    Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
+
+
+    // Payments
+    Route::get('admin/pagos', 'PaymentController@adminIndex');
+    Route::post('admin/pagos/registrar', 'PaymentController@create');
+
+    Route::get('admin/itinerario', 'itineraryController@listar');
+    Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');
+    Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
+    Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
+
+    Route::get('/question', 'SurveyController@SendQuestions');
+    Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
+
 });
+

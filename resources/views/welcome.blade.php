@@ -10,7 +10,7 @@
     <meta name="description" content="II Full Day UNT - Gestión de TI">
     <meta name="author" content="UNT">
 
-    <title>II Full Day UNT – Gerencia de Sistemas</title>
+    <title>II Full Day UNT – Gestión de TI</title>
     <meta property="og:image" content="{{ asset('images/fullday.jpg') }}">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="960">
@@ -196,7 +196,7 @@
 <!-- FullScreen -->
 <div class="intro-header">
     <div class="col-xs-12 text-center abcen1">
-        <h2 class="h1_home wow fadeIn" data-wow-delay="0.4s"><img class="logo rotate" src="{{ asset('images/logo_solo.png') }}" alt="">II Full Day Gerencia UNT</h2>
+        <h2 class="h1_home wow fadeIn" data-wow-delay="0.4s"><img class="logo rotate" src="{{ asset('images/logo_solo.png') }}" alt="">II Full Day de Gestión de TI UNT</h2>
 
         <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Tiempo restante</h3>
         <div class="demo1"></div>
@@ -219,6 +219,17 @@
             @endif
         </ul>
     </div>
+    @if(!Auth::guest())
+        <?php $mytime = Carbon\Carbon::now();
+              $cmp = strcmp(substr((string)Auth::user()->created_at,0,-3),substr($mytime->toDateTimeString(),0,-3));
+        ?>
+        @if($cmp==0)
+            <div class="alert alert-info">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Registro Exitoso!</strong> Revisa tu correo para confirmar.
+            </div>
+        @endif
+    @endif
     <!-- /.container -->
     <div class="col-xs-12 text-center abcen wow fadeIn">
         <div class="button_down ">
@@ -369,7 +380,7 @@
 
         <div class="col-md-6 col-md-offset-3 text-center wrap_title">
             <h2>Novedades</h2>
-            <p class="lead" style="margin-top:0">Aplicacion móvil para el Full Day Gerencia UNT 2016.</p>
+            <p class="lead" style="margin-top:0">Aplicacion móvil para el Full Day de Gestión de TI UNT 2016.</p>
 
         </div>
 
@@ -635,7 +646,6 @@
     })();
 
 </script>
-
 <script src="{{ asset('assets/js/welcome/main.js') }}"></script>
 </body>
 
