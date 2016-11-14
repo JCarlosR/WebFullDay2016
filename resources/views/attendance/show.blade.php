@@ -1,61 +1,64 @@
 @extends('layouts.panel')
 
-@section('title','Certificados')
+@section('title','Asistencia')
 
-@section('manage-inscription','open')
+@section('manage-assistance','open')
 
-@section('make-payment','active')
+@section('milestone','active')
 
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Inscripción</a>
+        <a href="#">Asistencia</a>
     </li>
-    <li class="active">Pagos</li>
+    <li class="active">Hitos</li>
 @endsection
 
 @section('content')
     <div class="page-header">
         <h1>
-            Gestionar pagos del II Full Day
+            Gestionar hitos del II Full Day
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
-                Visualizando pagos de los certificados
+                Visualizando hitos de las asistencias
             </small>
         </h1>
 
     </div>
 
     <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-success btn-sm" data-register><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Nuevo hito</button>
+        </div>
+    </div>
+    <div class="space-4"></div>
+
+    <div class="row">
         <div class="col-xs-12 table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Asistente</th>
-                        <th>Email</th>
-                        <th>Universidad</th>
-                        <th>Carrera</th>
-                        <th>Estado</th>
-                        <th>Monto abonado</th>
+                        <th>Hito</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
                         <th>Acción</th>
+                        <th>Pasar lista</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $array_solicitudes as $array_solicitud )
+                    @foreach( $milestones as $milestone )
                         <tr>
-                            <td>{{ $array_solicitud[0]->user->name }}</td>
-                            <td>{{ $array_solicitud[0]->user->email }}</td>
-                            <td>{{ $array_solicitud[0]->user->universidad }}</td>
-                            <td>{{ $array_solicitud[0]->user->carrera }}</td>
-                            <td>{{ $array_solicitud[0]->state }}</td>
-                            <td>S/. {{ $array_solicitud[1] }}.00</td>
+                            <td>{{ $milestone->name }}</td>
+                            <td>{{ $milestone->date }}</td>
+                            <td>{{ $milestone->time }}</td>
                             <td>
-                                @if( $array_solicitud[2] == 'Pendiente' )
-                                    <button class="btn btn-primary btn-sm" data-solicitude="{{ $array_solicitud[0]->id }}"
-                                            data-certificate="{{ $array_solicitud[0]->certificate->type }}"
-                                            data-assistant="{{ $array_solicitud[0]->user->name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</button>
-                                @endif
+                                <button class="btn btn-danger btn-sm" data-delete="{{$milestone->id}}"
+                                        data-name="{{$milestone->name}}"
+                                        data-date="{{$milestone->name}}"
+                                        data-time="{{$milestone->name}}"><i class="ace-icon glyphicon glyphicon-trash bigger-120"></i> Eliminar
+                                </button>
                             </td>
+                            <td><a href="{{url('admin/asistencias')}}" class="btn btn-primary btn-sm"><i class="ace-icon glyphicon glyphicon-check bigger-120"></i> Pasar lista</a></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -122,7 +125,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3" for="name">Fecha de operación<span class="required">*</span></label>
                             <div class="col-md-4">
-                                <input type="date" id="operation_date" name="operation_date" value="{{$today}}" class="form-control inside" required>
+                                <input type="date" id="operation_date" name="operation_date" class="form-control inside" required>
                             </div>
                         </div>
 

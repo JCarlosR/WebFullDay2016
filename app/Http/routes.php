@@ -53,7 +53,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
 
-
     // Payments
     Route::get('admin/pagos', 'PaymentController@adminIndex');
     Route::post('admin/pagos/registrar', 'PaymentController@create');
@@ -62,6 +61,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');
     Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
+
+    //Attendance
+    Route::get('admin/hitos', 'AttendanceController@adminIndex');
+    Route::get('admin/asistencias', 'AttendanceController@adminAttendance');
 
     Route::get('/question', 'SurveyController@SendQuestions');
     Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');

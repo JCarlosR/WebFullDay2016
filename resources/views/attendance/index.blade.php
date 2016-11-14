@@ -1,26 +1,26 @@
 @extends('layouts.panel')
 
-@section('title','Certificados')
+@section('title','Asistencia')
 
-@section('manage-inscription','open')
+@section('manage-assistance','open')
 
-@section('make-payment','active')
+@section('milestone','active')
 
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Inscripción</a>
+        <a href="#">Asistencia</a>
     </li>
-    <li class="active">Pagos</li>
+    <li class="active">Asistencia</li>
 @endsection
 
 @section('content')
     <div class="page-header">
         <h1>
-            Gestionar pagos del II Full Day
+            Gestionar hitos del II Full Day
             <small>
                 <i class="ace-icon fa fa-angle-double-right"></i>
-                Visualizando pagos de los certificados
+                Visualizando hitos de las asistencias
             </small>
         </h1>
 
@@ -31,7 +31,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Asistente</th>
+                        <th>Asistencia</th>
                         <th>Email</th>
                         <th>Universidad</th>
                         <th>Carrera</th>
@@ -53,7 +53,7 @@
                                 @if( $array_solicitud[2] == 'Pendiente' )
                                     <button class="btn btn-primary btn-sm" data-solicitude="{{ $array_solicitud[0]->id }}"
                                             data-certificate="{{ $array_solicitud[0]->certificate->type }}"
-                                            data-assistant="{{ $array_solicitud[0]->user->name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</button>
+                                            data-assistant="{{ $array_solicitud[0]->user->name }}">Registrar pago</button>
                                 @endif
                             </td>
                         </tr>
