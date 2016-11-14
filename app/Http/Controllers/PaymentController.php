@@ -62,7 +62,7 @@ class PaymentController extends Controller
         $today = new Carbon();
         $today = $today->format('Y-m-d');
         $hide = 0;
-        if( $solicitude->state=="Anulado" )
+        if( $solicitude->state=="Anulado" || $solicitude->state=='Pagado')
             $hide = 1;
 
         $payments = Payment::where('enable',1)->where('solicitude_id',$solicitude_id)->get();
@@ -116,17 +116,25 @@ class PaymentController extends Controller
             'operation_date'=>$date
         ]);
 
-        $path = public_path().'/assets/img/payment';
-        $extension = $document->getClientOriginalExtension();
-        $fileName = $payment->id . '.' . $extension;
-        $document->move($path, $fileName);
-        $payment->payment_file = $fileName;
+        if( $document )
+        {
+            $path = public_path().'/assets/img/payment';
+            $extension = $document->getClientOriginalExtension();
+            $fileName = $payment->id . '.' . $extension;
+            $document->move($path, $fileName);
+            $payment->payment_file = $fileName;
+        }
+
         $payment->save();
 
         if ( $total_amount+$amount == $certificate_cost  ) {
             $solicitude->state = 'Pagado';
             $solicitude->save();
-            return response()->json(['error' => true, 'refreshing' => true, 'message' => 'Pago registrado correctamente, Usted ya no tiene deudas']);
+            $page = 'pagos';
+            if( Auth()->user()->role_id != 3 )
+                $page = 'admin/pagos';
+
+            return response()->json(['error' => true, 'refreshing' => true, 'message' => 'Pago registrado correctamente, Usted ya no tiene deudas','page'=>$page]);
         }
         return response()->json(['error'=>false,'message'=>'Pago registrado correctamente']);
     }
@@ -143,5 +151,33 @@ class PaymentController extends Controller
         $payment->save();
 
         return response()->json(['error'=>false,'message'=>'Pago anulado correctamente']);
+    }
+
+    public function adminIndex()
+    {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
+        $solicitudes = Solicitude::where('enable',1)->where('state','Pendiente')->orderBy('created_at')->get();
+        $array_solicitudes = [];
+        $today = new Carbon();
+        $today = $today->format('Y-m-d');
+        if( count($solicitudes) != 0 ) {
+            foreach ($solicitudes as $solicitude) {
+                $total_payment = 0;
+                $state = 'Pendiente';
+                if( count($solicitude->payments) != 0 ) {
+                    foreach ($solicitude->payments as $payment) {
+                        if ($payment->enable == 1)
+                            $total_payment += $payment->amount;
+                    }
+
+                    if ( $solicitude->certificate->cost == $total_payment )
+                        $state = 'Pagado';
+                }
+                $array_solicitudes[] = [$solicitude,$total_payment,$state];
+            }
+        }
+        return view('payment.admin.show')->with(compact('array_solicitudes','today'));
     }
 }

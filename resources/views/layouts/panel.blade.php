@@ -246,7 +246,7 @@
                         </li>
 
                         <li class="@yield('manage-itinerary')">
-                            <a href="#">
+                            <a href="{{ url('admin/itinerario') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar itinerario
                             </a>
@@ -288,7 +288,7 @@
                         </li>
 
                         <li class="@yield('make-payment')">
-                            <a href="#">
+                            <a href="{{ url('admin/pagos') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Realizar pago
                             </a>

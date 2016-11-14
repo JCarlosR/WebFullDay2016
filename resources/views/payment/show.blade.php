@@ -63,6 +63,7 @@
                                             data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
                                     </button>
                                 @else
+                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Historial de pagos</a>
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"
                                             data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular

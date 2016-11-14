@@ -20,12 +20,19 @@ class SpeakerController extends Controller
 
     public function adminIndex()
     {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
         $speakers = Speaker::where('enable',1)->orderBy('name')->paginate(4);
+
         return view('speaker.admin.show')->with(compact('speakers'));
     }
 
     public function adminRegister( Request $request )
     {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
         $name     = $request->get('name');
         $email    = $request->get('email');
         $company  = $request->get('company');
@@ -60,6 +67,9 @@ class SpeakerController extends Controller
 
     public function adminEdit( Request $request )
     {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
         $id       = $request->get('id');
         $name     = $request->get('name');
         $email    = $request->get('email');
@@ -98,6 +108,9 @@ class SpeakerController extends Controller
 
     public function adminDelete( Request $request )
     {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
         $id = $request->get('id');
 
         $speaker = Speaker::find($id);
