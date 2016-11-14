@@ -45,6 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     /*Route::get('/record', 'RecordController@index');*/
     Route::get('/record', 'RecordController@show');
+    Route::get('/export/all', 'RecordController@exportAll');
+    Route::get('/export/solicitantes', 'RecordController@exportSolicitud');
     Route::get('/send', 'MailController@sendUser');
 
 
