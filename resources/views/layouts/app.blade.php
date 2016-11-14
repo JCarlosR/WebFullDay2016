@@ -7,7 +7,7 @@
 
     <meta name="description" content="II Full Day UNT - Gestión de TI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    
+
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.css')}}" />
