@@ -259,6 +259,7 @@
                 <li class="menuItem"><a href="#screen">Ponencias</a></li>
                 <li class="menuItem"><a href="#news">Novedades</a></li>
                 <li class="menuItem"><a href="#credits">Itinerario</a></li>
+                <li class="menuItem"><a href="#sponsors">Auspiciadores</a></li>
                 <li class="menuItem"><a href="#contact">Contacto</a></li>
             </ul>
         </div>
@@ -535,6 +536,94 @@
                     @endforeach
                 </div>
                 <!-- /Panel -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sponsors -->
+<div id="sponsors" class="content-section-a">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+                <h2>Auspiciadores</h2>
+                <p class="lead" style="margin-top:0">Un especial agradecimiento por su incondicional apoyo.</p>
+            </div>
+
+            <div class="col-sm-6  block wow bounceIn">
+                <div class="row">
+                    <div class="col-md-4 box-icon rotate">
+                        <img src="{{ asset('assets/images/certipro64.png') }}" alt="" style="width: 100%; height: 100%">
+                    </div>
+                    <div class="col-md-8 box-ct">
+                        <h3> Certipro64 </h3>
+                        <p> <strong>Administrador:</strong> Ing. Nelson Angeles Quiñones. </p>
+                        <p> <strong>Dirección:</strong> Av. América Norte 2062 - 2do. Piso Urb. Primavera </p>
+                        <p> <strong>Teléfono:</strong> 044 - 201671 </p>
+                        <p> <strong>Pagina web:</strong> <a href="http://www.certipro64.com"> www.certipro64.com</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 block wow bounceIn">
+                <div class="row">
+                    <div class="col-md-4 box-icon rotate">
+                        <img src="{{ asset('assets/images/devcodela.png') }}" alt="" style="width: 100%; height: 100%">
+                    </div>
+                    <div class="col-md-8 box-ct">
+                        <h3> DevCode </h3>
+                        <p> <strong>Administrador:</strong> Ing. Juan Jose Pino. </p>
+                        <p> <strong>Dirección:</strong> Av. 9 de octubre 1305 Urb. Las Quintanas </p>
+                        <p> <strong>Teléfono:</strong> 980654016 </p>
+                        <p> <strong>Pagina web:</strong> <a href="https://devcode.la"> devcode.la</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row tworow">
+            <div class="col-sm-6  block wow bounceIn">
+                <div class="row">
+                    <div class="col-md-4 box-icon rotate">
+                        <img src="{{ asset('assets/images/neptComputer.jpg') }}" alt="" style="width: 100%; height: 130%">
+                    </div>
+                    <div class="col-md-8 box-ct">
+                        <h3> NeptComputer </h3>
+                        <p> <strong>Administrador:</strong> Srta. Angela. </p>
+                        <p> <strong>Dirección:</strong> Jr. Pizarro 201 </p>
+                        <p> <strong>Teléfono:</strong> 965729483 </p>
+                        <p> <strong>Pagina web:</strong> <a href="http://www.neptcomputer.com"> www.neptcomputer.com</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 block wow bounceIn">
+                <div class="row">
+                    <div class="col-md-4 box-icon rotate">
+                        <img src="{{ asset('assets/images/grafico.jpg') }}" alt="" style="width: 100%; height: 100%">
+                    </div>
+                    <div class="col-md-8 box-ct">
+                        <h3> Matisse, Diseño & Producción Grafica  </h3>
+                        <p> <strong>Administrador:</strong> Alex Sandoval Sánchez. </p>
+                        <p> <strong>Dirección:</strong> Jirón Bolívar, 942 </p>
+                        <p> <strong>Teléfono:</strong> 044 - 295283 / RPM #948324848 / RPC 949340920 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row tworow">
+            <div class="col-sm-6 col-sm-offset-3  block wow bounceIn">
+                <div class="row">
+                    <div class="col-md-4 box-icon rotate">
+                        <img src="{{ asset('assets/images/grafica bn.png') }}" alt="" style="width: 100%; height: 130%">
+                    </div>
+                    <div class="col-md-8 box-ct">
+                        <h3> Gráfica B&N E.I.R.L </h3>
+                        <p> <strong>Administrador:</strong> Alex Bailon Nassi. </p>
+                        <p> <strong>Dirección:</strong> Av. España N 1534 </p>
+                        <p> <strong>Teléfono:</strong> RPM #972979753 </p>
+                        <p> <strong>Pagina web:</strong> <a href="https://www.facebook.com/graficabneirl/?fref=ts"> Gráfica B&N EIRL</a> </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
