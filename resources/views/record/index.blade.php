@@ -36,11 +36,8 @@
     <div class="row">
         <div class="col-xs-12">
 
-            <button id="" class="btn btn-info">
-                <i class="ace-icon glyphicon glyphicon-plus"></i>
-                Nuevo asistente
-            </button>
-            <a href="{{ url('/export/all') }}" class="btn btn-success" ><i class="ace-icon fa fa-file-excel-o align-top bigger-125"></i>Exportar inscritos</a>
+            <a href="{{ url('/inscription') }}" class="btn btn-info"><i class="ace-icon glyphicon glyphicon-plus"></i>Nuevo asistente</a>
+            <a href="{{ url('/export/all') }}" class="btn btn-success"><i class="ace-icon fa fa-file-excel-o align-top bigger-125"></i>Exportar inscritos</a>
             {{--<a data-url="{{ url('/send') }}" class="btn btn-info" id="send">Enviar correos</a>--}}
         </div><!-- /.span -->
     </div><!-- /.row -->
