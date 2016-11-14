@@ -1,10 +1,10 @@
 <?php
 
 Route::auth();
+
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Controller@getWelcome');
     Route::get('/home', 'HomeController@index');
-    // Contact
     Route::post('/contact', 'MailController@send');
 });
 
@@ -43,7 +43,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/contacto', 'MailController@show');
 
-    /*Route::get('/record', 'RecordController@index');*/
     Route::get('/record', 'RecordController@show');
     Route::get('/send', 'MailController@sendUser');
 
@@ -69,3 +68,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+// Get event information (public webservice)
+Route::get('/information', 'InfoController@index');
