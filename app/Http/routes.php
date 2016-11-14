@@ -65,10 +65,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
 
-    Route::get('/question', 'SurveyController@SendQuestions');
-    Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
-
+    // inscription
+    Route::get('/inscription', 'InscriptionController@index');
+    Route::post('/inscription/registrar', 'InscriptionController@register');
 });
 
 // Get event information (public webservice)
 Route::get('/information', 'InfoController@index');
+
+// Get question information (public webservice)
+Route::get('/question', 'SurveyController@SendQuestions');
+Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
