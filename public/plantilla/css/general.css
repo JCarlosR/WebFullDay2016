@@ -20,7 +20,7 @@ body, html {
 
 .abcen{position: absolute;bottom: 8%;}
 
-.abcen1{position: absolute;top: 20%;}
+.abcen1{position: absolute;top: 8%;}
 
 .content-section-c {
 	border-top: 1px solid #32465A;
@@ -1103,7 +1103,7 @@ color: #ECEBEB;
 @media only screen and (max-width: 479px) {
 
 	.h1_home{
-		font-size: 40px;
+		font-size: 25px;
 		font-family: Helvetica, Arial, SansSerif;
 		font-weight: 300;
 		letter-spacing: 6px;
