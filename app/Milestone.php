@@ -16,6 +16,8 @@ class Milestone extends Model
         $hour   = intval($hour);
         $minute = intval($minute);
 
+        if( $minute<10 )
+            $minute = '0'.$minute;
         if( $hour==0 )
             $time = '12:'.$minute.' am';
         elseif( $hour<12 )
@@ -23,7 +25,7 @@ class Milestone extends Model
         elseif( $hour==12 )
             $time = '12:'.$minute.' pm';
         else
-            $time = ($hour%12).$minute.' pm';
+            $time = ($hour%12).':'.$minute.' pm';
 
         return $time;
     }
@@ -37,6 +39,6 @@ class Milestone extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withPivot('check')->withTimestamps();
     }
 }

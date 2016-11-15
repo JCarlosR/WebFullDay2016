@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-xs-12 table-responsive">
             @if( $hide==0 )
-                <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Nuevo pago</button>
+                <button class="btn btn-sm btn-success" data-register  data-certificate="{{ $certificate_name }}">Nuevo pago</button>
             @endif
                 <div class="space-6"></div>
             <table class="table table-striped">
@@ -68,12 +68,12 @@
                             <td>{{ $array_payment[0]->operation }}</td>
                             <td>{{ $array_payment[1] }}</td>
                             <td>
-                                <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"><i class="ace-icon glyphicon glyphicon-paperclip bigger-120"></i> Vaucher</button>
+                                <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"> Vaucher</button>
                                 @if( $hide==0 )
                                     <button class="btn btn-sm btn-danger" data-delete="{{$array_payment[0]->id}}"
                                             data-operation="{{$array_payment[0]->operation}}"
                                             data-entity="{{$array_payment[0]->entity}}"
-                                            data-amount="{{$array_payment[0]->amount}}"><i class="ace-icon glyphicon glyphicon-trash bigger-120"></i> Anular
+                                            data-amount="{{$array_payment[0]->amount}}"> Anular
                                     </button>
                                 @endif
                             </td>
@@ -86,7 +86,7 @@
     </div>
 
     <div class="row text-center">
-        <a href="{{url('pagos')}}" class="btn btn-sm btn-warning"><i class="ace-icon glyphicon glyphicon-backward bigger-120"></i>Volver</a>
+        <a href="{{url('pagos')}}" class="btn btn-sm btn-warning">Volver</a>
     </div>
 
 @endsection
@@ -190,7 +190,7 @@
                         <input type="hidden" name="id" />
 
                         <div class="form-group">
-                            <label for="nombreEliminar">¿Desea anular el siguiente pago con los siguientes datos?</label>
+                            <label for="nombreEliminar">¿Está seguro que desea anular el siguiente pago?</label>
                             <br>
                             Centro de pago
                             <input type="text" readonly class="form-control" name="entity"/>

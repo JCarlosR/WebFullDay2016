@@ -64,7 +64,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Attendance
     Route::get('admin/hitos', 'AttendanceController@adminIndex');
-    Route::get('admin/asistencias', 'AttendanceController@adminAttendance');
+    Route::post('admin/hitos/registrar', 'AttendanceController@adminCreate');
+    Route::post('admin/hitos/eliminar', 'AttendanceController@adminDelete');
+    Route::get('admin/asistencias/{id}', 'AttendanceController@adminAttendance');
+    Route::get('admin/asistencias/{milestone}/{dni}', 'AttendanceController@adminUsers');
+    Route::post('admin/asistencias/registrar', 'AttendanceController@adminAttendanceRegister');
 
     Route::get('/question', 'SurveyController@SendQuestions');
     Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');

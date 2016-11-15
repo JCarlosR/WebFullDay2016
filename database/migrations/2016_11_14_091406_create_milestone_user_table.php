@@ -18,7 +18,7 @@ class CreateMilestoneUserTable extends Migration
             $table->foreign('milestone_id')->references('id')->on('milestones');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('check');
+            $table->integer('check')->default(0);
             $table->timestamps();
         });
     }
