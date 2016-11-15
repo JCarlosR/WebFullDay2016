@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             'egresado' => false
         ]);
         User::create([
-            'role_id' => 3, // Operator
+            'role_id' => 2, // Operator
             'name' => 'Eduardo Rivera',
             'email' => 'ed123@gmail.com',
             'password' => bcrypt('123123')

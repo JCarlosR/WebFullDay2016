@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/contacto', 'MailController@show');
 
     Route::get('/record', 'RecordController@show');
+    Route::get('/export/all', 'RecordController@exportAll');
+    Route::get('/export/solicitantes', 'RecordController@exportSolicitud');
     Route::get('/send', 'MailController@sendUser');
 
     // Admin perspective
@@ -62,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
 
+
     //Attendance
     Route::get('admin/hitos', 'AttendanceController@adminIndex');
     Route::post('admin/hitos/registrar', 'AttendanceController@adminCreate');
@@ -73,7 +76,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/question', 'SurveyController@SendQuestions');
     Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
 
+
+    // inscription
+    Route::get('/inscription', 'InscriptionController@index');
+    Route::post('/inscription/registrar', 'InscriptionController@register');
+
 });
 
 // Get event information (public webservice)
 Route::get('/information', 'InfoController@index');
+
+// Get question information (public webservice)
+Route::get('/question', 'SurveyController@SendQuestions');
+Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');

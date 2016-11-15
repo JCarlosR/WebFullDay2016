@@ -279,7 +279,7 @@
                         </li>
 
                         <li class="@yield('make-inscription')">
-                            <a href="#">
+                            <a href="{{ url('/inscription') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Realizar inscripción
                             </a>
