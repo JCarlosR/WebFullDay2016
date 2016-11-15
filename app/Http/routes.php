@@ -76,3 +76,9 @@ Route::get('/information', 'InfoController@index');
 // Get question information (public webservice)
 Route::get('/question', 'SurveyController@SendQuestions');
 Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
+
+// Routes of JWT
+Route::get('/authentication', 'Auth\AuthController@authenticate');
+Route::get('/retrieve', 'Auth\AuthController@testApi');
+
+Route::get('/rutita', 'Auth\AuthController@myrutita');
