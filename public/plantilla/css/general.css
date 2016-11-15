@@ -1108,6 +1108,7 @@ color: #ECEBEB;
 		font-weight: 300;
 		letter-spacing: 6px;
 	}
+    .abcen1{position: absolute;}
 }
 @media screen and (max-width: 600px) {
 	.morph-button-modal.open .morph-content {
