@@ -2,14 +2,14 @@
 
 @section('title','Certificados')
 
-@section('inscription','open')
+@section('manage-inscription','open')
 
-@section('payment','active')
+@section('make-payment','active')
 
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Evento</a>
+        <a href="#">Inscripción</a>
     </li>
     <li class="active">Pagos</li>
 @endsection
@@ -53,7 +53,7 @@
                                 @if( $array_solicitud[2] == 'Pendiente' )
                                     <button class="btn btn-primary btn-sm" data-solicitude="{{ $array_solicitud[0]->id }}"
                                             data-certificate="{{ $array_solicitud[0]->certificate->type }}"
-                                            data-assistant="{{ $array_solicitud[0]->user->name }}">Registrar pago</button>
+                                            data-assistant="{{ $array_solicitud[0]->user->name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</button>
                                 @endif
                             </td>
                         </tr>

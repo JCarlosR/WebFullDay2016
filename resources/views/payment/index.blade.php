@@ -190,7 +190,7 @@
                         <input type="hidden" name="id" />
 
                         <div class="form-group">
-                            <label for="nombreEliminar">¿Desea anular el siguiente pago con los siguientes datos?</label>
+                            <label for="nombreEliminar">¿Está seguro que desea anular el siguiente pago?</label>
                             <br>
                             Centro de pago
                             <input type="text" readonly class="form-control" name="entity"/>

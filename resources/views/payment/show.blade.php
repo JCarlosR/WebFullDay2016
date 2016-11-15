@@ -55,18 +55,18 @@
                             <td>{{ $array_solicitude[3] }}</td>
                             <td>
                                 @if( $array_solicitude[5]==1 )
-                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Historial de pagos</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-list-alt bigger-120"></i> Historial de pagos</a>
                                 @elseif( $array_solicitude[4]==0 )
-                                    <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Registrar pago</a>
+                                    <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</a>
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"
-                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
+                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"><i class="ace-icon glyphicon glyphicon-trash bigger-120"></i> Anular
                                     </button>
                                 @else
-                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"> Historial de pagos</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-list-alt bigger-120"></i> Historial de pagos</a>
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"
-                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"> Anular
+                                            data-event="{{ $array_solicitude[0]->certificate->event->organization }}"><i class="ace-icon glyphicon glyphicon-trash bigger-120"></i> Anular
                                     </button>
                                @endif
                             </td>
