@@ -29,10 +29,16 @@ class UsersTableSeeder extends Seeder
             'role_id' => 3, // Assistant
             'name' => 'Edilberto Soles',
             'email' => 'edilberto0905@gmail.com',
-            'password' => bcrypt('3015')
+            'password' => bcrypt('3015'),
+            'celular' => '937 225 841',
+            'dni' => '70301505',
+            'universidad' => 'UNT',
+            'carrera' => 'Ingeniería de Sistemas',
+            'ciclo' => 10,
+            'egresado' => false
         ]);
         User::create([
-            'role_id' => 3, // Operator
+            'role_id' => 2, // Operator
             'name' => 'Eduardo Rivera',
             'email' => 'ed123@gmail.com',
             'password' => bcrypt('123123')

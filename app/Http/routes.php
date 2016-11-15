@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/contacto', 'MailController@show');
 
     Route::get('/record', 'RecordController@show');
+    Route::get('/export/all', 'RecordController@exportAll');
+    Route::get('/export/solicitantes', 'RecordController@exportSolicitud');
     Route::get('/send', 'MailController@sendUser');
 
     // Admin perspective
@@ -52,7 +54,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/ponentes/registrar', 'SpeakerController@adminRegister');
     Route::post('admin/ponentes/editar', 'SpeakerController@adminEdit');
     Route::post('admin/ponentes/eliminar', 'SpeakerController@adminDelete');
-
 
     // Payments
     Route::get('admin/pagos', 'PaymentController@adminIndex');
@@ -63,10 +64,34 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
 
+
+    //Attendance
+    Route::get('admin/hitos', 'AttendanceController@adminIndex');
+    Route::post('admin/hitos/registrar', 'AttendanceController@adminCreate');
+    Route::post('admin/hitos/eliminar', 'AttendanceController@adminDelete');
+    Route::get('admin/asistencias/{id}', 'AttendanceController@adminAttendance');
+    Route::get('admin/asistencias/{milestone}/{dni}', 'AttendanceController@adminUsers');
+    Route::post('admin/asistencias/registrar', 'AttendanceController@adminAttendanceRegister');
+
     Route::get('/question', 'SurveyController@SendQuestions');
     Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
+
+
+    // inscription
+    Route::get('/inscription', 'InscriptionController@index');
+    Route::post('/inscription/registrar', 'InscriptionController@register');
 
 });
 
 // Get event information (public webservice)
 Route::get('/information', 'InfoController@index');
+
+// Get question information (public webservice)
+Route::get('/question', 'SurveyController@SendQuestions');
+Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
+
+// Routes of JWT
+Route::get('/authentication', 'Auth\AuthController@authenticate');
+Route::get('/retrieve', 'Auth\AuthController@testApi');
+
+Route::get('/rutita', 'Auth\AuthController@myrutita');

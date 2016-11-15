@@ -155,6 +155,9 @@ class PaymentController extends Controller
 
     public function adminIndex()
     {
+        if( Auth()->user()->role_id == 3 )
+            return redirect('/');
+
         $solicitudes = Solicitude::where('enable',1)->where('state','Pendiente')->orderBy('created_at')->get();
         $array_solicitudes = [];
         $today = new Carbon();

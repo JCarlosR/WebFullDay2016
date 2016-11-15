@@ -279,7 +279,7 @@
                         </li>
 
                         <li class="@yield('make-inscription')">
-                            <a href="#">
+                            <a href="{{ url('/inscription') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Realizar inscripción
                             </a>
@@ -321,7 +321,7 @@
                     <ul class="submenu">
 
                         <li class="@yield('milestone')">
-                            <a href="#">
+                            <a href="{{ url('admin/hitos') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Gestionar hitos
                             </a>
