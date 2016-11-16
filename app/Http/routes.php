@@ -65,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
 
 
-    //Attendance
+    // Attendance
     Route::get('admin/hitos', 'AttendanceController@adminIndex');
     Route::post('admin/hitos/registrar', 'AttendanceController@adminCreate');
     Route::post('admin/hitos/eliminar', 'AttendanceController@adminDelete');
@@ -90,8 +90,6 @@ Route::get('/information', 'InfoController@index');
 Route::get('/question', 'SurveyController@SendQuestions');
 Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
 
-// Routes of JWT
-Route::get('/authentication', 'Auth\AuthController@authenticate');
-Route::get('/retrieve', 'Auth\AuthController@testApi');
-
-Route::get('/rutita', 'Auth\AuthController@myrutita');
+// Routes associated with JWT
+Route::get('/authentication', 'ApiController@authenticate');
+Route::get('/retrieve', 'ApiController@testApi');
