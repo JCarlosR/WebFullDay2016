@@ -62,7 +62,7 @@
                 @if( count($array_payments) != 0  )
                     @foreach( $array_payments as $array_payment )
                         <tr>
-                            <td>Certificado de {{ $array_payment[0]->solicitude->certificate->type }}</td>
+                            <td>Certificado {{ $array_payment[0]->solicitude->certificate->type }}</td>
                             <td>{{ $array_payment[0]->entity }}</td>
                             <td>S/. {{ $array_payment[0]->amount }}.00</td>
                             <td>{{ $array_payment[0]->operation }}</td>
