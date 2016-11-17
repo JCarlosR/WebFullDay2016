@@ -58,6 +58,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Payments
     Route::get('admin/pagos', 'PaymentController@adminIndex');
     Route::post('admin/pagos/registrar', 'PaymentController@create');
+    Route::get('admin/pagos/carga/', 'PaymentController@loadPayments');
+    Route::get('admin/pagos/verfica/', 'PaymentController@verificPayments');
 
     Route::get('admin/itinerario', 'itineraryController@listar');
     Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');

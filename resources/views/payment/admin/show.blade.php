@@ -33,10 +33,9 @@
                     <tr>
                         <th>Asistente</th>
                         <th>Email</th>
-                        <th>Universidad</th>
-                        <th>Carrera</th>
                         <th>Estado</th>
                         <th>Monto abonado</th>
+                        <th>Concepto</th>
                         <th>Acción</th>
                     </tr>
                 </thead>
@@ -45,15 +44,23 @@
                         <tr>
                             <td>{{ $array_solicitud[0]->user->name }}</td>
                             <td>{{ $array_solicitud[0]->user->email }}</td>
-                            <td>{{ $array_solicitud[0]->user->universidad }}</td>
-                            <td>{{ $array_solicitud[0]->user->carrera }}</td>
                             <td>{{ $array_solicitud[0]->state }}</td>
                             <td>S/. {{ $array_solicitud[1] }}.00</td>
+                            <td width="270">Certificado {{ $array_solicitud[0]->certificate->type }}</td>
                             <td>
-                                @if( $array_solicitud[2] == 'Pendiente' )
+                                @if(  $array_solicitud[0]->state  == 'Pendiente')
                                     <button class="btn btn-primary btn-sm" data-solicitude="{{ $array_solicitud[0]->id }}"
                                             data-certificate="{{ $array_solicitud[0]->certificate->type }}"
                                             data-assistant="{{ $array_solicitud[0]->user->name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</button>
+                                    @if( $array_solicitud[1]!=0 )
+                                        <button onClick="verifica({{ $array_solicitud[0]->id }},'{{ $array_solicitud[0]->certificate->type }}',0);" class="btn btn-warning btn-sm"><i class="ace-icon glyphicon glyphicon-check bigger-120"></i> Verificar pago</button>
+                                    @endif
+                                @endif
+                                @if(  $array_solicitud[0]->state  == 'Pagado')
+                                    <button onClick="verifica({{ $array_solicitud[0]->id }},'{{ $array_solicitud[0]->certificate->type }}',1);" class="btn btn-warning btn-sm"><i class="ace-icon glyphicon glyphicon-check bigger-120"></i> Verificar pago</button>
+                                @endif
+                                @if( $array_solicitud[0]->state == 'Verificado')
+                                    <button onClick="verifica({{ $array_solicitud[0]->id }},'{{ $array_solicitud[0]->certificate->type }}',0);" class="btn btn-info btn-sm"><i class="ace-icon glyphicon glyphicon-share bigger-120"></i> Ver Pagos</button>
                                 @endif
                             </td>
                         </tr>
@@ -137,6 +144,67 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="ModalVerifica">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Verificar Pagos</h4>
+            </div>
+        <form id="formularioVerificar" action="{{ url('admin/pagos/carga/') }}">
+         {{ csrf_field() }}
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="name">Concepto de Pagos :</label>
+                        <div class="col-md-9">
+                             <input id="concept" class="form-control inside" readonly><br>
+                        </div>
+                     </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                        <div class="">
+                            <table id="talaCategoria" class="table table-striped table-advance table-hover">
+                              <thead>
+                              <tr>
+                                  <th><i class="ace-icon glyphicon glyphicon-credit-card bigger-120"></i> Centro de Pago</th>
+                                  <th><i class="ace-icon glyphicon glyphicon-pushpin bigger-120"></i> N° de Operacion </th>
+                                  <th><i class="ace-icon glyphicon glyphicon-calendar bigger-120"></i> Fecha Operacion </th>
+                                  <th><i class="ace-icon glyphicon glyphicon-usd bigger-120"></i> Monto </th>
+                                  <th><i class="ace-icon fa fa-cogs bigger-120"></i> Accion </th>
+                              </tr>
+                              </thead>
+                              <tbody id="cagaPagos">
+                              </tbody>
+                          </table>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="">
+                            <label for="name">Preview de Boucher : </label><br>
+                            <img id="imageBoucher" src=""  width="270" height"300">
+                        </div>
+                     </div>
+                  </div>
+              </div>
+            </div>
+        </form>
+        <form id="actualizaVerificar" action="{{ url('admin/pagos/verfica/') }}">
+        {{ csrf_field() }}
+            <div class="modal-footer">
+              <div id="botton">
+              </div>
+            </div>
+        </form>    
+        </div>
+        
+    </div>
+</div>
 @endsection
 
 @section('scripts')

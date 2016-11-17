@@ -73,3 +73,63 @@ function payment()
             }
         });
 }
+
+function verifica(id_solicitude,concept,state)
+{
+    $('#cagaPagos').empty();
+    var concepto = document.getElementById("concept");
+    concepto.value="Certificado "+concept;
+    var dataString = 'id_soli='+id_solicitude;
+        $.ajax({
+            type: "GET",
+            url:  $("#formularioVerificar").attr("action"),
+            data: dataString,
+            success: function(data) {
+                var nuevaFila="";
+                var payment=data.payment;
+                for (var i=0; i<payment.length; i++){
+                    nuevaFila+="<tr>";
+                    nuevaFila+='<td>'+payment[i].entity+'</td>';
+                    nuevaFila+='<td align="center">'+payment[i].operation+'</td>';
+                    nuevaFila+='<td align="center">'+payment[i].operation_date+'</td>';
+                    nuevaFila+='<td align="center"> S/.'+payment[i].amount+'.00</td>';
+                    var car="'"+payment[i].payment_file+"'";
+                    nuevaFila+='<td><a  onClick="verboucher('+car+');" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-search"></i></a> <a download href="/WebFullDay2016/public/assets/img/payment/'+payment[i].payment_file+'" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-arrow-down"></i></a></td>';
+                    nuevaFila+="</tr>";
+                }
+                $("#cagaPagos").append(nuevaFila);
+            }
+        });
+    $('#botton').empty();
+    if (state==0){
+        veriHtml='<button disabled type="button" class="btn btn-success" data-dismiss="modal">Verificar</button>';
+        veriHtml+=' <button type="button" onclick="limpiar();" class="btn btn-danger" data-dismiss="modal">Cerrar</button>';
+        $("#botton").append(veriHtml);
+    }else{
+        veriHtml='<a  onClick="actualizaEstate('+id_solicitude+');limpiar();" type="button" class="btn btn-success" data-dismiss="modal">Verificar</a>';
+        veriHtml+=' <button type="button" onclick="limpiar();" class="btn btn-danger" data-dismiss="modal">Cerrar</button>';
+        $("#botton").append(veriHtml);
+    }
+    $('#ModalVerifica').modal('show');
+}
+
+function verboucher(name_image){
+    var imagen = document.getElementById("imageBoucher");
+    imagen.src="/WebFullDay2016/public/assets/img/payment/"+name_image;
+}
+function limpiar(){
+    var imagen = document.getElementById("imageBoucher");
+    imagen.src="";
+}
+function actualizaEstate(id_solicitud){
+    var dataString = 'id_soli='+id_solicitud;
+        $.ajax({
+            type: "GET",
+            url:  $("#actualizaVerificar").attr("action"),
+            data: dataString,
+            success: function(data) {
+
+            }
+        });
+    window.location.reload(true); 
+}

@@ -8,7 +8,7 @@ class Solicitude extends Model
 {
 
 	protected $table = "solicitudes";
-    protected $fillable = ['id','user_id', 'certificate_id', 'paid','enable'];
+    protected $fillable = ['id','user_id','state','certificate_id','enable'];
 
     public function certificate()
     {
