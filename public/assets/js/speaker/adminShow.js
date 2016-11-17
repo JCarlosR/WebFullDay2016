@@ -7,6 +7,7 @@ var modalDelete;
 function principal()
 {
     $('.mytable').footable();
+
     modalRegister  = $('#modalRegister');
     modalShowImage = $('#modalShowImage');
     modalEdit      = $('#modalEdit');
@@ -33,8 +34,8 @@ function showModalImage()
     var image = $(this).data('image');
 
     modalShowImage.find('[name=name]').val(name);
-    var asset = 'assets/images/'+image;
-    $('#image').attr('src',public_path()+asset);
+    var src = public_path()+'assets/images/'+image;
+    $('#image').attr('src',src);
 
     modalShowImage.modal('show');
 }
@@ -95,11 +96,10 @@ function ponent()
 }
 
 function public_path() {
-    var path = location.href;
-    var the_path = '';
-    for (var i = 0; i < path.length; i++){
-        if (path[i] == 'p' && path[i+1] == 'u' && path[i+2] == 'b' && path[i+3] == 'l' && path[i+4] == 'i' && path[i+5] == 'c')
-            return the_path+'public/';
-        the_path += path[i];
-    }
+    var url = location.href;
+    var size_url = url.indexOf('admin/ponentes');
+    var path = '';
+    for (var i = 0; i < size_url; i++)
+        path += url[i];
+    return path;
 }

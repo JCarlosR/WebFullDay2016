@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <label for="name">¿Desea eliminar el siguiente ponente?</label>
+                    <label for="name">Ponente</label>
                     <input type="text" name="name" class="form-control" readonly><br>
 
                     <div class="text-center">
@@ -279,7 +279,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id" id="id">
 
-                        <label>¿Desela eliminar el siguiente ponente?</label>
+                        <label>¿Desea eliminar el siguiente ponente?</label>
                         <input name="name" id="name" class="form-control inside" readonly><br>
 
                         <div class="modal-footer">

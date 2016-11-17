@@ -49,7 +49,8 @@ function modalRegister()
 function modalDocument()
 {
     var document = $(this).data('document');
-    $('#document').attr('src',public_path()+'assets/img/payment/'+document);
+    var src = public_path()+'assets/img/payment/'+document;
+    $('#document').attr('src',src);
 
     $modalDocument.modal('show');
 }
@@ -100,11 +101,10 @@ function payment()
 }
 
 function public_path() {
-    var path = location.href;
-    var the_path = '';
-    for (var i = 0; i < path.length; i++){
-        if (path[i] == 'p' && path[i+1] == 'u' && path[i+2] == 'b' && path[i+3] == 'l' && path[i+4] == 'i' && path[i+5] == 'c')
-            return the_path+'public/';
-        the_path += path[i];
-    }
+    var url = location.href;
+    var size_url = url.indexOf('pagos/1');
+    var path = '';
+    for (var i = 0; i < size_url; i++)
+        path += url[i];
+    return path;
 }
