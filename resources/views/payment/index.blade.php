@@ -29,6 +29,7 @@
 @endsection
 
 @section('content')
+    <div id="path" data-path="{{ asset('/') }}"></div>
     <div class="page-header">
         <h1>
             Lista de pagos del II Full Day
@@ -62,7 +63,7 @@
                 @if( count($array_payments) != 0  )
                     @foreach( $array_payments as $array_payment )
                         <tr>
-                            <td>Certificado de {{ $array_payment[0]->solicitude->certificate->type }}</td>
+                            <td>Certificado {{ $array_payment[0]->solicitude->certificate->type }}</td>
                             <td>{{ $array_payment[0]->entity }}</td>
                             <td>S/. {{ $array_payment[0]->amount }}.00</td>
                             <td>{{ $array_payment[0]->operation }}</td>
@@ -166,7 +167,7 @@
                 </div>
 
                 <div class="modal-body text-center">
-                    <div id="document"></div>
+                    <img src="" alt="" id="document" class="img">
                 </div>
 
                 <div class="modal-footer">

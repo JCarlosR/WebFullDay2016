@@ -16,7 +16,7 @@ function sendform () {
             }
          });
        sleep(500);
-       window.location="/WebFullDay2016/public/pagos";             
+       window.location="/pagos";             
 	}
 	else
 	{
