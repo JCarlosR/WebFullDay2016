@@ -36,11 +36,12 @@ class SpeakerController extends Controller
         $name     = $request->get('name');
         $email    = $request->get('email');
         $company  = $request->get('company');
+        $profile  = $request->get('profile');
         $position = $request->get('position');
         $image    = $request->file('image');
         $description = $request->get('description');
 
-        $speaker = Speaker::where('email',$email)->first();
+        $speaker = Speaker::where('email',$email)->where('enable',1)->first();
 
         if( count($speaker) != 0 )
             return response()->json(['error'=>true,'message'=>'Ya existe un ponente con esa cuenta de email']);
@@ -49,6 +50,7 @@ class SpeakerController extends Controller
             'name'=>$name,
             'email'=>$email,
             'company'=>$company,
+            'profile'=>$profile,
             'position'=>$position,
             'description'=>$description,
             'enable'=>1
@@ -74,11 +76,12 @@ class SpeakerController extends Controller
         $name     = $request->get('name');
         $email    = $request->get('email');
         $company  = $request->get('company');
+        $profile  = $request->get('profile');
         $position = $request->get('position');
         $image    = $request->file('image');
         $description = $request->get('description');
 
-        $speaker = Speaker::where('email',$email)->first();
+        $speaker = Speaker::where('email',$email)->where('enable',1)->first();
 
         if( count($speaker) == 1 && $speaker->id != $id )
             return response()->json(['error'=>true,'message'=>'Ya existe un ponente con esa cuenta de email']);
@@ -87,6 +90,7 @@ class SpeakerController extends Controller
         $speaker->name     = $name;
         $speaker->email    = $email;
         $speaker->company  = $company;
+        $speaker->profile  = $profile;
         $speaker->position = $position;
         $speaker->description=$description;
 
