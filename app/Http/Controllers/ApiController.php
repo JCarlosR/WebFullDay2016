@@ -17,17 +17,20 @@ class ApiController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         $credentials = ['email' => $email, 'password' => $password];
+        
+        // Default values
+        $token = '';
+        $error = false;
 
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
             $token = JWTAuth::fromUser($user);
-            // dd($token);
         } else {
-            return response()->json(['error' => 'invalid_credentials'], 401);
+            $error = true;
         }
 
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json(compact('token', 'error'));
     }
 
     public function testApi()
