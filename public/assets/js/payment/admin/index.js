@@ -75,7 +75,8 @@ function payment()
 }
 
 function verifica(id_solicitude,concept,state)
-{
+{   
+    var path = $('#path').attr('data-path');
     $('#cagaPagos').empty();
     var concepto = document.getElementById("concept");
     concepto.value="Certificado "+concept;
@@ -94,7 +95,7 @@ function verifica(id_solicitude,concept,state)
                     nuevaFila+='<td align="center">'+payment[i].operation_date+'</td>';
                     nuevaFila+='<td align="center"> S/.'+payment[i].amount+'.00</td>';
                     var car="'"+payment[i].payment_file+"'";
-                    nuevaFila+='<td><a  onClick="verboucher('+car+');" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-search"></i></a> <a download href="/WebFullDay2016/public/assets/img/payment/'+payment[i].payment_file+'" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-arrow-down"></i></a></td>';
+                    nuevaFila+='<td><a  onClick="verboucher('+car+');" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-search"></i></a> <a download href="'+path+'assets/img/payment/'+payment[i].payment_file+'" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-arrow-down"></i></a></td>';
                     nuevaFila+="</tr>";
                 }
                 $("#cagaPagos").append(nuevaFila);
@@ -114,8 +115,9 @@ function verifica(id_solicitude,concept,state)
 }
 
 function verboucher(name_image){
+    var path = $('#path').attr('data-path');
     var imagen = document.getElementById("imageBoucher");
-    imagen.src="/WebFullDay2016/public/assets/img/payment/"+name_image;
+    imagen.src=path+"assets/img/payment/"+name_image;
 }
 function limpiar(){
     var imagen = document.getElementById("imageBoucher");
