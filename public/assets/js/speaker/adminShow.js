@@ -12,7 +12,6 @@ function principal()
     modalShowImage = $('#modalShowImage');
     modalEdit      = $('#modalEdit');
     modalDelete    = $('#modalDelete');
-
     $('[data-register]').on('click',showModalRegister);
     $('[data-show]').on('click',showModalImage);
     $('[data-edit]').on('click',showModalEdit);
@@ -32,9 +31,9 @@ function showModalImage()
 {
     var name = $(this).data('name');
     var image = $(this).data('image');
-
+    var path = $('#path').attr('data-path');
     modalShowImage.find('[name=name]').val(name);
-    var src = public_path()+'assets/images/'+image;
+    var src = path+'assets/images/'+image;
     $('#image').attr('src',src);
 
     modalShowImage.modal('show');
@@ -95,11 +94,3 @@ function ponent()
         });
 }
 
-function public_path() {
-    var url = location.href;
-    var size_url = url.indexOf('admin/ponentes');
-    var path = '';
-    for (var i = 0; i < size_url; i++)
-        path += url[i];
-    return path;
-}

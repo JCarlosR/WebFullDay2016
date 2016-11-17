@@ -34,6 +34,7 @@
 @endsection
 
 @section('content')
+    <div id="path" data-path="{{ asset('/') }}"></div>
     <div class="page-header">
         <h1>
             Historial de ponentes
@@ -98,7 +99,6 @@
                         <h4>Nuevo ponente</h4>
                     </div>
                 </div>
-
                 <form id="formRegister" action="{{ url('admin/ponentes/registrar') }}" class="form-horizontal form-label-left"  method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -293,8 +293,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
 @section('scripts')

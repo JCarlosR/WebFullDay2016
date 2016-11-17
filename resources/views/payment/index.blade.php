@@ -29,6 +29,7 @@
 @endsection
 
 @section('content')
+    <div id="path" data-path="{{ asset('/') }}"></div>
     <div class="page-header">
         <h1>
             Lista de pagos del II Full Day
