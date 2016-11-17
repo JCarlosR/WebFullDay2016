@@ -3,7 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Mail;
+
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Facades\JWTFactory;
+use Tymon\JWTAuth\JWTManager;
+use Tymon\JWTAuth\Providers\Auth\AuthInterface;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -52,9 +62,9 @@ class AuthController extends Controller
         $messages = [
             'name.min' => 'Asegúrate de ingresar tu nombre completo.',
             'name.max' => 'El nombre es demasiado extenso.',
-            'email.required' => 'Debes ingresar tu email',
-            'email.max' => 'El email es demasiado extenso',
-            'email.unique' => 'El email ya está en uso',
+            'email.required' => 'Debes ingresar tu email.',
+            'email.max' => 'El email es demasiado extenso.',
+            'email.unique' => 'El email ya está en uso.',
             'name.required' => 'Debes ingresar tu nombre completo.',
             'dni.required' => 'Debes ingresar tu DNI.',
             'dni.digits' => 'El formato del DNI no es adecuado.',
@@ -113,8 +123,7 @@ class AuthController extends Controller
         });
 
         return $user;
-
-
-
     }
+
+
 }

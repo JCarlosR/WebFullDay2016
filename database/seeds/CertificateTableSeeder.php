@@ -15,7 +15,12 @@ class CertificateTableSeeder extends Seeder
         //
         Certificate::create([
             'event_id' =>1,
-            'type' => "Asistente",
+            'type' => "a nombre de la Escuela Académico Profesional de Ingeniería de Sistemas UNT",
+            'cost' => 30.00,
+        ]);
+        Certificate::create([
+            'event_id' =>1,
+            'type' => "a nombre de ISACA Student Group UNT",
             'cost' => 30.00,
         ]);
     }

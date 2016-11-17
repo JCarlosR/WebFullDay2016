@@ -62,7 +62,7 @@
                 @if($i!=1)
                  <?php $j=1; ?>
                   <div class="form-group">
-                       <label>Certificado de {{ $data2->type }} /<b><font SIZE=3 color="purple">Costo : S/.{{ $data2->cost }} </font></b><input type="checkbox"  name="certific[]" value="{{ $data2->id }}"></label>
+                       <label>Certificado {{ $data2->type }} /<b><font SIZE=3 color="purple">Costo : S/.{{ $data2->cost }} </font></b><input type="checkbox"  name="certific[]" value="{{ $data2->id }}"></label>
                   </div>
                 @endif
             <?php $i=0; ?>
