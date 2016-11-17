@@ -303,9 +303,7 @@
             </div><!-- /.col-lg-4 -->
 
         </div><!-- /.row -->
-
-
-</div>
+    </div>
 </div>
 
 <!-- Use it -->
