@@ -12,7 +12,6 @@ function principal()
     modalShowImage = $('#modalShowImage');
     modalEdit      = $('#modalEdit');
     modalDelete    = $('#modalDelete');
-
     $('[data-register]').on('click',showModalRegister);
     $('[data-show]').on('click',showModalImage);
     $('[data-edit]').on('click',showModalEdit);
@@ -32,12 +31,10 @@ function showModalImage()
 {
     var name = $(this).data('name');
     var image = $(this).data('image');
-
+    var path = $('#path').attr('data-path');
     modalShowImage.find('[name=name]').val(name);
-
-    image = '<img src="../assets/images/'+image+'" class="img">';
-    $('#image').html('');
-    $('#image').append(image);
+    var src = path+'assets/images/'+image;
+    $('#image').attr('src',src);
 
     modalShowImage.modal('show');
 }
@@ -47,6 +44,7 @@ function showModalEdit()
     var id = $(this).data('edit');
     var name = $(this).data('name');
     var email = $(this).data('email');
+    var profile = $(this).data('profile');
     var company = $(this).data('company');
     var position = $(this).data('position');
     var description = $(this).data('description');
@@ -55,6 +53,7 @@ function showModalEdit()
     modalEdit.find('[name=name]').val(name);
     modalEdit.find('[name=email]').val(email);
     modalEdit.find('[name=company]').val(company);
+    modalEdit.find('[name=profile]').val(profile);
     modalEdit.find('[name=position]').val(position);
     modalEdit.find('[name=description]').val(description);
 
@@ -94,3 +93,4 @@ function ponent()
             }
         });
 }
+

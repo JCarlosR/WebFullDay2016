@@ -49,9 +49,9 @@ function modalRegister()
 function modalDocument()
 {
     var document = $(this).data('document');
-    var url ='../assets/img/payment/'+document;
-    $('#document').html('');
-    $('#document').append('<img src="'+url+'" class="img">');
+    var path = $('#path').attr('data-path');
+    var src = path+'assets/img/payment/'+document;
+    $('#document').attr('src',src);
 
     $modalDocument.modal('show');
 }
@@ -100,3 +100,4 @@ function payment()
             }
         });
 }
+
