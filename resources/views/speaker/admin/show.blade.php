@@ -43,7 +43,6 @@
             </small>
         </h1>
     </div>
-
     <div class="space-6"></div>
     <div class="row">
         <button class="btn btn-success btn-sm" data-register >Nuevo ponente</button>
@@ -57,6 +56,7 @@
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Empresa</th>
+                            <th data-hide="all" data-breakpoints="all" data-title="Más información"></th>
                             <th data-hide="all" data-breakpoints="all" data-title="Cargo actual"></th>
                             <th data-hide="all" data-breakpoints="all" data-title="Descripción"></th>
                             <th data-type="html">Acción</th>
@@ -68,6 +68,7 @@
                             <td>{{ $speaker->name }}</td>
                             <td>{{ $speaker->email }}</td>
                             <td>{{ $speaker->company }}</td>
+                            <td>{{ $speaker->profile }}</td>
                             <td>{{ $speaker->position }}</td>
                             <td>{{ $speaker->description }}</td>
                             <td>
@@ -112,7 +113,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3" for="company">Email<span class="required">*</span></label>
                             <div class="col-md-8">
-                                <input type="email" name="email" id="email" class="form-control inside" required>
+                                <input type="text" name="email" id="email" class="form-control inside" required>
                             </div>
                         </div>
 
@@ -120,6 +121,13 @@
                             <label class="control-label col-md-3" for="company">Empresa<span class="required">*</span></label>
                             <div class="col-md-8">
                                 <input name="company" id="company" class="form-control inside" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="position">Más información<span class="required">*</span></label>
+                            <div class="col-md-8">
+                                <input name="profile" id="position" class="form-control inside" required>
                             </div>
                         </div>
 
@@ -169,7 +177,9 @@
                     <label for="name">¿Desea eliminar el siguiente ponente?</label>
                     <input type="text" name="name" class="form-control" readonly><br>
 
-                    <div id="image" class="text-center"></div>
+                    <div class="text-center">
+                        <img src="" alt="" id="image" class="img">
+                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -204,7 +214,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3" for="company">Email<span class="required">*</span></label>
                             <div class="col-md-8">
-                                <input type="email" name="email" id="email" class="form-control inside">
+                                <input type="text" name="email" id="email" class="form-control inside">
                             </div>
                         </div>
 
@@ -212,6 +222,13 @@
                             <label class="control-label col-md-3" for="company">Empresa<span class="required">*</span></label>
                             <div class="col-md-8">
                                 <input name="company" id="company" class="form-control inside">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="position">Más información<span class="required">*</span></label>
+                            <div class="col-md-8">
+                                <input name="profile" id="profile" class="form-control inside">
                             </div>
                         </div>
 

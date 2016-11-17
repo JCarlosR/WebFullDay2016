@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="modal-body text-center">
-                    <div id="document"></div>
+                    <img src="" alt="" id="document" class="img">
                 </div>
 
                 <div class="modal-footer">

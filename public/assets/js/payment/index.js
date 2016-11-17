@@ -49,9 +49,7 @@ function modalRegister()
 function modalDocument()
 {
     var document = $(this).data('document');
-    var url ='../assets/img/payment/'+document;
-    $('#document').html('');
-    $('#document').append('<img src="'+url+'" class="img">');
+    $('#document').attr('src',public_path()+'assets/img/payment/'+document);
 
     $modalDocument.modal('show');
 }
@@ -99,4 +97,14 @@ function payment()
                 }, 500);
             }
         });
+}
+
+function public_path() {
+    var path = location.href;
+    var the_path = '';
+    for (var i = 0; i < path.length; i++){
+        if (path[i] == 'p' && path[i+1] == 'u' && path[i+2] == 'b' && path[i+3] == 'l' && path[i+4] == 'i' && path[i+5] == 'c')
+            return the_path+'public/';
+        the_path += path[i];
+    }
 }
