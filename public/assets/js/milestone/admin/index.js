@@ -10,18 +10,40 @@ function principal()
     search();
 
     $('#search').on('input',search);
-    $('[data-accept]').on('click',attendance);
+    attendance_state();
 }
 
 function attendance_state()
 {
-    $('[data-id]').on('change',function(){
-        var pos = find_element( $(this).data('id') );
+    $('[data-id]').on('change',function() {
+        var pos = find_element($(this).data('id'));
+
+        var url = '../asistencias/registrar';
+        var _token = $('#_token').val();
+
         if( states[pos]==0 )
             states[pos]=1;
         else
             states[pos]=0;
-    });
+
+        var formData = new FormData();
+        formData.append( 'milestone',milestone);
+        formData.append( 'id',ids[pos] );
+        formData.append( 'check',states[pos] );
+
+        $.ajax({
+                url: url,
+                data: formData,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+                method: 'POST',
+                headers: { 'X-CSRF-TOKEN': _token }
+            })
+            .done(function( response ) {
+            });
+
+        });
 }
 
 function find_element( element )
@@ -48,9 +70,8 @@ function search()
             ids    = [];
             states = [];
             $.each(users,function(key,user){
-                ids[i]= user.id;
                 states[i]= user.pivot.check;
-
+                ids[i] = user.id;
                 var input ='<input type="checkbox" data-id="'+user.id+'">';
                 if( states[i]==1 )
                     input = '<input type="checkbox" data-id="'+user.id+'" checked>';
@@ -71,36 +92,5 @@ function search()
             $('.pagination').html('');
             paginate();
             attendance_state();
-        });
-}
-
-function attendance()
-{
-    var url = '../asistencias/registrar';
-    var _token = $('#_token').val();
-
-    var formData = new FormData();
-    formData.append( 'milestone',milestone);
-    formData.append( 'ids',JSON.stringify(ids) );
-    formData.append( 'states',JSON.stringify(states) );
-
-    $.ajax({
-            url: url,
-            data: formData,
-            dataType: "JSON",
-            processData: false,
-            contentType: false,
-            method: 'POST',
-            headers: { 'X-CSRF-TOKEN': _token }
-        })
-        .done(function( response ) {
-            if(response.error)
-                alert(response.message);
-            else{
-                alert(response.message);
-                setTimeout(function(){
-                    location.reload();
-                }, 500);
-            }
         });
 }
