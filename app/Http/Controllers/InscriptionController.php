@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Certificate;
 use App\User;
 use App\Solicitude;
+use App\Milestone_user;
 
 class InscriptionController extends Controller
 {
@@ -50,6 +51,22 @@ class InscriptionController extends Controller
 	                ]); 
 	        }
     	}
+        date_default_timezone_set('America/Lima');
+        $time = time();
+        $hora=(int)date("H", $time);
+        if ($hora >= 8 AND $hora < 14) {
+            $asistencia =  Milestone_user::create([
+                            'milestone_id' => 1,
+                            'user_id' => $user->id,
+                            'check' => 1,
+        ]);
+        }
+        if ($hora >= 14) {
+            $asistencia =  Milestone_user::create([
+                            'milestone_id' => 2,
+                            'user_id' => $user->id,
+                            'check' => 1,
+        }
     	return redirect('/record'); 	
     }
 
