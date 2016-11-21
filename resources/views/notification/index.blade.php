@@ -20,7 +20,7 @@
                 <strong>Envío Exitoso!</strong> Se ha enviado la notificacion a todos los usuarios.
             </div>
         @endif
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/notification/enviar') }}" >
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/notification') }}" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="form-group">
                 <label for="form-field-1"> Título </label>

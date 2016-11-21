@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Notifications
     Route::get('admin/notification', 'NotificationController@index');
-    Route::post('admin/notification/enviar','NotificationController@send');
+    Route::post('admin/notification','NotificationController@send');
 
 
     // Attendance
