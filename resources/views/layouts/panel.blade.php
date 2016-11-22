@@ -363,6 +363,15 @@
                         </li>
                     </ul>
                 </li>
+                <li class="@yield('manage-notification')">
+                    <a href="{{ url('admin/notification') }}">
+                        <i class="menu-icon fa fa-usd"></i>
+							<span class="menu-text">
+								Notificaciones
+							</span>
+                    </a>
+
+                </li>
             @endif
         </ul><!-- /.nav-list -->
 

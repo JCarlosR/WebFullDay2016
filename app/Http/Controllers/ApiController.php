@@ -16,6 +16,7 @@ class ApiController extends Controller
     {
         $email = $request->get('email');
         $password = $request->get('password');
+        $key = $request->get('key');
         $credentials = ['email' => $email, 'password' => $password];
         
         // Default values
@@ -25,6 +26,8 @@ class ApiController extends Controller
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
             $token = JWTAuth::fromUser($user);
+            $user->androidtoken = $key;
+            $user->save();
         } else {
             $error = true;
         }
