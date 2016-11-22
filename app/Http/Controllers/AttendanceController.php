@@ -97,16 +97,14 @@ class AttendanceController extends Controller
     public function adminAttendanceRegister( Request $request )
     {
         $milestone = $request->get('milestone');
-        $ids = json_decode($request->get('ids'));
-        $states = json_decode($request->get('states'));
+        $id = $request->get('id');
+        $check = $request->get('check');
 
         $milestone = Milestone::find($milestone);
-        $i = 0;
 
         foreach ( $milestone->users as $user ){
-            for ( $i=0; $i< count($ids);$i++ )
-                if( $user->id == $ids[$i] ) {
-                    $user->pivot->check = $states[$i];
+                if( $user->id == $id ) {
+                    $user->pivot->check = $check;
                     $user->pivot->save();
                 }
         }

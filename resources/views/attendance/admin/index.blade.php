@@ -60,7 +60,6 @@
     </div>
     <div class="row text-center">
         <a href="{{ url('admin/hitos') }}" class="btn btn-danger btn-sm"><i class="ace-icon glyphicon glyphicon-backward bigger-120"></i> Volver</a>
-        <button class="btn btn-primary btn-sm" data-accept><i class="ace-icon glyphicon glyphicon-thumbs-up bigger-120"></i> Confirmar asistencias</button>
     </div>
 
 @endsection

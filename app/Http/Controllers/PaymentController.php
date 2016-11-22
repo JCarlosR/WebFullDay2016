@@ -158,7 +158,7 @@ class PaymentController extends Controller
         if( Auth()->user()->role_id == 3 )
             return redirect('/');
 
-        $solicitudes = Solicitude::where('enable',1)->where('state','Pendiente')->orderBy('created_at')->get();
+        $solicitudes = Solicitude::where('enable',1)->where('state','Pendiente')->orWhere('state', 'Pagado')->orWhere('state', 'Verificado')->orderBy('created_at')->get();
         $array_solicitudes = [];
         $today = new Carbon();
         $today = $today->format('Y-m-d');
@@ -179,5 +179,19 @@ class PaymentController extends Controller
             }
         }
         return view('payment.admin.show')->with(compact('array_solicitudes','today'));
+    }
+    public function loadPayments(Request $request )
+    {
+        $id = $request->get('id_soli');
+        $payment['payment'] = Payment::where('enable',1)->where('solicitude_id', $id)->orderBy('created_at')->get();
+        return $payment;
+    }
+
+    public function verificPayments(Request $request)
+    {
+        $id = $request->get('id_soli');
+        $solicitude = Solicitude::find($id);
+        $solicitude->state = 'Verificado';
+        $solicitude->save();
     }
 }

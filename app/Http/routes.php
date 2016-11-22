@@ -58,11 +58,18 @@ Route::group(['middleware' => 'auth'], function () {
     // Payments
     Route::get('admin/pagos', 'PaymentController@adminIndex');
     Route::post('admin/pagos/registrar', 'PaymentController@create');
+    Route::get('admin/pagos/carga/', 'PaymentController@loadPayments');
+    Route::get('admin/pagos/verfica/', 'PaymentController@verificPayments');
 
+    // Intineraries
     Route::get('admin/itinerario', 'itineraryController@listar');
     Route::post('admin/itinerario/registrar', 'itineraryController@adminRegister');
     Route::post('admin/itinerario/editar', 'itineraryController@adminEdit');
     Route::post('admin/itinerario/eliminar', 'itineraryController@adminDelete');
+
+    // Notifications
+    Route::get('admin/notification', 'NotificationController@index');
+    Route::post('admin/notification','NotificationController@send');
 
 
     // Attendance
