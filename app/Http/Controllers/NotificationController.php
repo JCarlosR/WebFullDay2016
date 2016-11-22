@@ -24,28 +24,29 @@ class NotificationController extends Controller
 
         foreach($users as $user)
         {
-            $postdata = http_build_query(
-                array(
-                    'data' => array('title' => $title, 'text' => $message),
-                    'to' => $user->androidtoken
+            if(isset($user->androidtoken)) {
+                $postdata = http_build_query(
+                    array(
+                        'data' => array('title' => $title, 'text' => $message),
+                        'to' => $user->androidtoken
 
-                )
-            );
+                    )
+                );
 
-            $opts = array('http' =>
-                array(
-                    'method'  => 'POST',
-                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n".
-                        "Authorization:key=AIzaSyACEa05_xdFzdXxx33QhHc8PoJ8u3AQuGE\r\n",
-                    'content' => $postdata
-                )
-            );
+                $opts = array('http' =>
+                    array(
+                        'method' => 'POST',
+                        'header' => "Content-Type: application/x-www-form-urlencoded\r\n" .
+                            "Authorization:key=AIzaSyACEa05_xdFzdXxx33QhHc8PoJ8u3AQuGE\r\n",
+                        'content' => $postdata
+                    )
+                );
 
 
-            $context  = stream_context_create($opts);
+                $context = stream_context_create($opts);
 
-            $result = file_get_contents('https://fcm.googleapis.com/fcm/send', false, $context);
-
+                $result = file_get_contents('https://fcm.googleapis.com/fcm/send', false, $context);
+            }
         }
 
 
