@@ -14,7 +14,7 @@ class InscriptionController extends Controller
     public function index()
     {
     	$certificates=Certificate::where('enable', 1)->where('event_id', 1)->get();
-        return view('inscription.index')->with(compact('certificates'));;
+        return view('inscription.index')->with(compact('certificates'));
     }
     public function register(Request $request)
     {
@@ -62,12 +62,13 @@ class InscriptionController extends Controller
         ]);
         }
         if ($hora >= 14) {
-            $asistencia =  Milestone_user::create([
-                            'milestone_id' => 2,
-                            'user_id' => $user->id,
-                            'check' => 1,
+            $asistencia = Milestone_user::create([
+                'milestone_id' => 2,
+                'user_id' => $user->id,
+                'check' => 1,
+            ]);
         }
     	return redirect('/record'); 	
     }
-
 }
+

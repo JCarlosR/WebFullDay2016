@@ -69,7 +69,7 @@
                             <td>{{ $array_payment[0]->operation }}</td>
                             <td>{{ $array_payment[1] }}</td>
                             <td>
-                                <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"> Vaucher</button>
+                                <button class="btn btn-sm btn-info" data-document="{{ $array_payment[0]->payment_file }}"> Voucher</button>
                                 @if( $hide==0 )
                                     <button class="btn btn-sm btn-danger" data-delete="{{$array_payment[0]->id}}"
                                             data-operation="{{$array_payment[0]->operation}}"
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="name">Vaucher<span class="required">*</span></label>
+                            <label class="control-label col-md-4" for="name">Voucher<span class="required">*</span></label>
                             <div class="col-md-8">
                                 <input type="file" accept="image/*" id="payment_file" name="payment_file" class="form-control inside" required>
                             </div>
@@ -163,7 +163,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Vaucher</h4>
+                    <h4 class="modal-title">Voucher</h4>
                 </div>
 
                 <div class="modal-body text-center">
