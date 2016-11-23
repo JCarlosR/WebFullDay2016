@@ -17,6 +17,8 @@
     <h3>Bienvenido, su cuenta tiene acceso a todas las páginas habilitadas. <br>
         Te esperamos este 26 de Noviembre a las 8:00am en el Centro de Convenciones los Conquistadores.
     </h3>
+    <h3>Descargue la aplicación del evento, le permitirá realizar preguntas en tiempo real.
+        <a href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Full Day 2016</a></h3>
     <h2>Acceda a su cuenta</h2>
     <h3>Para realizar cambios en la cuenta en cualquier momento, inicie sesión en el portal web
         <a href="http://www.fulldayunt.com/">www.fulldayunt.com</a>.
