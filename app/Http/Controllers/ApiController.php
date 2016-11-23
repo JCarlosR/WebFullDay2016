@@ -39,8 +39,20 @@ class ApiController extends Controller
     public function testApi()
     {
         $currentUser = JWTAuth::parseToken()->authenticate();
-        dd($currentUser);
         return $currentUser;
+    }
+
+    public function refreshToken()
+    {
+        $error = false;
+        try {
+            $token = JWTAuth::parseToken()->refresh();
+        } catch (\Exception $e) {
+            $error = true;
+        }
+
+        return response()->json(compact('token', 'error'));
+        //dd($newToken);
     }
 
 }
