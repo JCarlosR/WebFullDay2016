@@ -54,15 +54,15 @@
                             <td>{{ $array_solicitude[2]}}</td>
                             <td>{{ $array_solicitude[3] }}</td>
                             <td>
-                                @if( $array_solicitude[5]==1 )
+                                @if( $array_solicitude[5]==1 )<!-- Pago anulado -->
                                     <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-list-alt bigger-120"></i> Historial de pagos</a>
-                                @elseif( $array_solicitude[4]==0 )
+                                @elseif( $array_solicitude[4]==0 ) <!-- Pago incompleto -->
                                     <a class="btn btn-sm btn-info" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</a>
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"
                                             data-event="{{ $array_solicitude[0]->certificate->event->organization }}"><i class="ace-icon glyphicon glyphicon-trash bigger-120"></i> Anular
                                     </button>
-                                @else
+                                @else <!-- pagó todo-->
                                     <a class="btn btn-sm btn-warning" href="{{ url('pagos/'.$array_solicitude[0]->id) }}"><i class="ace-icon glyphicon glyphicon-list-alt bigger-120"></i> Historial de pagos</a>
                                     <button class="btn btn-sm btn-danger" data-delete="{{ $array_solicitude[0]->id }}"
                                             data-name="{{ $array_solicitude[0]->certificate->type }}"

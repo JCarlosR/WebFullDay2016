@@ -44,7 +44,7 @@ class PaymentController extends Controller
                 $solicitude_date = $solicitude_date->format('jS \o\f F, Y');
                 if( $total_payment == $solicitude->certificate->cost )
                     $hide = 1;
-                if( $solicitude->state=='Anulado' )
+                if( $solicitude->state=='Anulado' || $solicitude->state=='Verificado' )
                     $history=1;
                 $array_solicitudes[] = [$solicitude,number_format($total_payment,'2','.',''),$solicitude_date,$payment_date,$hide,$history];
             }
@@ -62,7 +62,7 @@ class PaymentController extends Controller
         $today = new Carbon();
         $today = $today->format('Y-m-d');
         $hide = 0;
-        if( $solicitude->state=="Anulado" || $solicitude->state=='Pagado')
+        if( $solicitude->state=="Anulado" || $solicitude->state=='Pagado' || $solicitude->state=='Verificado')
             $hide = 1;
 
         $payments = Payment::where('enable',1)->where('solicitude_id',$solicitude_id)->get();
