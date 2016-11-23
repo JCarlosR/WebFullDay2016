@@ -83,7 +83,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Vaucher</h4>
+                    <h4 class="modal-title">Voucher</h4>
                 </div>
 
                 <div class="modal-body text-center">
