@@ -100,4 +100,3 @@ Route::get('/question/registrar', 'SurveyController@ReceptionQuestions');
 // Routes associated with JWT
 Route::get('/authentication', 'ApiController@authenticate');
 Route::get('/retrieve', 'ApiController@testApi');
-Route::get('/refresh', 'ApiController@refreshToken');
