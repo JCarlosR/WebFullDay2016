@@ -20,27 +20,42 @@ class ApiController extends Controller
         $credentials = ['email' => $email, 'password' => $password];
         
         // Default values
-        $token = '';
+        // $token = '';
         $error = false;
 
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
             $token = JWTAuth::fromUser($user);
             $user->androidtoken = $key;
+            $name = $user->name;
+            $user_id = $user->id;
             $user->save();
         } else {
             $error = true;
         }
 
         // all good so return the token
-        return response()->json(compact('token', 'error'));
+        return response()->json(compact('token', 'name', 'user_id', 'error'));
     }
 
     public function testApi()
     {
         $currentUser = JWTAuth::parseToken()->authenticate();
-        dd($currentUser);
         return $currentUser;
+    }
+
+    public function refreshToken()
+    {
+    	$token = '';
+        $error = false;
+
+        try {
+            $token = JWTAuth::parseToken()->refresh();
+        } catch (\Exception $e) {
+            $error = true;
+        }
+
+        return response()->json(compact('token', 'error'));
     }
 
 }

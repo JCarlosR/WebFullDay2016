@@ -295,8 +295,8 @@
             </div><!-- /.col-lg-4 -->
 
             <div class="col-sm-4 wow fadeInDown text-center">
-                <a target="_blank" href="#"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
-                <a target="_blank" href="#"><h3>Descargar Aplicación para android</h3></a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt=""></a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
                 <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia. </p>
 
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
@@ -386,10 +386,10 @@
         <div class="row">
 
             <div class="col-sm-6 col-sm-offset-3 wow fadeInDown text-center">
-                <a target="_blank" href="#"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
-                <a target="_blank" href="#"><h3>Descargar Aplicación para android</h3></a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
                 <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia.
-                    <br><button class="btn btn-primary" href="#">Descargar</button></p>
+                    <br><a class="btn btn-primary" target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Descargar</a></p>
 
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
