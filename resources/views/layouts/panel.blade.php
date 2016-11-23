@@ -297,15 +297,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="@yield('manage-payment')">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-usd"></i>
-							<span class="menu-text">
-								Gestionar pagos
-							</span>
-                    </a>
-
-                </li>
                 <li class="@yield('manage-assistance')">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-clock-o"></i>
