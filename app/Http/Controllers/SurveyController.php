@@ -19,7 +19,7 @@ class SurveyController extends Controller
 		$time = time();
 		$hora=(int)date("H", $time);
         $User = JWTAuth::parseToken()->authenticate();
-		if ($hora < 13) {
+		if ($hora < 14) {
             $encu=Survey::where('user_id',$User->id)->where('turn', 'M')->get();
             if (count($encu) > 0) {
                 $Questions['questions']=Question::where('type',0)->get();
