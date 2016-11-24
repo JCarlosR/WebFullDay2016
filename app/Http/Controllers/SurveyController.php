@@ -84,9 +84,8 @@ class SurveyController extends Controller
                         ]);
                     $aux=$aux+1;                    
                 }
-            $error = "Encuesta enviada satisfactoriamente"
+            $error = "Encuesta enviada satisfactoriamente";
             return response()->json(compact('error'));
-
         }
     }
 }
