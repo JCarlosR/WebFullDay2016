@@ -66,8 +66,8 @@ class SurveyController extends Controller
                         ]);
                     $aux=$aux+1;
                 }
-            $error = $aux+"";
-        return response()->json(compact('error'));
+            $error = "Encuesta enviada satisfactoriamente";
+            return response()->json(compact('error'));
         }else{
             $survey=Survey::create([
                         'user_id'=>$User->id,
@@ -84,8 +84,9 @@ class SurveyController extends Controller
                         ]);
                     $aux=$aux+1;                    
                 }
-            $error = $aux+"";
+            $error = "Encuesta enviada satisfactoriamente"
             return response()->json(compact('error'));
+
         }
     }
 }
