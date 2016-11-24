@@ -12,18 +12,31 @@ use App\Survey_detail;
 class SurveyController extends Controller
 {
     //
-    public function SendQuestions()
+    public function SendQuestions(Request $request)
     {
     	date_default_timezone_set('America/Lima');
 		$time = time();
 		$hora=(int)date("H", $time);
+        $User = JWTAuth::parseToken()->authenticate();
 		if ($hora < 13) {
-			$Questions['questions']=Question::where('enable', 1)->where('turn', 'M')->get();
-			return $Questions;
+            $encu=Survey::where('user_id',$User->id)->where('turn', 'M')->get();
+            if (count($encu) > 0) {
+                $Questions['questions']=Question::where('type',0)->get();
+                return $Questions;
+            }else{
+                $Questions['questions']=Question::where('enable', 1)->where('turn', 'M')->get();
+                return $Questions;
+            }
 		}
 		else{
-			$Questions['questions']=Question::where('enable', 1)->where('turn', 'T')->get();
-			return $Questions;
+            $encu=Survey::where('user_id',$User->id)->where('turn', 'T')->get();
+            if (count($encu) > 0) {
+                $Questions['questions']=Question::where('type',0)->get();
+                return $Questions;
+            }else{
+			     $Questions['questions']=Question::where('enable', 1)->where('turn', 'T')->get();
+			     return $Questions;
+            }
 		}
 
         
@@ -33,7 +46,6 @@ class SurveyController extends Controller
     	$id_user=$request->get('user_id');
         $turn = $request->get('turn');
         $question_id= $request->get('question_id');
-
         $question=Question::where('id',$question_id)->first();
         $type=$question->type;
 
