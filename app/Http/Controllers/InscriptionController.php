@@ -59,6 +59,7 @@ class InscriptionController extends Controller
                             'user_id' => $user->id,
                             'check' => 1,
 
+        ]); 
     	return redirect('/record'); 	
     }
 }
