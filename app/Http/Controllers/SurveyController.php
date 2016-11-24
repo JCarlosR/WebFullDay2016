@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Question;
 use App\Survey;
 use App\Survey_detail;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 class SurveyController extends Controller
