@@ -42,7 +42,12 @@
                             <div class="space"></div>
 
                             <div class="clearfix">
-
+                                <div>
+                                    <a href="{{url('password/reset')}}" style="color: orange">
+                                        <i class="ace-icon fa fa-arrow-top"></i>
+                                        Recuperar Contraseña
+                                    </a>
+                                </div>
                                 <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                     <i class="ace-icon fa fa-key"></i>
                                     <span class="bigger-110">Ingresar</span>
