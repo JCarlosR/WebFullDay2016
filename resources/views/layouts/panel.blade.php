@@ -370,7 +370,13 @@
 								Gest. certificados
 							</span>
                     </a>
-
+                <li class="@yield('manage-chat')">
+                    <a href="{{ url('/chat') }}">
+                        <i class="menu-icon fa fa-usd"></i>
+							<span class="menu-text">
+								Chat Realtime
+							</span>
+                    </a>
                 </li>
             @endif
         </ul><!-- /.nav-list -->
