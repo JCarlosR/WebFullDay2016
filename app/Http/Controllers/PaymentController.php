@@ -165,6 +165,7 @@ class PaymentController extends Controller
             ->leftJoin('payments','solicitudes.id','=','payments.solicitude_id')
             ->select(DB::raw('solicitudes.id as solicitude,users.name, users.email, users.dni,solicitudes.state,( select sum(payments.amount) from payments where payments.enable=1 and payments.solicitude_id = solicitudes.id ) as payment'),'certificates.type as certificate')
             ->where('solicitudes.enable','=',1)
+            ->where('solicitudes.state','!=','Anulado')
             ->distinct()->get();
 
         $today = new Carbon();
