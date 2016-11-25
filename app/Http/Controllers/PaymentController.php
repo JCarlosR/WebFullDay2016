@@ -160,9 +160,9 @@ class PaymentController extends Controller
             return redirect('/');
 
         $users = DB::table('users')
-            ->join('solicitudes', 'users.id', '=', 'solicitudes.user_id')
+            ->rightJoin('solicitudes', 'users.id', '=', 'solicitudes.user_id')
             ->join('certificates','solicitudes.certificate_id','=','certificates.id')
-            ->join('payments','solicitudes.id','=','payments.solicitude_id')
+            ->leftJoin('payments','solicitudes.id','=','payments.solicitude_id')
             ->select(DB::raw('solicitudes.id as solicitude,users.name, users.email, users.dni,solicitudes.state,( select sum(payments.amount) from payments where payments.enable=1 and payments.solicitude_id = solicitudes.id ) as payment'),'certificates.type as certificate')
             ->where('solicitudes.enable','=',1)
             ->distinct()->get();
