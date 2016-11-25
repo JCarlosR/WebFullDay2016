@@ -88,6 +88,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/inscription', 'InscriptionController@index');
     Route::post('/inscription/registrar', 'InscriptionController@register');
 
+    // Certification
+    Route::get('admin/certification', 'CertificationController@show');
+    Route::post('admin/certification', 'CertificationController@apply');
+
 });
 
 // Get event information (public webservice)

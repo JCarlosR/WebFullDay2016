@@ -363,6 +363,15 @@
                     </a>
 
                 </li>
+                <li class="@yield('manage-certification')">
+                    <a href="{{ url('admin/certification') }}">
+                        <i class="menu-icon fa fa-calendar"></i>
+							<span class="menu-text">
+								Gest. certificados
+							</span>
+                    </a>
+
+                </li>
             @endif
         </ul><!-- /.nav-list -->
 
