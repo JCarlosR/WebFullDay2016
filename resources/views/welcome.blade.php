@@ -671,7 +671,7 @@
             <div class="col-md-5 col-md-push-1 address">
                 <address>
                     <h3>Ubicación del local</h3>
-                    <p class="lead"><a title="Ubicación google maps" target="_blank" href="https://www.google.com/maps/place/Los+Conquistadores+Hotel+S+A/@-8.1131851,-79.0291977,18z/data=!4m5!3m4!1s0x91ad3d8354648a39:0xf86dfb2dac3975be!8m2!3d-8.1135887!4d-79.0280014">Centro de Convenciones Los Libertadores<br>
+                    <p class="lead"><a title="Ubicación google maps" target="_blank" href="https://www.google.com/maps/place/Centro+de+Convenciones+Los+Conquistadores,+Jir%C3%B3n+Diego+De+Almagro,+Trujillo,+Per%C3%BA/@-8.1142808,-79.0300898,17z/data=!4m21!1m15!4m14!1m6!1m2!1s0x91ad3d8354648a39:0xf86dfb2dac3975be!2sLos+Conquistadores+Hotel+S+A,+Trujillo,+Per%C3%BA!2m2!1d-79.0280014!2d-8.1135887!1m6!1m2!1s0x91ad3d82f8bbaa63:0x24fe49ab04f05ae4!2sCentro+de+Convenciones+Los+Conquistadores,+Jir%C3%B3n+Diego+De+Almagro,+Trujillo,+Per%C3%BA,+Jir%C3%B3n+Bolivar+393,+Trujillo+13001,+Per%C3%BA!2m2!1d-79.0278328!2d-8.1137034!3m4!1s0x91ad3d82f8bbaa63:0x24fe49ab04f05ae4!8m2!3d-8.1137034!4d-79.0278328">Centro de Convenciones Los Libertadores<br>
                             Jr.Diego De Almagro 586 Trujillo Perú</a><br>
                     <h3>Comunícate sobre el evento al:</h3>
                         Teléfono RPC: 993 249 187<br>
