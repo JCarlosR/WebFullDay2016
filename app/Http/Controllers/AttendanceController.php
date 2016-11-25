@@ -49,7 +49,7 @@ class AttendanceController extends Controller
             'time'=>$time
         ]);
 
-        $users = User::where('role_id',3)->get(['id']);
+        $users = User::get(['id']);
         $users_id = [];
         foreach ( $users as $user )
             $users_id []= $user->id;
