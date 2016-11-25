@@ -61,6 +61,15 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="ciclo">Hitos de Asistencia</label>
+                        <select name="hito" id="hito" required class="form-control">
+                            <option value="">Seleccione Hito</option>
+                        @foreach( $hitos as $data )      
+                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="egresado">
                             <input type="checkbox" onclick="egre();" id="egresado" name="egresado" value="1"> Marca esta casilla si ya has egresado
                         </label>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Milestone extends Model
 {
-    protected $fillable = ['name','date','time'];
+    protected $fillable = ['id','name','date','time'];
 
     public function getTimeAttribute( $val )
     {
