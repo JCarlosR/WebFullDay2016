@@ -336,7 +336,7 @@
                     <ul class="submenu">
 
                         <li class="@yield('list-admin')">
-                            <a href="#">
+                            <a href="{{ url('admin/listar') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Listar admin
                             </a>
