@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 
 class PaymentController extends Controller
@@ -158,28 +159,21 @@ class PaymentController extends Controller
         if( Auth()->user()->role_id == 3 )
             return redirect('/');
 
-        $solicitudes = Solicitude::where('enable',1)->where('state','Pendiente')->orWhere('state', 'Pagado')->orWhere('state', 'Verificado')->orderBy('created_at')->get();
-        $array_solicitudes = [];
+        $users = DB::table('users')
+            ->rightJoin('solicitudes', 'users.id', '=', 'solicitudes.user_id')
+            ->join('certificates','solicitudes.certificate_id','=','certificates.id')
+            ->leftJoin('payments','solicitudes.id','=','payments.solicitude_id')
+            ->select(DB::raw('solicitudes.id as solicitude,users.name, users.email, users.dni,solicitudes.state,( select sum(payments.amount) from payments where payments.enable=1 and payments.solicitude_id = solicitudes.id ) as payment'),'certificates.type as certificate')
+            ->where('solicitudes.enable','=',1)
+            ->where('solicitudes.state','!=','Anulado')
+            ->distinct()->get();
+
         $today = new Carbon();
         $today = $today->format('Y-m-d');
-        if( count($solicitudes) != 0 ) {
-            foreach ($solicitudes as $solicitude) {
-                $total_payment = 0;
-                $state = 'Pendiente';
-                if( count($solicitude->payments) != 0 ) {
-                    foreach ($solicitude->payments as $payment) {
-                        if ($payment->enable == 1)
-                            $total_payment += $payment->amount;
-                    }
 
-                    if ( $solicitude->certificate->cost == $total_payment )
-                        $state = 'Pagado';
-                }
-                $array_solicitudes[] = [$solicitude,$total_payment,$state];
-            }
-        }
-        return view('payment.admin.show')->with(compact('array_solicitudes','today'));
+        return view('payment.admin.show')->with(compact('users','today'));
     }
+
     public function loadPayments(Request $request )
     {
         $id = $request->get('id_soli');
