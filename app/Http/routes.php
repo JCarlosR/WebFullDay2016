@@ -87,6 +87,9 @@ Route::group(['middleware' => 'auth'], function () {
     // inscription
     Route::get('/inscription', 'InscriptionController@index');
     Route::post('/inscription/registrar', 'InscriptionController@register');
+    
+    // chat
+    Route::get('/chat', 'ChatController@index');
 
 });
 

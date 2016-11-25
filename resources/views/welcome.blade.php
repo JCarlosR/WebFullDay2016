@@ -254,7 +254,7 @@
         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
             <ul class="nav navbar-nav">
 
-                <li class="menuItem"><a href="#whatis">Qué es?</a></li>
+                <li class="menuItem"><a href="#whatis">¿Qué es?</a></li>
                 <li class="menuItem"><a href="#useit">Ponentes</a></li>
                 <li class="menuItem"><a href="#screen">Ponencias</a></li>
                 <li class="menuItem"><a href="#news">Novedades</a></li>
@@ -290,14 +290,14 @@
             <div class="col-sm-4 wow fadeInDown text-center">
                 <a href="#contact"><img class="rotate" src="{{ asset('plantilla/img/icon/mail.svg') }}" alt="Generic placeholder image"></a>
                 <a href="#contact"><h3>Contáctanos</h3></a>
-                <p class="lead">Envía tus dudas o sugerencias, nosotros te responderemos lo mas antes posible. </p>
+                <p class="lead">Envía tus dudas o sugerencias, nosotros te responderemos lo más pronto posible. </p>
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
 
             <div class="col-sm-4 wow fadeInDown text-center">
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt=""></a>
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
-                <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia. </p>
+                <p class="lead">Descarga nuestra aplicación para Android y vive una experiencia nueva de participar en una ponencia. </p>
 
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
@@ -388,7 +388,7 @@
             <div class="col-sm-6 col-sm-offset-3 wow fadeInDown text-center">
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
-                <p class="lead">Descarga nuestra aplicacion para Android y vive una experiencia nueva de participar en una ponencia.
+                <p class="lead">Descarga nuestra aplicación para Android y vive una experiencia nueva de participar en una ponencia.
                     <br><a class="btn btn-primary" target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Descargar</a></p>
 
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
@@ -600,7 +600,7 @@
                         <img src="{{ asset('assets/images/grafico.jpg') }}" alt="" style="width: 100%; height: 100%">
                     </div>
                     <div class="col-md-8 box-ct">
-                        <h3> Matisse, Diseño & Producción Grafica  </h3>
+                        <h3> Matisse, Diseño & Producción Gráfica  </h3>
                         <p> <strong>Administrador:</strong> Alex Sandoval Sánchez. </p>
                         <p> <strong>Dirección:</strong> Jirón Bolívar, 942 </p>
                         <p> <strong>Teléfono:</strong> 044 - 295283 / RPM #948324848 / RPC 949340920 </p>
@@ -673,7 +673,7 @@
                     <h3>Ubicación del local</h3>
                     <p class="lead"><a title="Ubicación google maps" target="_blank" href="https://www.google.com/maps/place/Los+Conquistadores+Hotel+S+A/@-8.1131851,-79.0291977,18z/data=!4m5!3m4!1s0x91ad3d8354648a39:0xf86dfb2dac3975be!8m2!3d-8.1135887!4d-79.0280014">Centro de Convenciones Los Libertadores<br>
                             Jr.Diego De Almagro 586 Trujillo Perú</a><br>
-                    <h3>Comunícate sobre el evento a:</h3>
+                    <h3>Comunícate sobre el evento al:</h3>
                         Teléfono RPC: 993 249 187<br>
                         Teléfono RPM: 949 610 531<br>
 

@@ -165,7 +165,7 @@
                         <div class="row">
                             <div class="space-20"></div>
                         <span class="help-block">
-                             <strong>(*) Se usará email para inicio de sesión.</strong>
+                             <strong>(*) Se usará su email para inicio de sesión.</strong>
                         </span>
                             <fieldset>
                                 <div class="clearfix">
@@ -190,7 +190,7 @@
                 <div class="toolbar center">
                     <a href="{{url('/login')}}">
                         <i class="ace-icon fa fa-arrow-left"></i>
-                        Regresar a Log In
+                        Regresar a iniciar sesión
                     </a>
                 </div>
             </div><!-- /.widget-body -->
