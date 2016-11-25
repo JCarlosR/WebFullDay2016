@@ -52,7 +52,7 @@
                             <td width="270">Certificado {{ $user->certificate }}</td>
                             <td>
                                 @if(  $user->state  == 'Pendiente')
-                                    <button class="btn btn-primary btn-sm" data-solicitude="{{ $user->solicitude }}"
+                                    <button class="btn btn-primary btn-sm" id="solicitude" data-solicitude="{{ $user->solicitude }}"
                                             data-certificate="{{ $user->certificate }}"
                                             data-assistant="{{ $user->name }}"><i class="ace-icon glyphicon glyphicon-plus-sign bigger-120"></i> Registrar pago</button>
                                     @if( $user->payment !=0 )
@@ -211,7 +211,6 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('assets/js/payment/admin/index.js')}}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
 
@@ -463,4 +462,5 @@
 
         })
     </script>
+    <script src="{{asset('assets/js/payment/admin/index.js')}}"></script>
 @endsection

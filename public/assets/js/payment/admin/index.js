@@ -6,7 +6,7 @@ function principal()
 {
     $modalRegister = $('#modalRegister');
 
-    $('[data-certificate]').on('click',modalRegister);
+    $('body').on('click','#solicitude',modalRegister);
     $('#formRegister').on('submit',payment);
 }
 
