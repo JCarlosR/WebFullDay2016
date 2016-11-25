@@ -50,7 +50,7 @@ class SurveyController extends Controller
         $User = JWTAuth::parseToken()->authenticate();
         
         $answers= $request->get('answers');
-        if ($hora<13) {
+        if ($hora<14) {
             $survey=Survey::create([
                         'user_id'=>$User->id,
                         'turn'=>"M",
