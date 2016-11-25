@@ -211,7 +211,6 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset('assets/js/payment/admin/index.js')}}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
 
@@ -463,4 +462,5 @@
 
         })
     </script>
+    <script src="{{asset('assets/js/payment/admin/index.js')}}"></script>
 @endsection
