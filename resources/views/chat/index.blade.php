@@ -24,8 +24,8 @@
             cursor: pointer;
         }
         .card-img {
-            height: 120px;
-            width: 120px;
+            max-height: 120px;
+            max-width: 120px;
         }
         .media-heading {
             margin-top: 10px;
