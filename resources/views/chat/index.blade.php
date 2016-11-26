@@ -55,7 +55,10 @@
 @section('content')
     <div class="container-fluid">
         <div class="row" id="chatUl">
-            <div class="col-md-6 col-md-offset-3">
+            
+        </div>
+        <div class="row" id="imagesDiv">
+            
         </div>
     </div>
 @endsection
@@ -95,12 +98,18 @@
 
         var storage = firebase.storage();
         var storageRef = storage.ref();
-        var tangRef = storageRef.child('images');
+        var imagesRef = storageRef.child('images');
         firebase.database().ref('images').on('value', function (snapshot) {
             snapshot.forEach(function (e) {
                 var element = e.val();
                 var key = e.key;
                 console.log(key);
+                var images_html = '';
+                imagesRef.child(key+'.jpg').getDownloadURL().then(function(url) 
+                {
+                    images_html += '<img src="'+url+'" />';
+                })
+                $('#imagesDiv').val(images_html);
             });
         });
 
