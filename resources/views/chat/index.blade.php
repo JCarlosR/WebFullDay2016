@@ -95,7 +95,7 @@
             };
             firebase.database().ref().child('questions').push(questionData);
         });
-
+        /*
         var storage = firebase.storage();
         var storageRef = storage.ref();
         var imagesRef = storageRef.child('images');
@@ -111,7 +111,7 @@
                     $('#imagesDiv').append(image_html);
                 })
             });
-        });
+        });*/
 
         firebase.database().ref('questions').orderByChild('likes')
                 .on('value', function(snapshot) {
