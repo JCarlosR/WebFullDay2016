@@ -107,7 +107,7 @@
                 console.log(key);
                 imagesRef.child(key+'.jpg').getDownloadURL().then(function(url) 
                 {
-                    var image_html += '<img src="'+url+'" />';
+                    var image_html = '<img src="'+url+'" />';
                     $('#imagesDiv').append(image_html);
                 })
             });
