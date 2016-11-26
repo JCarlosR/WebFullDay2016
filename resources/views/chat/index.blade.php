@@ -18,7 +18,7 @@
         .card-style {
             display: block;
             background-color: #fff;
-            height: 120px;
+            min-height: 120px;
             margin: 5px 0px;
             box-shadow: 1px 1px 8px #999;
             cursor: pointer;
@@ -100,17 +100,17 @@
         var storageRef = storage.ref();
         var imagesRef = storageRef.child('images');
         firebase.database().ref('images').on('value', function (snapshot) {
-            var images_html = '';
             snapshot.forEach(function (e) {
+                $('#imagesDiv').html('');
                 var element = e.val();
                 var key = e.key;
                 console.log(key);
                 imagesRef.child(key+'.jpg').getDownloadURL().then(function(url) 
                 {
-                    images_html += '<img src="'+url+'" />';
+                    var image_html += '<img src="'+url+'" />';
+                    $('#imagesDiv').append(image_html);
                 })
             });
-            $('#imagesDiv').val(images_html);
         });
 
         firebase.database().ref('questions').orderByChild('likes')
