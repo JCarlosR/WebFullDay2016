@@ -93,6 +93,17 @@
             firebase.database().ref().child('questions').push(questionData);
         });
 
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var tangRef = storageRef.child('images');
+        firebase.database().ref('images').on('value', function (snapshot) {
+            snapshot.forEach(function (e) {
+                var element = e.val();
+                var key = e.key;
+                console.log(key);
+            });
+        });
+
         firebase.database().ref('questions').orderByChild('likes')
                 .on('value', function(snapshot) {
                     var html = '';
