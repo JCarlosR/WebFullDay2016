@@ -100,17 +100,17 @@
         var storageRef = storage.ref();
         var imagesRef = storageRef.child('images');
         firebase.database().ref('images').on('value', function (snapshot) {
+            var images_html = '';
             snapshot.forEach(function (e) {
                 var element = e.val();
                 var key = e.key;
                 console.log(key);
-                var images_html = '';
                 imagesRef.child(key+'.jpg').getDownloadURL().then(function(url) 
                 {
                     images_html += '<img src="'+url+'" />';
                 })
-                $('#imagesDiv').val(images_html);
             });
+            $('#imagesDiv').val(images_html);
         });
 
         firebase.database().ref('questions').orderByChild('likes')
