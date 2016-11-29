@@ -12,21 +12,19 @@
 </head>
 <body>
     <img src="{{ asset('images/logo_solo.png') }}" class="logo">
-    <h2>Usted ha sido correctamente registrado</h2>
-    <h3>Bienvenido, su cuenta tiene acceso a todas las páginas habilitadas.</h3>
-    <h2>Descargar aplicación para celulares</h2>
-    <h3>Descargue la aplicación del evento, le permitirá realizar preguntas en tiempo real.
-        <a href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Full Day 2016</a></h3>
-    <h2>Acceda a su cuenta</h2>
-    <h3>Para realizar cambios en la cuenta en cualquier momento, inicie sesión en el portal web
-        <a href="http://www.fulldayunt.com/">www.fulldayunt.com</a>.
-        Desde aqui podrá acceder a la información del evento asi como a la de su cuenta para cambiar sus datos.
+    <h2>Entrega de certificados</h2>
+    <h3>Estaremos haciendo entrega de los certificados solicitados que hayan sido pagados el
+        día viernes 02/12/2016 a partir de las 8:00 am
+        en la Universidad Nacional de Trujillo - 3° Puerta - Segundo piso de Registro Técnico,
+        cualquier duda o consulta envíanos un correo o llámanos a los teléfonos de contacto.
+        <br><br> Para los participantes de otras ciudades el certificado será enviado.
+        <br><br> El material visualizado en las ponencias y los datos de los ponentes serán enviados
+        a su correo en transcurso de la semana.
     </h3>
-    <h2>Descargar brouchure</h2>
-    <h3>Descargue el brouchure del evento e infórmese de las ponencias y ponentes.
-        <a href="https://drive.google.com/drive/u/0/folders/0B5rTxd25Wxi-aGtlQTlOdTBMZGs">Brouchure II FullDay Gestion de TI UNT</a></h3>
     <h2>Síguenos en facebook</h2>
-    <h3><a href="https://www.facebook.com/II-Full-Day-de-Gesti%C3%B3n-de-TI-188251811510916/">Ingresar aquí</a></h3>
+    <h3>
+        <a href="https://www.facebook.com/II-Full-Day-de-Gesti%C3%B3n-de-TI-188251811510916/">Ingresar aquí</a>
+    </h3>
     <h3>Comisión de Sistemas II FullDay Gestión de TI</h3>
 </body>
 </html>

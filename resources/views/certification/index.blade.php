@@ -6,14 +6,12 @@
 
 @section('title','Usuarios')
 
-@section('manage-inscription','open')
-
-@section('manage-record','active')
+@section('manage-certification','active')
 
 @section('menu-active')
     <li>
         <i class="ace-icon fa fa-home home-icon"></i>
-        <a href="#">Inscripciones</a>
+        <a href="#">Certificaciones</a>
     </li>
     <li class="active">Usuarios</li>
 @endsection
@@ -35,16 +33,8 @@
 
     <div class="row">
         <div class="col-xs-12">
-
-            <a href="{{ url('/inscription') }}" class="btn btn-info"><i class="ace-icon glyphicon glyphicon-plus"></i>Nuevo asistente</a>
-            <a href="{{ url('/export/all') }}" class="btn btn-success"><i class="ace-icon fa fa-file-excel-o align-top bigger-125"></i>Exportar inscritos</a>
-            <a data-url="{{ url('/send') }}" class="btn btn-info" id="send"><i class="ace-icon fa fa-paper-plane align-top bigger-125"></i>Enviar correos</a>
-        </div><!-- /.span -->
-    </div><!-- /.row -->
-
-    <div class="row">
-        <div class="col-xs-12">
             <div class="space-4"></div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token"/>
 
             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                 <thead>
@@ -61,9 +51,9 @@
                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
                         Fecha Inscripción
                     </th>
-                    <th class="hidden-480">Condición</th>
+                    <th class="hidden-480">DNI</th>
                     <th class="hidden-480">Certificado</th>
-                    <th class="hidden-480">Pago</th>
+                    <th class="hidden-480">Solicitar</th>
                 </tr>
                 </thead>
 
@@ -87,11 +77,7 @@
                         <td>{{ date('jS F Y', strtotime($user->created_at)) }}</td>
 
                         <td class="center">
-                            @if($user->egresado == 0)
-                                <span class="label label-sm label-success">Estudiante</span>
-                            @else
-                                <span class="label label-sm label-info arrowed arrowed-righ">Egresado</span>
-                            @endif
+                            {{ $user->dni }}
                         </td>
                         <td class="center">
                             @if($user->user_id == "")
@@ -100,11 +86,9 @@
                                 <span class="label label-sm label-warning arrowed arrowed-righ">Si solicitó</span>
                             @endif
                         </td>
-                        <td>
-                            @if($user->user_amount == "")
-                                S/. 0.00
-                            @else
-                                S/. {{ number_format($user->user_amount,'2','.','') }}
+                        <td class="center">
+                            @if($user->user_id == "")
+                                <input type="button" class="btn-warning" value="Solicitar" data-id="{{$user->id}}" data-url="{{'certification'}}" id="solicitar" />
                             @endif
                         </td>
 
@@ -123,7 +107,7 @@
     <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
 
-    <script src="{{ asset('assets/js/record/main.js') }}"></script>
+    <script src="{{ asset('assets/js/certificates/main.js') }}"></script>
     <script src="{{ asset('assets/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('assets/js/dataTables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('assets/js/dataTables/jquery.dataTables.bootstrap.js') }}"></script>
