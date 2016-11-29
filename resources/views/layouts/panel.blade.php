@@ -336,7 +336,7 @@
                     <ul class="submenu">
 
                         <li class="@yield('list-admin')">
-                            <a href="#">
+                            <a href="{{ url('admin/listar') }}">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Listar admin
                             </a>
@@ -363,6 +363,13 @@
                     </a>
 
                 </li>
+                <li class="@yield('manage-certification')">
+                    <a href="{{ url('admin/certification') }}">
+                        <i class="menu-icon fa fa-calendar"></i>
+							<span class="menu-text">
+								Gest. certificados
+							</span>
+                    </a>
                 <li class="@yield('manage-chat')">
                     <a href="{{ url('/chat') }}">
                         <i class="menu-icon fa fa-usd"></i>

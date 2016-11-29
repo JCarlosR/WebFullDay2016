@@ -39,9 +39,16 @@
             width: 100px;
             height: 53px;
         }
-        .image{
-            width: 315px;
-            height: 315px;
+        .image {
+            max-width: 315px;
+            max-height: 315px;
+            margin: 0 auto;
+        }
+        .mini-image {
+            max-width: 150px;
+            max-height: 150px;
+            margin: 0 auto;
+            border: 1px solid black;
         }
         ul.countdown {
             list-style: none;
@@ -290,16 +297,15 @@
             <div class="col-sm-4 wow fadeInDown text-center">
                 <a href="#contact"><img class="rotate" src="{{ asset('plantilla/img/icon/mail.svg') }}" alt="Generic placeholder image"></a>
                 <a href="#contact"><h3>Contáctanos</h3></a>
-                <p class="lead">Envía tus dudas o sugerencias, nosotros te responderemos lo más pronto posible. </p>
-                <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+                <p class="lead">Envía tus dudas o sugerencias, nosotros te responderemos lo más pronto posible.</p>
             </div><!-- /.col-lg-4 -->
 
             <div class="col-sm-4 wow fadeInDown text-center">
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt=""></a>
-                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
-                <p class="lead">Descarga nuestra aplicación para Android y vive una experiencia nueva de participar en una ponencia. </p>
-
-                <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">
+                    <h3>Aplicación Android</h3>
+                </a>
+                <p class="lead">Descarga nuestra app y vive una experiencia nueva de participar en una ponencia.</p>
             </div><!-- /.col-lg-4 -->
 
         </div><!-- /.row -->
@@ -313,35 +319,36 @@
         <div class="col-md-6 col-md-offset-3 text-center wrap_title">
             <h2>Ponentes</h2>
         </div>
-        @foreach( $speakers as $speaker )
-            <div class="row">
+        @foreach ($speakers as $speaker)
+        <div class="row">
 
-            <div class="col-sm-6 pull-right wow fadeInRightBig">
-                <img class="img-responsive image" src="{{ asset('assets/images/') }}/{{ $speaker->image }}" alt="">
+            <div class="col-sm-6 wow fadeInLeftBig">
+                <img class="img-responsive img-rounded image" src="{{ asset('assets/images/') }}/{{ $speaker->image }}" alt="">
             </div>
 
-            <div class="col-sm-6 wow fadeInLeftBig"  data-animation-delay="200">
+            <div class="col-sm-6 wow fadeInRightBig" data-animation-delay="200">
                 <h3 class="section-heading">{{ $speaker->name }}</h3>
                 <div class="sub-title lead3">{{ $speaker->position }}<br> {{ $speaker->company }} </div>
-                <p class="lead">
+                <p class="lead2">
                     {{ $speaker->description }}
                     <br>
                     <strong>Email:</strong>{{ $speaker->email }}
                 </p>
 
-                <p><a class="btn btn-embossed btn-primary" href="{{ $speaker->profile }}" role="button">Más información</a>
-                    </p>
+                <p>
+                    <a class="btn btn-embossed btn-primary" href="{{ $speaker->profile }}" target="_blank" role="button">Más información</a>
+                </p>
             </div>
+
         </div>
-            <br>
-            <br>
+        <hr>
         @endforeach
 
     </div>
     <!-- /.container -->
 </div>
 
-<!-- Screenshot -->
+<!-- Screen shot -->
 <div id="screen" class="content-section-b">
     <div class="container">
         <div class="col-md-6 col-md-offset-3 text-center wrap_title">
@@ -349,25 +356,23 @@
         </div>
         <section class="col-xs-12 col-sm-6 col-md-12">
             @foreach( $papers as $paper )
-                <article class="search-result row">
-                    <div class="col-xs-12 col-sm-12 col-md-3">
-                        <a href="#" title="{{ $paper->speaker->name }}" class="thumbnail"><img class="image" src="{{ asset('assets/images') }}/{{ $paper->speaker->image }}" alt="{{ $paper->speaker->name }}" /></a>
+                <article class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <img title="{{ $paper->speaker->name }}" class="img-circle mini-image" src="{{ asset('assets/images') }}/{{ $paper->speaker->image }}" alt="{{ $paper->speaker->name }}" />
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-2">
+                    <div class="hidden-xs col-md-3">
                         <ul class="meta-search">
-                            <li><i class="glyphicon glyphicon-calendar"></i> <span>{{ date('jS F Y', strtotime($paper->realization)) }}</span></li>
-                            <li><i class="glyphicon glyphicon-time"></i> <span>{{ $paper->start }}</span></li>
+                            <li><i class="glyphicon glyphicon-calendar"></i> <span>26 de Noviembre del 2016</span></li>
                             <li><i class="glyphicon glyphicon-tags"></i> <span>Ponencia</span></li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                        <h3><a href="#" title="">{{ $paper->subject }}</a></h3>
+                    <div class="col-xs-12 col-sm-8 col-md-7">
+                        <h3><a href="javascript:;" title="">{{ $paper->subject }}</a></h3>
                         <p>{{ $paper->description }}</p>
                         <p>Por {{ $paper->speaker->name }}</p>
                     </div>
-                    <span class="clearfix borda"></span>
                 </article>
-                <div class="space-6"></div>
+                <hr>
             @endforeach
         </section>
     </div>
@@ -386,10 +391,16 @@
         <div class="row">
 
             <div class="col-sm-6 col-sm-offset-3 wow fadeInDown text-center">
-                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image"></a>
-                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016"><h3>Descargar Aplicación para android</h3></a>
-                <p class="lead">Descarga nuestra aplicación para Android y vive una experiencia nueva de participar en una ponencia.
-                    <br><a class="btn btn-primary" target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Descargar</a></p>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">
+                    <img class="rotate" src="{{ asset('plantilla/img/icon/android.png') }}" alt="Generic placeholder image">
+                </a>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">
+                    <h3>Descargar Aplicación Android</h3>
+                </a>
+                <p class="lead">
+                    ¡ Descarga ya y vive una mejor experiencia !
+                </p>
+                <a class="btn btn-primary" target="_blank" href="https://play.google.com/store/apps/details?id=com.youtube.sorcjc.fullday2016">Descargar</a>
 
                 <!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
             </div><!-- /.col-lg-4 -->
@@ -411,16 +422,10 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="timeline">
 
-                <!-- Line component -->
                     <div class="line text-muted"></div>
 
-
                     @foreach( $itinerary as $data )
-                        <!-- Separator -->
-                            <div class="separator text-muted">
-                                <time><i class="glyphicon glyphicon-calendar"></i> {{ date('jS F Y', strtotime($data->updated_at)) }}</time>
-                            </div>
-                            <!-- /Separator -->
+
                             @if( $data->type == 1)
                                 <article class="panel panel-info">
                                     <!-- Icon -->
@@ -642,23 +647,23 @@
                     <div class="form-group">
                         <label for="InputName">Nombre: </label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="name" id="InputName" placeholder="Ingrese su nombre" required>
+                            <input type="text" class="form-control" name="name" id="InputName" placeholder="Nombre completo" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="InputEmail">Email: </label>
+                        <label for="InputEmail">-Email: </label>
                         <div class="input-group">
-                            <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Ingrese su email" required  >
+                            <input type="email" class="form-control" id="InputEmail" name="email" placeholder="E-mail" required>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="InputMessage">Mensaje</label>
+                        <label for="InputMessage">Mensaje: </label>
                         <div class="input-group">
-                            <textarea name="mensaje" id="InputMessage" class="form-control" rows="5" required></textarea>
+                            <textarea name="mensaje" id="InputMessage" class="form-control" rows="5" required placeholder="¿Qué hay de nuevo?"></textarea>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
@@ -709,7 +714,7 @@
     });
 
 </script>
-<!-- Smoothscroll -->
+<!-- Smooth scroll -->
 <script type="text/javascript" src="{{ asset('plantilla/js/jquery.corner.js') }}"></script>
 <script src="{{ asset('plantilla/js/wow.min.js') }}"></script>
 <script>

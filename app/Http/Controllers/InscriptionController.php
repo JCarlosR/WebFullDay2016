@@ -31,7 +31,7 @@ class InscriptionController extends Controller
         $user =  User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password' => bcrypt("1234"),
+            'password' => bcrypt("123456"),
             'role_id' => 3,
             'dni' => $request->get('dni'),
             'celular' => $request->get('celular'),

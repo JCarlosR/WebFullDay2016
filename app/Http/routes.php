@@ -91,6 +91,15 @@ Route::group(['middleware' => 'auth'], function () {
     // chat
     Route::get('/chat', 'ChatController@index');
 
+    // Certification
+    Route::get('admin/certification', 'CertificationController@show');
+    Route::post('admin/certification', 'CertificationController@apply');
+
+    // Admins
+    Route::get('admin/listar', 'AdminsController@listar');
+    Route::post('admin/registrar', 'AdminsController@adminRegister');
+    Route::post('admin/editar', 'AdminsController@adminEdit');
+
 });
 
 // Get event information (public webservice)
