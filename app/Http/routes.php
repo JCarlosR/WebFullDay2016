@@ -100,6 +100,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/registrar', 'AdminsController@adminRegister');
     Route::post('admin/editar', 'AdminsController@adminEdit');
 
+    //Survey
+    Route::get('/survey/mañana', 'SurveyController@indexMa');
+    Route::get('/survey/tarde', 'SurveyController@indexta');
+    Route::post('/survey/registrar/mañana', 'SurveyController@createSurveyMan');
+    Route::post('/survey/registrar/tarde', 'SurveyController@createSurveyTar');
+    Route::get('/survey/send', 'SurveyController@send');
+
 });
 
 // Get event information (public webservice)

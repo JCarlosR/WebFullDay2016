@@ -203,6 +203,33 @@
                     </ul>
                 </li>
 
+                <li class="@yield('survey')">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-book"></i>
+                        <span class="menu-text">Encuestas del evento</span>
+
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="@yield('survey-man')">
+                            <a href="{{ url('/survey/mañana') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Turno mañana
+                            </a>
+                        </li>
+                        <li class="@yield('survey-tar')">
+                            <a href="{{ url('/survey/tarde') }}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Turno tarde
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="@yield('contact')">
                     <a href="{{ url('/contacto') }}">
                         <i class="menu-icon fa fa-picture-o"></i>
