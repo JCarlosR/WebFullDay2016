@@ -14,7 +14,7 @@ Asistentes de la mañana
 ---
 101 asistentes.
 
-```
+```sql
 SELECT 
 	U.name as Asistente,
 	U.email as Email,
@@ -35,7 +35,7 @@ Asistentes de la tarde
 ---
 72 asistentes.
 
-```
+```sql
 SELECT 
 	U.name as Asistente,
 	U.email as Email,
