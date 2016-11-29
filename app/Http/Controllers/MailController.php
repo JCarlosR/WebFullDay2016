@@ -39,7 +39,7 @@ class MailController extends Controller
 
     public function sendUser()
     {
-        $users = User::where('id', '<', 51)->get();
+        $users = User::where('id', '>', 50)->where('id', '<', 101)->get();
         $emails = [];
         foreach ($users as $user){
             array_push($emails, $user->email);
