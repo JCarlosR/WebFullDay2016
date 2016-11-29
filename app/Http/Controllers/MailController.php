@@ -39,12 +39,12 @@ class MailController extends Controller
 
     public function sendUser()
     {
-        $users = User::where('id', 2)->get();
+        $users = User::all();
         $emails = [];
         foreach ($users as $user){
             array_push($emails, $user->email);
         }
-
+        //dd($emails);
         Mail::send('emails.correo', [], function($message) use ($emails)
         {
             $message->to($emails)->subject('Entrega de Certificados');
