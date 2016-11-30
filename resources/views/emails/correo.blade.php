@@ -13,8 +13,8 @@
 <body>
     <img src="{{ asset('images/logo_solo.png') }}" class="logo">
     <h2>Material de las Ponencias</h2>
-    <h3>Estamos enviando el material de las ponencias, ingrese al link dejado mas adelante
-        descargue las diapositivas que se visualizaron el dia de la ponencia.
+    <h3>Estamos enviando el material de las ponencias, ingrese al link dejado más adelante
+        descargue las diapositivas que se visualizaron el día de la ponencia.
         <br>
         <a href="https://drive.google.com/drive/u/0/folders/0B5rTxd25Wxi-UldRQVluVmEtXzA">Descargar aquí</a>
     </h3>
