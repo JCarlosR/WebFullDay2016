@@ -63,6 +63,7 @@ class MailController extends Controller
             ->select(DB::raw('users.id, users.name, users.email'))
             ->where('milestone_user.check', 1)
             ->where('users.id', '>', 221)
+            ->orderby('users.id')
             ->distinct()->take(50)->get();*/
         foreach ($users as $user){
             array_push($emails, $user->email);
