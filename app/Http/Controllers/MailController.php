@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -39,12 +40,34 @@ class MailController extends Controller
 
     public function sendUser()
     {
-        $users = User::where('id', '>', 250)->get();
+        //$users = User::where('id', '>', 250)->get();
         $emails = [];
+        $users = DB::table('milestone_user')
+            ->join('milestones', 'milestone_user.milestone_id', '=', 'milestones.id')
+            ->join('users', 'milestone_user.user_id', '=', 'users.id')
+            ->select(DB::raw('users.id, users.name, users.email'))
+            ->where('milestone_user.check', 1)
+            ->orderby('users.id')
+            ->distinct()->take(50)->get();
+        /*$users = DB::table('milestone_user')
+            ->join('milestones', 'milestone_user.milestone_id', '=', 'milestones.id')
+            ->join('users', 'milestone_user.user_id', '=', 'users.id')
+            ->select(DB::raw('users.id, users.name, users.email'))
+            ->where('milestone_user.check', 1)
+            ->where('users.id', '>', 88)
+            ->orderby('users.id')
+            ->distinct()->take(50)->get();*/
+        /*$users = DB::table('milestone_user')
+            ->join('milestones', 'milestone_user.milestone_id', '=', 'milestones.id')
+            ->join('users', 'milestone_user.user_id', '=', 'users.id')
+            ->select(DB::raw('users.id, users.name, users.email'))
+            ->where('milestone_user.check', 1)
+            ->where('users.id', '>', 221)
+            ->distinct()->take(50)->get();*/
         foreach ($users as $user){
             array_push($emails, $user->email);
         }
-        //dd($emails);
+        dd($emails);
         Mail::send('emails.correo', [], function($message) use ($emails)
         {
             $message->to($emails)->subject('Entrega de Certificados');

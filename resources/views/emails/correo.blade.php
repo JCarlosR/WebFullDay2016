@@ -12,14 +12,19 @@
 </head>
 <body>
     <img src="{{ asset('images/logo_solo.png') }}" class="logo">
-    <h2>Entrega de certificados</h2>
-    <h3>Estaremos haciendo entrega de los certificados solicitados que hayan sido pagados el
-        día viernes 02/12/2016 a partir de las 8:00 am
-        en la Universidad Nacional de Trujillo - 3° Puerta - Segundo piso de Registro Técnico,
-        cualquier duda o consulta envíanos un correo o llámanos a los teléfonos de contacto.
-        <br><br> Para los participantes de otras ciudades el certificado será enviado.
-        <br><br> El material visualizado en las ponencias y los datos de los ponentes serán enviados
-        a su correo en transcurso de la semana.
+    <h2>Material de las Ponencias</h2>
+    <h3>Estamos enviando el material de las ponencias, ingrese al link dejado mas adelante
+        descargue las diapositivas que se visualizaron el dia de la ponencia.
+        <br>
+        <a href="https://drive.google.com/drive/u/0/folders/0B5rTxd25Wxi-UldRQVluVmEtXzA">Descargar aquí</a>
+    </h3>
+    <br>
+    <br>
+    <h2>Encuestas del evento</h2>
+    <h3>Si no instalaste la aplicación para celulares, ingresa a la pagina web y realiza la encuesta,
+        para nosotros es muy importante conocer tu opinión. Ingresa al apartado ENCUESTAS DEL EVENTO
+        <br>
+        <a href="http://www.fulldayunt.com/">www.fulldayunt.com</a>
     </h3>
     <h2>Síguenos en facebook</h2>
     <h3>
