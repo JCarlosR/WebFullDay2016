@@ -49,22 +49,22 @@ class MailController extends Controller
             ->where('milestone_user.check', 1)
             ->orderby('users.id')
             ->distinct()->take(50)->get();*/
-        $users = DB::table('milestone_user')
+        /*$users = DB::table('milestone_user')
             ->join('milestones', 'milestone_user.milestone_id', '=', 'milestones.id')
             ->join('users', 'milestone_user.user_id', '=', 'users.id')
             ->select(DB::raw('users.id, users.name, users.email'))
             ->where('milestone_user.check', 1)
             ->where('users.id', '>', 88)
             ->orderby('users.id')
-            ->distinct()->take(50)->get();
-        /*$users = DB::table('milestone_user')
+            ->distinct()->take(50)->get();*/
+        $users = DB::table('milestone_user')
             ->join('milestones', 'milestone_user.milestone_id', '=', 'milestones.id')
             ->join('users', 'milestone_user.user_id', '=', 'users.id')
             ->select(DB::raw('users.id, users.name, users.email'))
             ->where('milestone_user.check', 1)
             ->where('users.id', '>', 221)
             ->orderby('users.id')
-            ->distinct()->take(50)->get();*/
+            ->distinct()->take(50)->get();
         foreach ($users as $user){
             array_push($emails, $user->email);
         }
